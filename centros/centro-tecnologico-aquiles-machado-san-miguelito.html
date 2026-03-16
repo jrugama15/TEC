@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="../static/core/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../static/core/css/base.css" rel="stylesheet" />
+    <link href="../static/core/css/bootstrap-icons.css" rel="stylesheet" />
+    
+    
+  <title>Centro Tecnologico Aquiles Machado San Miguelito - Tecnológico Nacional</title>
+  <meta name="description" content="Ubicado en el municipio de San Miguelito, Río San Juan, atenderá oferta formativa de 7 cursos de: habilitación, complementación y especialización en el sector a">
+</head>
+<body class="bg-light">
+  <style>
+    /* ── Navbar background: matches banner blue ── */
+    #modern-navbar {
+      z-index: 1030;
+      background: linear-gradient(90deg, #0a3d6b 0%, #14578b 55%, #1a72b0 100%) !important;
+      transition: background 0.4s, box-shadow 0.3s;
+      box-shadow: 0 4px 24px rgba(10,61,107,0.45) !important;
+    }
+
+    #modern-navbar.scrolled {
+      background: linear-gradient(90deg, #072d50 0%, #0e3f6b 55%, #1260a0 100%) !important;
+      box-shadow: 0 4px 24px rgba(10,61,107,0.45) !important;
+    }
+
+    /* ── Logo: keep natural colors (white filter on dark bg) ── */
+    #modern-navbar .navbar-brand img {
+      filter: brightness(0) invert(1);
+      transition: filter 0.2s, opacity 0.2s;
+    }
+    #modern-navbar .navbar-brand:hover img { opacity: 0.85; }
+
+    /* ── Nav links: white on dark blue ── */
+    #modern-navbar .nav-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.9) !important;
+      padding: 0.5rem 0.7rem;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    /* Animated underline on hover */
+    #modern-navbar .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 4px;
+      width: 0;
+      height: 2px;
+      background: #87c440;
+      transition: width 0.25s, left 0.25s;
+      border-radius: 2px;
+    }
+    #modern-navbar .nav-link:hover::after,
+    #modern-navbar .nav-link.active::after { width: 70%; left: 15%; }
+
+    #modern-navbar .nav-link:hover,
+    #modern-navbar .nav-link.active {
+      color: #fff !important;
+    }
+
+    /* Toggler icon: white on blue */
+    #modern-navbar .navbar-toggler {
+      border: 1px solid rgba(255,255,255,0.4);
+      outline: none;
+      box-shadow: 0 4px 24px rgba(10,61,107,0.45) !important;
+    }
+    #modern-navbar .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* ── Dropdown menu: deep blue with glass effect ── */
+    #modern-navbar .dropdown-menu {
+      background: rgba(10, 50, 90, 0.97);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+      padding: 8px;
+      min-width: 240px;
+      backdrop-filter: blur(8px);
+      animation: dropIn 0.18s ease;
+    }
+
+    @keyframes dropIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    #modern-navbar .dropdown-item {
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(220,240,255,0.92);
+      padding: 8px 14px;
+      transition: background 0.15s, color 0.15s;
+    }
+    #modern-navbar .dropdown-item:hover,
+    #modern-navbar .dropdown-item:focus {
+      background: #00adee;
+      color: #fff;
+    }
+
+    /* ── Mobile: full blue panel ── */
+    @media (max-width: 991.98px) {
+      #modern-navbar .navbar-collapse {
+        background: linear-gradient(180deg, #0e3e6b 0%, #0a2d52 100%);
+        border-radius: 0 0 16px 16px;
+        padding: 14px 18px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      }
+      #modern-navbar .nav-link {
+        color: rgba(255,255,255,0.92) !important;
+        padding: 0.55rem 0.5rem;
+      }
+      #modern-navbar .nav-link:hover { color: #87c440 !important; }
+      #modern-navbar .nav-link::after { display: none; }
+      #modern-navbar .dropdown-menu {
+        background: rgba(7,35,65,0.98);
+        border-radius: 10px;
+        box-shadow: 0 4px 24px rgba(10,61,107,0.45) !important;
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      #modern-navbar .dropdown-item { color: #c8e4ff; }
+      #modern-navbar .dropdown-item:hover { background: #00adee; color: #fff; }
+
+    }
+
+    /* Permitir que el botón sea enlace y abra al pasar el mouse (Desktop) */
+    @media (min-width: 992px) {
+      .nav-item.dropdown:hover > .dropdown-menu {
+        display: block;
+        margin-top: 0;
+      }
+    }
+  
+        .event-card:hover { transform: translateY(-8px) !important; box-shadow: 0 12px 30px rgba(13, 110, 253, 0.15) !important; }
+    </style>
+
+  <nav class="navbar navbar-expand-lg fixed-top" id="modern-navbar" style="z-index:1030;">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand d-flex align-items-center gap-2 py-1" href="../index.html">
+        <img src="../static/core/img/Recurso 36.png" alt="Logo Gobierno"
+          style="height:38px; width:auto; max-width:180px; object-fit:contain;" />
+        <img src="../static/core/img/Recurso 37.png" alt="Logo INATEC"
+          style="height:38px; width:auto; max-width:120px; object-fit:contain;" />
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#modernNavbarContent" aria-controls="modernNavbarContent" aria-expanded="false"
+        aria-label="Abrir menú" style="color:#14578b;">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="modernNavbarContent">
+        <ul class="navbar-nav ms-auto mb-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#inicio">INICIO</a></li>
+          <li class="nav-item"><a class="nav-link" href="#acerca">ACERCA DE</a></li>
+          <li class="nav-item"><a class="nav-link" href="#carreras">CARRERAS</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cursos">CURSOS</a></li>
+          <li class="nav-item"><a class="nav-link" href="#noticias">NOTICIAS</a></li>
+          <li class="nav-item"><a class="nav-link" href="#galeria">GALERÍA</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SECCION BANNER DE SUBPAGINA -->
+  <section id="inicio" class="subpage-banner" style="margin-top: 55px; width: 100%; position: relative; height:380px; overflow:hidden;">
+    <img src="https://www.tecnacional.edu.ni/media/./Mesa_de_trabajo_1-100_aORCoZv.jpg" alt="Construyo mi sueño en el Tecnológico Nacional" style="width: 100%; height: auto; height: 100%; object-fit: cover; object-position: center;" />
+    <div class="banner-overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(10, 61, 107, 0.4); display:flex; align-items:center; justify-content:center;">
+        <h1 class="text-white fw-bold text-center px-3" style="font-size: 2.5rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.6);">Centro Tecnologico Aquiles Machado San Miguelito</h1>
+    </div>
+  </section>
+<script>
+    const modernNav = document.getElementById("modern-navbar");
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 50) { 
+        modernNav.style.setProperty("background", "linear-gradient(90deg, #0a3d6b 0%, #14578b 55%, #1a72b0 100%)", "important");
+        modernNav.classList.add("scrolled", "shadow-sm"); 
+      }
+      else { 
+        modernNav.style.setProperty("background", "linear-gradient(90deg, #0a3d6b 0%, #14578b 55%, #1a72b0 100%)", "important");
+        modernNav.classList.remove("scrolled", "shadow-sm"); 
+      }
+    });
+  </script>
+  <!-- End of modern navbar -->
+
+    <div class="container py-5 microsite-container" style="min-height: 500px;">
+    <div class="row microsite-layout">
+    <div class="col-lg-8 col-xl-8">
+      <!-- TAB: INICIO -->
+    <div id="tab-inicio" class="microsite-tab">
+      <!-- Center Header -->
+      <div id="acerca" class="row mb-5 pt-5">
+      <div class="col-lg-12">
+        <h2 class="fw-bold mb-3" style="color:#1e293b;">Centro Tecnologico Aquiles Machado San Miguelito</h2>
+        <p class="text-muted" style="line-height:1.8;">Ubicado en el municipio de San Miguelito, Río San Juan, atenderá oferta formativa de 7 cursos de: habilitación, complementación y especialización en el sector agropecuario, con los rubros de: Cultivo de Raíces, Tubérculos, Musáceas. Proyecta la atención este año de 600 protagonistas.</p>
+        
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <div class="d-flex align-items-center gap-2"><i class="bi-geo-alt-fill text-primary"></i><span class="text-muted small">el municipio de San Miguelito</span></div>
+          
+          <div class="d-flex align-items-center gap-2"><i class="bi-envelope-fill text-primary"></i><span class="text-muted small">info@tecnacional.edu.ni</span></div>
+        </div>
+      </div>
+      
+    </div>
+      
+      <!-- Current courses/info placeholders -->
+      <div id="cursos" class="row g-4 mb-5 pt-5">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100" style="border-radius:16px;background:linear-gradient(135deg,#e0f2fe,#bae6fd);">
+          <div class="card-body text-center p-4">
+            <i class="bi-people-fill display-4 text-primary mb-3"></i>
+            <h5 class="fw-bold">Matrícula Abierta</h5>
+            <p class="text-muted small">Consulta los requisitos de ingreso y realiza tu matrícula</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100" style="border-radius:16px;background:linear-gradient(135deg,#fef3c7,#fde68a);">
+          <div class="card-body text-center p-4">
+            <i class="bi-clock-fill display-4 text-warning mb-3"></i>
+            <h5 class="fw-bold">Horarios Flexibles</h5>
+            <p class="text-muted small">Turnos matutino, vespertino y sabatino disponibles</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100" style="border-radius:16px;background:linear-gradient(135deg,#d1fae5,#a7f3d0);">
+          <div class="card-body text-center p-4">
+            <i class="bi-award-fill display-4 text-success mb-3"></i>
+            <h5 class="fw-bold">Certificación Oficial</h5>
+            <p class="text-muted small">Título avalado por el Tecnológico Nacional</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+      <!-- Careers Section -->
+      <div id="carreras" class="mb-5 pt-5">
+      <h4 class="fw-bold mb-4" style="color:#1e293b;">
+        <i class="bi-mortarboard-fill text-primary me-2"></i>Carreras Ofertadas
+        <span class="badge bg-primary rounded-pill ms-2" style="font-size:.7rem;">1</span>
+      </h4>
+      <div class="row">
+        
+            <div class="col-md-6 col-lg-4 mb-4">
+              <a href="../carreras/15-32.html" class="text-decoration-none">
+                <div class="card h-100 border-0 shadow-sm" style="border-radius:16px;overflow:hidden;transition:transform .3s;">
+                  <div style="height:160px;overflow:hidden;background:#f0f4f8;">
+                    <img src="https://www.tecnacional.edu.ni/media/T%C3%A9cnico_General_en_Agronom%C3%ADa.jpg.380x200_q85_crop-center.jpg" class="w-100 h-100" style="object-fit:cover;" loading="lazy">
+                  </div>
+                  <div class="card-body p-3">
+                    <h6 class="fw-bold mb-2" style="color:#1e293b;font-size:.9rem;line-height:1.3;">Técnico General en Agronomía</h6>
+                    <p class="text-muted small mb-0">El/la egresado/a de esta especialidad será capaz de:Realizar manejo en los cultivos de granos básicos, ...</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- TAB: ACERCA DE -->
+    <div id="tab-acerca" class="microsite-tab" style="display:none;">
+      <div id="acerca" class="row mb-5 pt-5">
+      <div class="col-lg-12">
+        <h2 class="fw-bold mb-3" style="color:#1e293b;">Centro Tecnologico Aquiles Machado San Miguelito</h2>
+        <p class="text-muted" style="line-height:1.8;">Ubicado en el municipio de San Miguelito, Río San Juan, atenderá oferta formativa de 7 cursos de: habilitación, complementación y especialización en el sector agropecuario, con los rubros de: Cultivo de Raíces, Tubérculos, Musáceas. Proyecta la atención este año de 600 protagonistas.</p>
+        
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <div class="d-flex align-items-center gap-2"><i class="bi-geo-alt-fill text-primary"></i><span class="text-muted small">el municipio de San Miguelito</span></div>
+          
+          <div class="d-flex align-items-center gap-2"><i class="bi-envelope-fill text-primary"></i><span class="text-muted small">info@tecnacional.edu.ni</span></div>
+        </div>
+      </div>
+      
+    </div>
+    </div>
+
+    <!-- TAB: CARRERAS -->
+    <div id="tab-carreras" class="microsite-tab" style="display:none;">
+      <div id="carreras" class="mb-5 pt-5">
+      <h4 class="fw-bold mb-4" style="color:#1e293b;">
+        <i class="bi-mortarboard-fill text-primary me-2"></i>Carreras Ofertadas
+        <span class="badge bg-primary rounded-pill ms-2" style="font-size:.7rem;">1</span>
+      </h4>
+      <div class="row">
+        
+            <div class="col-md-6 col-lg-4 mb-4">
+              <a href="../carreras/15-32.html" class="text-decoration-none">
+                <div class="card h-100 border-0 shadow-sm" style="border-radius:16px;overflow:hidden;transition:transform .3s;">
+                  <div style="height:160px;overflow:hidden;background:#f0f4f8;">
+                    <img src="https://www.tecnacional.edu.ni/media/T%C3%A9cnico_General_en_Agronom%C3%ADa.jpg.380x200_q85_crop-center.jpg" class="w-100 h-100" style="object-fit:cover;" loading="lazy">
+                  </div>
+                  <div class="card-body p-3">
+                    <h6 class="fw-bold mb-2" style="color:#1e293b;font-size:.9rem;line-height:1.3;">Técnico General en Agronomía</h6>
+                    <p class="text-muted small mb-0">El/la egresado/a de esta especialidad será capaz de:Realizar manejo en los cultivos de granos básicos, ...</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- TAB: CURSOS -->
+    <div id="tab-cursos" class="microsite-tab" style="display:none;">
+      <h4 class="fw-bold mb-4" style="color:#1e293b;">
+        <i class="bi-journal-bookmark-fill text-primary me-2"></i>Cursos Libres y Modulares
+      </h4>
+      <div id="cursos" class="row g-4 mb-5 pt-5">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100" style="border-radius:16px;background:linear-gradient(135deg,#e0f2fe,#bae6fd);">
+          <div class="card-body text-center p-4">
+            <i class="bi-people-fill display-4 text-primary mb-3"></i>
+            <h5 class="fw-bold">Matrícula Abierta</h5>
+            <p class="text-muted small">Consulta los requisitos de ingreso y realiza tu matrícula</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100" style="border-radius:16px;background:linear-gradient(135deg,#fef3c7,#fde68a);">
+          <div class="card-body text-center p-4">
+            <i class="bi-clock-fill display-4 text-warning mb-3"></i>
+            <h5 class="fw-bold">Horarios Flexibles</h5>
+            <p class="text-muted small">Turnos matutino, vespertino y sabatino disponibles</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100" style="border-radius:16px;background:linear-gradient(135deg,#d1fae5,#a7f3d0);">
+          <div class="card-body text-center p-4">
+            <i class="bi-award-fill display-4 text-success mb-3"></i>
+            <h5 class="fw-bold">Certificación Oficial</h5>
+            <p class="text-muted small">Título avalado por el Tecnológico Nacional</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="alert alert-info border-0 shadow-sm mt-4" style="border-radius:12px;">En este momento estamos actualizando nuestra oferta detallada de cursos de capacitación.</div>
+    </div>
+
+    <!-- TAB: NOTICIAS -->
+    <div id="tab-noticias" class="microsite-tab" style="display:none;">
+      <h4 class="fw-bold mb-4" style="color:#1e293b;">
+        <i class="bi-newspaper text-primary me-2"></i>Últimas Noticias
+      </h4>
+      <div class="alert alert-info border-0 shadow-sm" style="border-radius:12px;">Próximamente publicaremos recortes, comunicados y notas de prensa de nuestras actividades.</div>
+    </div>
+
+    <!-- TAB: GALERÍA -->
+    <div id="tab-galeria" class="microsite-tab" style="display:none;">
+      <h4 class="fw-bold mb-4" style="color:#1e293b;">
+        <i class="bi-images text-primary me-2"></i>Galería Fotográfica
+      </h4>
+      <div class="alert alert-info border-0 shadow-sm" style="border-radius:12px;">Nuestra galería de recorridos fotográficos está en construcción.</div>
+    </div> <!-- Close tab-galeria -->
+    </div> <!-- Close col-lg-8 -->
+
+    <!-- SIDEBAR WIDGETS -->
+    <div class="col-lg-4 col-xl-4 mt-5 mt-lg-0">
+      <!-- Buscador Widget -->
+      <div class="p-4 rounded-3 mb-4 shadow-sm" style="background-color: #2ea3db; color: #ffffff;">
+        <h5 class="fw-bold mb-3" style="font-family: inherit; font-size: 1.25rem;">Buscador de cursos y carreras</h5>
+        <form>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="searchType" id="searchCarreras" value="carreras" checked>
+            <label class="form-check-label fw-semibold" for="searchCarreras" style="font-size: 0.9rem;">Carreras Técnicas</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="searchType" id="searchCursos" value="cursos">
+            <label class="form-check-label fw-semibold" for="searchCursos" style="font-size: 0.9rem;">Cursos de Capacitación</label>
+          </div>
+          <div class="row g-2 mb-2">
+            <div class="col-6">
+              <select class="form-select form-select-sm border-0 rounded-1" style="color: #6c757d; font-size: 0.85rem; padding: 0.4rem;">
+                <option value="">Sector</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <select class="form-select form-select-sm border-0 rounded-1" style="color: #6c757d; font-size: 0.85rem; padding: 0.4rem;">
+                <option value="">Rubro</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control form-control-sm border-0 rounded-1" placeholder="Nombre de la carrera" style="font-size: 0.85rem; padding: 0.4rem;">
+          </div>
+          <div class="text-end mb-3">
+            <button type="button" class="btn btn-sm text-white fw-bold px-3 py-1" style="background-color: #e91e63; border-radius: 3px;">Buscar</button>
+          </div>
+        </form>
+        <div class="mb-3" style="font-size: 0.8rem;">
+          <a href="#" class="text-white text-decoration-none fw-semibold d-block mb-1 hover-opacity">Mostrar todas las carreras</a>
+          <a href="#" class="text-white text-decoration-none fw-semibold d-block hover-opacity">Mostrar todos los cursos</a>
+        </div>
+        <hr style="border-top: 1px solid rgba(255,255,255,0.7); opacity: 1; margin: 15px 0;">
+        <h6 class="fw-bold mb-2" style="font-size:0.95rem;">Contactenos</h6>
+        <div class="d-flex gap-2">
+          <a href="https://www.facebook.com/TecNacional/" target="_blank" class="bg-white rounded-1 d-flex align-items-center justify-content-center shadow-sm" style="width: 32px; height: 32px; text-decoration: none; transition: transform 0.2s;">
+            <i class="bi-facebook" style="color: #2ea3db; font-size: 1.1rem;"></i>
+          </a>
+          <a href="https://twitter.com/TecNacional" target="_blank" class="bg-white rounded-1 d-flex align-items-center justify-content-center shadow-sm" style="width: 32px; height: 32px; text-decoration: none; transition: transform 0.2s;">
+            <i class="bi-twitter" style="color: #2ea3db; font-size: 1.1rem;"></i>
+          </a>
+          <a href="https://www.youtube.com/c/TecNacional" target="_blank" class="bg-white rounded-1 d-flex align-items-center justify-content-center shadow-sm" style="width: 32px; height: 32px; text-decoration: none; transition: transform 0.2s;">
+            <i class="bi-youtube" style="color: #2ea3db; font-size: 1.1rem;"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Noticias Widget -->
+      <div class="rounded-3 overflow-hidden shadow-sm border border-secondary border-opacity-25 pb-3" style="background-color: #eef1f3;">
+        <div class="p-3 text-white" style="background-color: #14578b;">
+          <h5 class="fw-bold mb-0" style="font-family: inherit; font-size: 1.1rem; letter-spacing: 0.5px;">Noticias</h5>
+        </div>
+        <!-- Featured News -->
+        <div class="bg-white">
+          <img src="https://www.tecnacional.edu.ni/media/Un_mural_que_cuenta_historia_e_identidad_Cumpliendo_el_Sue%C3%B1o_de_Sandino.png.351x170_q85_crop-center.jpg" alt="Noticia" style="width:100%; height:140px; object-fit:cover;">
+          <div class="p-3 border-bottom">
+            <a href="#" class="text-decoration-none d-block mb-2" style="color: #1a72b0; font-size: 0.95rem; font-weight: 600; line-height: 1.3;">Un mural que cuenta historia e identidad: "Cumpliendo el Sueño de Sandino"</a>
+            <p class="text-muted mb-0" style="font-size: 0.85rem; line-height: 1.4;">En un desborde de creatividad y compromiso revolucionario, el Tecnológico Nacional, a través del Centro Cultural y Politécnico José ...</p>
+          </div>
+        </div>
+        <!-- Other News Links -->
+        <div class="p-3">
+          <a href="#" class="text-decoration-none d-block mb-3" style="color: #1a72b0; font-size: 0.9rem; line-height: 1.3;">Conversatorio "Educación Artística y Cultural: Pensar en Darío Hoy" Reúne a Expertos en Nicaragua</a>
+          <a href="#" class="text-decoration-none d-block" style="color: #1a72b0; font-size: 0.9rem; line-height: 1.3;">Cuando la poesía canta a la patria: lanzamiento del concurso Canto Azul y Patria</a>
+        </div>
+      </div>
+    </div>
+  </div> <!-- Close outer row -->
+
+</div>
+
+<footer>
+    <div class="container-fluid base_footer">
+      <div class="row pt-5">
+        <div class="container text-center">
+          <img class="mx-3" id="icon-ci" src="../static/core/img/logo_ci_2022.png" style="width: 12%" />
+          <img class="mx-3" id="icon-mapa-interactivo" src="../static/core/img/logo_mid_2022.png" style="width: 9%" />
+          <img class="mx-3" id="icon-indice-nicaragua" src="../static/core/img/logo_in_2022.png" style="width: 12%" />
+        </div>
+        <div class="row">
+          <div class="col-xs-1 col-sm-3 text-start" style="margin-left: 0px">
+            <div class="row">
+              <div class="col"><img id="icon-inatec-nacional" src="../static/core/img/logo_inatec_2022.png"
+                  style="margin-left: 10%; height: 100px; width:auto" /></div>
+            </div>
+            <div class="row">
+              <div class="col col_contactanos">
+                <div>
+                  <h5 class="text-light"><strong>Contactanos</strong></h5>
+                  <h6 class="text-light enlace">Centro Cívico Zumen, Frente al Hospital Bertha Calderón,
+                    Managua</h6>
+                  <h6 class="text-light enlace"><i></i>Atención al Protagonista: 2253-8888</h6>
+                  <h6 class="text-light enlace"><i></i>Planta Central: 2253-8830</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-1 col-sm-6 container_links">
+            <div class="row">
+              <div class="col">
+                <a href="../index.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> INICIO</h6>
+                </a>
+                <a href="../pages/nosotros.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> NOSOTROS</h6>
+                </a>
+                <a href="../pages/oferta-academica.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> OFERTA FORMATIVA</h6>
+                </a>
+                <a href="../pages/centros-tecnologicos.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> CENTROS TECNOLOGICOS</h6>
+                </a>
+                <a href="../pages/empresas.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> EMPRESAS</h6>
+                </a>
+              </div>
+              <div class="col">
+                <a href="https://serviciosenlinea.tecnacional.edu.ni/">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> SERVICIOS EN LINEA</h6>
+                </a>
+                <a href="../pages/galeria.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> GALERIAS FOTOGRAFICAS</h6>
+                </a>
+                <a href="../pages/boletines.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> BOLETINES INFORMATIVOS
+                  </h6>
+                </a>
+                <a href="../pages/eventos.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> EVENTOS</h6>
+                </a>
+                <a href="https://campus.tecnacional.edu.ni/">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> ENTORNOS VIRTUALES</h6>
+                </a>
+              </div>
+              <div class="col">
+                <a href="https://campus.tecnacional.edu.ni/">
+                  <h6 class="text-light"> Plataformas Educativas</h6>
+                </a>
+                <a href="../pages/innovatec.html">
+                  <h6 class="text-light pesta_innovatec"> Innovatec</h6>
+                </a><br />
+                <a href="../pages/podcast.html">
+                  <h6 class="text-light pesta_podcast"> Podcast TEC</h6>
+                </a> <br />
+                <a href="../pages/campus-virtual.html">
+                  <h6 class="text-light pesta_campus"> Campus Virtual</h6>
+                </a><br />
+              </div>
+            </div>
+            <div class="row justify-content-center container_icons_links">
+              <ul class="icons_redes_sociales d-flex gap-3 justify-content-center list-unstyled mb-0 mt-3 align-items-center">
+    <li title="Facebook"><a href="https://www.facebook.com/TecNacional/" target="_blank" class="text-white fs-4"><i class="bi-facebook"></i></a></li>
+    <li title="Twitter"><a href="https://twitter.com/TecNacional" target="_blank" class="text-white fs-4"><i class="bi-twitter"></i></a></li>
+    <li title="Instagram"><a href="https://www.instagram.com/tecnacional/" target="_blank" class="text-white fs-4"><i class="bi-instagram"></i></a></li>
+    <li title="YouTube"><a href="https://www.youtube.com/c/TecNacional" target="_blank" class="text-white fs-4"><i class="bi-youtube"></i></a></li>
+    <li title="Tiktok"><a href="https://www.tiktok.com/@tecnacional" target="_blank" class="text-white fs-4"><i class="bi-tiktok"></i></a></li>
+</ul>
+            </div>
+          </div>
+          <div class="col-xs-1 col-sm-3 text-end">
+            <img id="icon-anio" src="../static/core/img/logo_gobierno.png"
+              style="height: 142px; margin-right: 10%; margin-top: -12px" />
+            <div class="row">
+              <div class="col text-start">
+                <p class="label_correo">Solicitá Información</p>
+                <div class="input-group mb-3">
+                  <input class="input_correo" placeholder="Ingresá tu Correo Electrónico" style="border-radius: 20px" />
+                  <span class="input-group-text" id="btn-suscribirse"
+                    style="cursor:pointer; background-color:#87c440; color: white;"
+                    title="Suscribirse para recibir información">Suscríbete</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row">
+          </div>
+          <div class="row text-center" style="color: white">
+            <h6>Capacitación y Educación Técnica, Gratuita y de Calidad</h6>
+          </div>
+        </div>
+        <div class="row text-center" style="background-color: #0a80b9; color: white">
+          <h6 style="margin: 0px; padding: 10px;">Todos los Derechos Reservados Instituto Nacional
+            Tecnológico - INATEC -
+            2026</h6>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Fin del Footer -->
+  <!-- ==========================================================
+       SCRIPTS JAVASCRIPT (al final del body para no bloquear el render)
+       Orden importante:
+         1. jQuery (requerido por Bootstrap y funciones propias)
+         2. functionLoader.js (loader de pagina)
+         3. buscador.js (logica del buscador de carreras)
+         4. bootstrap.bundle.min.js (componentes Bootstrap: modales, dropdowns)
+         5. aos.js (animaciones al hacer scroll)
+         6. swiper-bundle.min.js (carrusel de plataformas)
+         7. functionBase.js (funciones generales del sitio)
+  =========================================================== -->
+  <script src="../static/core/js/jquery-3.6.0.min.js"></script>
+  <script src="../static/core/js/functionLoader.js"></script>
+  <script src="../static/core/js/buscador.js"></script>
+  <script src="../static/core/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/core/js/aos.js"></script>
+  <script src="../static/core/js/swiper-bundle.min.js"></script>
+  <script src="../static/core/js/functionBase.js"></script>
+  <script>
+    $(document).ready(function () {
+    // ── Inicializacion de AOS (animaciones) y deteccion de dispositivo ──
+      AOS.init({ easing: 'ease-in-out-sine' });
+      window.core_dispositivo = window.innerWidth > 680 ? 1 : 2;
+    });
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted || window.performance && window.performance.navigation.type === 2) {
+        ocultarLoader();
+      }
+    });
+  </script>
+  <!-- ── Configuracion del carrusel Swiper (seccion Plataformas Virtuales) ── -->
+  <script>
+    // Swiper configuración
+    $(document).ready(function () {
+      var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+        centeredSlides: false,
+        spaceBetween: 16,
+        loop: false,
+        speed: 700,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        breakpoints: {
+          425: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: 8,
+          },
+          768: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            spaceBetween: 12,
+          },
+          1024: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+            spaceBetween: 16,
+          },
+          1440: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+            spaceBetween: 16,
+          },
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        watchOverflow: true,
+        grabCursor: true,
+        grabCursor: true,
+        autoplay: false
+      });
+      setTimeout(function () {
+        if (swiper.navigation) swiper.navigation.update();
+      }, 100);
+    });
+
+  </script>
+  <!-- Google Translate: carga lazy después de que la página sea interactiva -->
+  <!-- ==========================================================
+       GOOGLE TRANSLATE (carga diferida)
+       Se carga despues del evento "load" para no bloquear la pagina
+  =========================================================== -->
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    window.addEventListener('load', function() {
+      var s = document.createElement('script');
+      s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      document.body.appendChild(s);
+    });
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'es', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+
+
+  <!-- MICROSITE JS HANDLER -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const navLinks = document.querySelectorAll("#modernNavbarContent .nav-link");
+      const tabs = document.querySelectorAll(".microsite-tab");
+      
+      navLinks.forEach(link => {
+        link.addEventListener("click", function(e) {
+          const href = this.getAttribute("href");
+          if (href && href.startsWith("#")) {
+            e.preventDefault();
+            const targetId = "tab-" + href.substring(1); 
+            
+            if (document.getElementById(targetId)) {
+              tabs.forEach(tab => { tab.style.display = "none"; });
+              navLinks.forEach(nav => nav.classList.remove("active"));
+              
+              document.getElementById(targetId).style.display = "block";
+              this.classList.add("active");
+              
+              const inicioBanner = document.getElementById("inicio");
+              if (inicioBanner) {
+                 window.scrollTo({
+                    top: inicioBanner.offsetTop - 30, // scroll to slightly below top of banner to see padding
+                    behavior: "smooth"
+                 });
+              }
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
+
