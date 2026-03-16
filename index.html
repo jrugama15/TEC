@@ -1,0 +1,2365 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+  <!-- ============================================================
+       TECNOLOGICO NACIONAL INATEC - index.html
+       Ultima modificacion: 2026
+       Estructura: HEAD > NAVBAR > HERO BANNER > CONTENIDO > FOOTER > SCRIPTS
+  ============================================================ -->
+  <meta charset="utf-8" />
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link href="favicon.ico" rel="shortcut icon" type="image/png" />
+  <!-- ── ESTILOS CSS: se cargan en orden de prioridad ── -->
+  <link href="static/core/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="static/core/css/base.css" rel="stylesheet" />
+  <link href="static/core/css/components.css" rel="stylesheet" />
+  <link href="static/core/css/carousel.css" rel="stylesheet" />
+  <link href="static/core/css/buscador.css" rel="stylesheet" />
+  <link href="static/core/css/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link href="static/core/css/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="static/inicio/css/inicio.css" rel="stylesheet" />
+  <!-- Fin de estilos CSS -->
+  <!-- ── SEO: titulo y descripcion para motores de busqueda ── -->
+  <title>Tecnológico Nacional INATEC - Capacitación y Educación Técnica</title>
+  <meta name="description"
+    content="Tecnológico Nacional INATEC ofrece Capacitación y Educación Técnica gratuita y de calidad en Nicaragua." />
+</head>
+
+<body class="bg_base_n1">
+  <!-- INICIO HEADER -->
+
+  <!-- ==========================================================
+       NAVBAR (Barra de Navegacion)
+       - Fijo en la parte superior (fixed-top)
+       - Fondo azul degradado que coincide con el banner
+       - Responsive: hamburguesa en movil, links en desktop
+       - Para cambiar colores: busca #0a3d6b y #14578b en el <style>
+       - Para agregar enlaces: busca <ul class="navbar-nav ms-auto">
+  =========================================================== -->
+  <!-- Modern responsive navbar using Bootstrap 5 -->
+  <style>
+    /* ── Navbar background: matches banner blue ── */
+    #modern-navbar {
+      z-index: 1030;
+      background: transparent !important;
+      transition: background 0.4s, box-shadow 0.3s;
+      box-shadow: none;
+    }
+
+    #modern-navbar.scrolled {
+      background: linear-gradient(90deg, #072d50 0%, #0e3f6b 55%, #1260a0 100%) !important;
+      box-shadow: 0 4px 24px rgba(10, 61, 107, 0.45) !important;
+    }
+
+    /* ── Logo: keep natural colors (white filter on dark bg) ── */
+    #modern-navbar .navbar-brand img {
+      transition: filter 0.2s, opacity 0.2s;
+    }
+
+    #modern-navbar .navbar-brand:hover img {
+      opacity: 0.85;
+    }
+
+    /* ── Nav links: white on dark blue ── */
+    #modern-navbar .nav-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: rgba(255, 255, 255, 0.9) !important;
+      padding: 0.5rem 0.7rem;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    /* Animated underline on hover */
+    #modern-navbar .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 4px;
+      width: 0;
+      height: 2px;
+      background: #87c440;
+      transition: width 0.25s, left 0.25s;
+      border-radius: 2px;
+    }
+
+    #modern-navbar .nav-link:hover::after,
+    #modern-navbar .nav-link.active::after {
+      width: 70%;
+      left: 15%;
+    }
+
+    #modern-navbar .nav-link:hover,
+    #modern-navbar .nav-link.active {
+      color: #fff !important;
+    }
+
+    /* Toggler icon: white on blue */
+    #modern-navbar .navbar-toggler {
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      outline: none;
+      box-shadow: none;
+    }
+
+    #modern-navbar .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* ── Dropdown menu: deep blue with glass effect ── */
+    #modern-navbar .dropdown-menu {
+      background: rgba(10, 50, 90, 0.97);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+      padding: 8px;
+      min-width: 240px;
+      backdrop-filter: blur(8px);
+      animation: dropIn 0.18s ease;
+    }
+
+    @keyframes dropIn {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #modern-navbar .dropdown-item {
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(220, 240, 255, 0.92);
+      padding: 8px 14px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    #modern-navbar .dropdown-item:hover,
+    #modern-navbar .dropdown-item:focus {
+      background: #00adee;
+      color: #fff;
+    }
+
+    /* ── Mobile: full blue panel ── */
+    @media (max-width: 991.98px) {
+      #modern-navbar .navbar-collapse {
+        background: linear-gradient(180deg, #0e3e6b 0%, #0a2d52 100%);
+        border-radius: 0 0 16px 16px;
+        padding: 14px 18px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      }
+
+      #modern-navbar .nav-link {
+        color: rgba(255, 255, 255, 0.92) !important;
+        padding: 0.55rem 0.5rem;
+      }
+
+      #modern-navbar .nav-link:hover {
+        color: #87c440 !important;
+      }
+
+      #modern-navbar .nav-link::after {
+        display: none;
+      }
+
+      #modern-navbar .dropdown-menu {
+        background: rgba(7, 35, 65, 0.98);
+        border-radius: 10px;
+        box-shadow: none;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      #modern-navbar .dropdown-item {
+        color: #c8e4ff;
+      }
+
+      #modern-navbar .dropdown-item:hover {
+        background: #00adee;
+        color: #fff;
+      }
+
+    }
+
+    /* Permitir que el botón sea enlace y abra al pasar el mouse (Desktop) */
+    @media (min-width: 992px) {
+      .nav-item.dropdown:hover>.dropdown-menu {
+        display: block;
+        margin-top: 0;
+      }
+    }
+  </style>
+  <!-- Modern responsive navbar using Bootstrap 5 -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="modern-navbar" style="z-index:1030;">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand d-flex align-items-center gap-3 py-1" href="index.html">
+        <img src="static/core/img/Logo Gobierno Blanco.png" alt="Logo Gobierno" loading="lazy"
+          style="height:42px; width:auto; max-width:200px; object-fit:contain;">
+        <img src="static/core/img/Logo INATEC Blanco.png" alt="Logo INATEC" loading="lazy"
+          style="height:32px; width:auto; max-width:150px; object-fit:contain;">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#modernNavbarContent" aria-controls="modernNavbarContent" aria-expanded="false"
+        aria-label="Abrir menú" style="color:#14578b;">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="modernNavbarContent">
+        <ul class="navbar-nav ms-auto mb-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="index.html">INICIO</a></li>
+          <li class="nav-item"><a class="nav-link " href="pages/nosotros.html">NOSOTROS</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="pages/oferta-academica.html" id="ofertaDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">OFERTA ACADÉMICA</a>
+            <ul class="dropdown-menu shadow" aria-labelledby="ofertaDropdown">
+              <li><a class="dropdown-item" href="pages/carreras-educacion-tecnica.html">CARRERAS DE EDUCACIÓN
+                  TÉCNICA</a></li>
+              <li><a class="dropdown-item" href="pages/programas.html">CURSOS Y ESTRATEGIAS DE CAPACITACIÓN</a></li>
+              <li><a class="dropdown-item" href="pages/experiencia-laboral.html">RECONOCIMIENTO A LA EXPERIENCIA
+                  LABORAL</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link " href="pages/centros-tecnologicos.html">CENTROS TECNOLÓGICOS</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="#" id="empresasDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">EMPRESAS</a>
+            <ul class="dropdown-menu" aria-labelledby="empresasDropdown">
+              <li><a class="dropdown-item" href="pages/empresas.html">INFORMACIÓN</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="recursosDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">RECURSOS</a>
+            <ul class="dropdown-menu shadow" aria-labelledby="recursosDropdown">
+              <li><a class="dropdown-item" href="pages/noticias.html">NOTICIAS</a></li>
+              <li><a class="dropdown-item" href="pages/eventos.html">EVENTOS</a></li>
+              <li><a class="dropdown-item" href="pages/videos.html">VIDEOS</a></li>
+              <li><a class="dropdown-item" href="pages/galeria.html">GALERIAS</a></li>
+              <li><a class="dropdown-item" href="pages/boletines.html">BOLETÍN</a></li>
+              <li><a class="dropdown-item" href="pages/calidad.html">CALIDAD</a></li>
+              <li><a class="dropdown-item" href="pages/adquisiciones.html">ADQUISICIONES</a></li>
+              <li><a class="dropdown-item" href="pages/biblioteca-virtual.html">BIBLIOTECA VIRTUAL</a></li>
+              <li><a class="dropdown-item" href="pages/congreso.html">CONGRESO DOCENTE</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="https://correo.tecnacional.edu.ni/" target="_blank">CORREO
+                  INSTITUCIONAL</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <script>
+    const modernNav = document.getElementById("modern-navbar");
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 50) {
+        modernNav.style.setProperty("background", "linear-gradient(90deg, #0a3d6b 0%, #14578b 55%, #1a72b0 100%)", "important");
+        modernNav.classList.add("scrolled", "shadow-sm");
+      }
+      else {
+        modernNav.style.setProperty("background", "transparent", "important");
+        modernNav.classList.remove("scrolled", "shadow-sm");
+      }
+    });
+  </script>
+  <!-- End of modern navbar -->
+
+  <!-- ==========================================================
+       HERO BANNER PRINCIPAL
+       - Imagen de fondo: static/core/img/Construyo_mi_sueno...jpeg
+       - Para cambiar la imagen: modifica la URL en el <style> #myCarousel
+       - Alturas: 420px (desktop) / 280px (tablet) / 180px (movil)
+       - El margin-top compensa la altura del navbar fijo
+  =========================================================== -->
+  <!-- HERO BANNER PRINCIPAL -->
+  <section id="myCarousel" aria-label="Banner Construyo mi sueño en el Tecnológico Nacional">
+  </section>
+  <style>
+    #myCarousel {
+      margin-top: 0;
+      width: 100%;
+      height: 420px;
+      background-image: url('static/core/img/Construyo_mi_sue%C3%B1o_en_el_Tecnol%C3%B3gico_Nacional.jpeg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Overlay for better text/nav contrast if needed */
+    #myCarousel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(10, 61, 107, 0.4) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(10, 61, 107, 0.2) 100%);
+      z-index: 1;
+    }
+
+    @media (max-width: 991.98px) {
+      #myCarousel {
+        height: 280px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      #myCarousel {
+        height: 180px;
+      }
+    }
+  </style>
+
+  <!-- ── SECCION INFORMATIVA: Descripcion Institucional con estilo moderno ── -->
+  <section class="institucional-info bg-white" data-aos="fade-up" data-aos-delay="100">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 text-center">
+          <div class="info-wrapper py-3 px-3">
+            <p class="institucional-text">
+              <strong>El Instituto Tecnológico Nacional - INATEC</strong> es la institución del Buen Gobierno de
+              Reconciliación
+              y Unidad Nacional la cual garantiza Capacitación y Educación Técnica y Tecnológica
+              <span class="text-highlight">gratuita y de calidad</span> dirigida a las familias, comunidades,
+              instituciones y empresas.
+            </p>
+            <div class="info-divider mx-auto"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .institucional-info {
+      padding: 20px 0;
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .institucional-text {
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      line-height: 1.8;
+      color: #34475a;
+      font-weight: 300;
+      margin-bottom: 0;
+      letter-spacing: 0.01em;
+    }
+
+    .institucional-text strong {
+      color: #0a3d6b;
+      font-weight: 700;
+    }
+
+    .text-highlight {
+      color: #14578b;
+      font-weight: 600;
+      position: relative;
+      display: inline-block;
+    }
+
+    .info-divider {
+      width: 60px;
+      height: 3px;
+      background: #87c440;
+      margin-top: 15px;
+      border-radius: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .institucional-info {
+        padding: 15px 0;
+      }
+    }
+  </style>
+
+  <style>
+    /* ── OFERTA ACADÉMICA: Fondo Cyan Institucional ── */
+    #oferta-formativa {
+      position: relative;
+      background: #14578b;
+      padding: 60px 5% 80px;
+      width: 100%;
+    }
+
+    .oferta-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .oferta-titulo {
+      color: #ffffff;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .oferta-subtitulo {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      margin-bottom: 40px;
+      font-weight: 500;
+    }
+
+    /* Caja de busqueda: ajustada para fondo cyan */
+    .oferta-search-box {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border: none;
+      border-radius: 50px;
+      padding: 6px 6px 6px 22px;
+      max-width: 600px;
+      margin: 0 auto 50px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .oferta-search-box:focus-within {
+      border-color: #14578b;
+      box-shadow: 0 0 0 3px rgba(20, 87, 139, 0.12);
+    }
+
+    .oferta-search-box i {
+      color: #14578b;
+      font-size: 1.1rem;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    .oferta-search-box input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #1a2d3e;
+      font-size: 1rem;
+      min-width: 0;
+    }
+
+    .oferta-search-box input::placeholder {
+      color: #7a9ab5;
+    }
+
+    .oferta-search-btn {
+      flex-shrink: 0;
+      background: #14578b;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 26px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.03em;
+    }
+
+    .oferta-search-btn:hover {
+      background: #0a3d6b;
+      transform: scale(1.04);
+    }
+
+    /* Autocomplete Styles */
+    .oferta-search-box {
+      position: relative;
+    }
+
+    #career-suggestions {
+      position: absolute;
+      top: 105%;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      max-height: 320px;
+      overflow-y: auto;
+      display: none;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .suggestion-item {
+      padding: 12px 18px;
+      cursor: pointer;
+      border-radius: 12px;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .suggestion-item:last-child {
+      border-bottom: none;
+    }
+
+    .suggestion-item:hover {
+      background: #f0f7ff;
+      transform: translateX(5px);
+    }
+
+    .suggestion-name {
+      font-weight: 700;
+      color: #1e293b;
+      font-size: 0.95rem;
+    }
+
+    .suggestion-level {
+      font-size: 0.75rem;
+      color: #64748b;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Custom Scrollbar for Suggestions */
+    #career-suggestions::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #career-suggestions::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 10px;
+    }
+
+    #career-suggestions::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 10px;
+    }
+
+    #career-suggestions::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* ── CONTENEDOR COMBINADO: Rectangulo redondeado blanco ── */
+    .oferta-combined-row {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 25px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .oferta-stats-side {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .oferta-sectors-side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sectors-legend {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #7a9ab5;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 15px;
+    }
+
+    .sectors-icons-row {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    /* ── SECTORES: Estilo inspirado en la imagen del usuario ── */
+    .sector-item {
+      text-align: center;
+      max-width: 150px;
+      transition: transform 0.3s;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .sector-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .sector-icon-wrapper {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      transition: transform 0.3s;
+    }
+
+    .sector-item:hover .sector-icon-wrapper {
+      transform: scale(1.08);
+    }
+
+    .sector-label {
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: #0a3d6b;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .oferta-stat-item {
+      text-align: center;
+      max-width: 150px;
+      padding: 10px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .oferta-stat-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-icon-wrapper {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #f0f7ff;
+      border: 3px solid #00adee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      transition: all 0.3s;
+    }
+
+    .oferta-stat-item:hover .stat-icon-wrapper {
+      transform: scale(1.08);
+      background: #00adee;
+    }
+
+    .oferta-stat-num {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #00adee;
+      line-height: 1;
+      display: block;
+      transition: color 0.3s;
+    }
+
+    .oferta-stat-item:hover .oferta-stat-num {
+      color: #ffffff;
+    }
+
+    .oferta-stat-label {
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: #0a3d6b;
+      line-height: 1.2;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    @media (max-width: 991px) {
+      .oferta-combined-row {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .oferta-stats-side {
+        width: 100%;
+        border-bottom: 2px solid #f0f7ff;
+        padding-bottom: 30px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      #oferta-formativa {
+        padding: 40px 5% 50px;
+      }
+
+      .oferta-stat-item {
+        min-width: 110px;
+        padding: 5px;
+      }
+
+      .oferta-stat-num {
+        font-size: 2.2rem;
+      }
+
+      .sector-icon-wrapper {
+        width: 75px;
+        height: 75px;
+      }
+
+      .sector-label {
+        font-size: 0.75rem;
+      }
+
+      .sector-item {
+        padding: 5px;
+        max-width: 100px;
+      }
+
+      .sectors-icons-row {
+        gap: 10px;
+      }
+    }
+
+    /* ── VIDEOS & MULTIMEDIA: Unified Styles ── */
+    .unified-container {
+      width: 95%;
+      margin: 20px 2.5%;
+      background: white;
+      border-radius: 40px;
+      padding: 25px 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    }
+
+    .section-badge {
+      font-weight: 800;
+      display: inline-block;
+      padding: 12px 40px 12px 15px;
+      border-radius: 0 50px 50px 0;
+      color: white;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-main-wrapper {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      background: #000;
+      aspect-ratio: 16/9;
+    }
+
+    .video-grid-item {
+      border-radius: 18px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .video-grid-item:hover {
+      transform: scale(1.03);
+    }
+
+    .video-grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+      padding: 10px;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .multimedia-card {
+      border: none;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s;
+      background: #f8fafc;
+      height: 100%;
+    }
+
+    .multimedia-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .multimedia-img {
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 4px solid #87c440;
+    }
+
+    .multimedia-btn {
+      background: #14578b;
+      color: white;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      padding: 8px 20px;
+      font-weight: 700;
+      border: none;
+    }
+
+    .multimedia-btn:hover {
+      background: #0a3d6b;
+      color: white;
+    }
+  </style>
+
+  <section id="oferta-formativa" class="aos-item" data-aos="fade-in">
+    <div class="oferta-inner">
+
+      <h2 class="oferta-titulo">Formando profesionales técnicos en toda Nicaragua</h2>
+      <p class="oferta-subtitulo">Encontrá la carrera técnica ideal para vos</p>
+
+      <!-- Buscador de carreras con Autocomplete -->
+      <div class="oferta-search-box">
+        <i class="bi bi-search"></i>
+        <input type="text" id="career-search-input" placeholder="¿Qué querés estudiar? Ej: Electrónica, Gastronomía..."
+          aria-label="Buscar carrera" autocomplete="off" />
+        <button class="oferta-search-btn" onclick="handleSearch()">Buscar</button>
+
+        <!-- Contenedor de Sugerencias -->
+        <div id="career-suggestions"></div>
+      </div>
+
+      <!-- Caja Combinada: Stats y Sectores -->
+      <div class="oferta-combined-row">
+
+        <!-- Lado 1: Estadisticas -->
+        <div class="oferta-stats-side text-center">
+          <div class="oferta-stat-item" onclick="location.href='pages/carreras-educacion-tecnica.html'">
+            <div class="stat-icon-wrapper">
+              <span class="oferta-stat-num">79</span>
+            </div>
+            <span class="oferta-stat-label">Carreras<br>Técnicas</span>
+          </div>
+          <div class="oferta-stat-item" onclick="location.href='pages/centros-tecnologicos.html'">
+            <div class="stat-icon-wrapper">
+              <span class="oferta-stat-num">74</span>
+            </div>
+            <span class="oferta-stat-label">Centros<br>Tecnológicos</span>
+          </div>
+        </div>
+
+        <!-- Divisor Vertical Desktop -->
+        <div class="d-none d-lg-block" style="width: 2px; height: 100px; background: #e0eaf3; margin: 0 10px;"></div>
+
+        <!-- Lado 2: Sectores -->
+        <div class="oferta-sectors-side">
+          <div class="sectors-legend">Sectores Socioproductivos de la Educación Técnica</div>
+          <div class="sectors-icons-row">
+            <div class="sector-item" onclick="location.href='pages/carreras-educacion-tecnica.html'">
+              <div class="sector-icon-wrapper">
+                <img src="static/core/img/oferta_icon_uno.png" alt="Industria" loading="lazy"
+                  style="width: 100%; height: 100%; object-fit: contain;">
+              </div>
+              <div class="sector-label">Industria y<br>Construcción</div>
+            </div>
+            <div class="sector-item" onclick="location.href='pages/carreras-educacion-tecnica.html'">
+              <div class="sector-icon-wrapper">
+                <img src="static/core/img/oferta_icon_dos.png" alt="Comercio" loading="lazy"
+                  style="width: 100%; height: 100%; object-fit: contain;">
+              </div>
+              <div class="sector-label">Comercio y<br>Servicio</div>
+            </div>
+            <div class="sector-item" onclick="location.href='pages/carreras-educacion-tecnica.html'">
+              <div class="sector-icon-wrapper">
+                <img src="static/core/img/oferta_icon_tres.png" alt="Agropecuario" loading="lazy"
+                  style="width: 100%; height: 100%; object-fit: contain;">
+              </div>
+              <div class="sector-label">Agropecuario y<br>Forestal</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ==========================================================
+         SECCION: PLATAFORMAS VIRTUALES + NOTICIAS + VIDEOS + EVENTOS
+         Contiene (en orden):
+           1. Carrusel de Plataformas Virtuales (Swiper)
+           2. Noticias recientes (3 tarjetas)
+           3. Ultimos Videos (iframe YouTube)
+           4. Proximos Eventos
+           5. Multimedia (podcast, programas, biblioteca, galerias)
+    =========================================================== -->
+  <!-- ==========================================================
+         SECCION: PLATAFORMAS VIRTUALES (DIAGONAL LAYOUT)
+    =========================================================== -->
+  <section id="diagonal-platforms-section" class="py-5" style="background-color: #f4f7fa;">
+    <div class="diagonal-platforms-container">
+      <!-- Panel 1: CAMPUS VIRTUAL -->
+      <a href="pages/campus-virtual.html" class="diagonal-panel panel-1">
+        <div class="panel-content">
+          <i class="bi bi-laptop panel-icon"></i>
+          <h3 class="panel-title">CAMPUS VIRTUAL</h3>
+          <span class="panel-link">Ver Plataforma <i class="bi bi-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Panel 2: LEARN ENGLISH -->
+      <a href="pages/learn-english.html" class="diagonal-panel panel-2">
+        <div class="panel-content">
+          <i class="bi bi-translate panel-icon"></i>
+          <h3 class="panel-title">LEARN ENGLISH</h3>
+          <span class="panel-link">Ver Plataforma <i class="bi bi-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Panel 3: SERVICIOS EN LÍNEA -->
+      <a href="https://serviciosenlinea.tecnacional.edu.ni/" target="_blank" class="diagonal-panel panel-3">
+        <div class="panel-content">
+          <i class="bi bi-person-badge panel-icon"></i>
+          <h3 class="panel-title">SERVICIOS EN LÍNEA</h3>
+          <span class="panel-link">Ver Plataforma <i class="bi bi-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+
+    <style>
+      .diagonal-platforms-container {
+        display: flex;
+        height: 450px;
+        width: 95%;
+        margin: 0 auto;
+        overflow: hidden;
+        background: #fff;
+        gap: 0;
+        border-radius: 30px;
+        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+      }
+
+      .diagonal-panel {
+        position: relative;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      /* Diagonal shapes using clip-path */
+      .panel-1 {
+        background: linear-gradient(135deg, #0a3d6b 0%, #1e4d7e 100%);
+        clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
+        margin-right: -10%;
+        z-index: 3;
+      }
+
+      .panel-2 {
+        background: linear-gradient(135deg, #00adee 0%, #3bb9e8 100%);
+        clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%);
+        margin-right: -10%;
+        z-index: 2;
+      }
+
+      .panel-3 {
+        background: linear-gradient(135deg, #14578b 0%, #0a3d6b 100%);
+        clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+        z-index: 1;
+      }
+
+      .diagonal-panel:hover {
+        flex: 1.6;
+        z-index: 4;
+        clip-path: none !important;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+      }
+
+      .panel-content {
+        text-align: center;
+        color: white;
+        padding: 20px;
+        transition: transform 0.4s;
+      }
+
+      .diagonal-panel:hover .panel-content {
+        transform: scale(1.1);
+      }
+
+      .panel-icon {
+        font-size: 3.8rem;
+        margin-bottom: 20px;
+        display: block;
+        opacity: 0.95;
+        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .panel-title {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 15px;
+        letter-spacing: 0.05em;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .panel-link {
+        font-weight: 700;
+        font-size: 0.95rem;
+        background: rgba(255, 255, 255, 0.25);
+        padding: 10px 25px;
+        border-radius: 50px;
+        backdrop-filter: blur(8px);
+        display: inline-block;
+        transition: all 0.3s;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .diagonal-panel:hover .panel-link {
+        background: #fff;
+        color: #14578b;
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 991px) {
+        .diagonal-platforms-container {
+          flex-direction: column;
+          height: auto;
+          border-radius: 20px;
+        }
+
+        .diagonal-panel {
+          clip-path: none !important;
+          margin: 0 !important;
+          height: 220px;
+          width: 100%;
+        }
+
+        .diagonal-panel:hover {
+          flex: 1;
+        }
+      }
+    </style>
+  </section>
+
+  <div style="width: 95%; background-color: #f8fafc; padding: 25px 20px; margin: 20px 2.5%; border-radius: 40px"
+    class="shadow-sm">
+    <div class="row">
+      <div class="col-xs-12 col-md-9">
+        <div class="d-flex justify-content-between align-items-end pe-3 border-bottom pb-2 mb-3">
+          <h6
+            style="margin-bottom:0px; font-weight: 800; display: inline-block; background: linear-gradient(135deg, #fe0988 0%, #ff4fa1 100%); padding: 12px 40px 12px 15px; border-radius: 0px 50px 50px 0px; color: white; box-shadow: 0 4px 15px rgba(254,9,136,0.3);">
+            <i class="bi-newspaper" style="color: white; margin-right: 8px;"></i> NOTICIAS
+          </h6>
+          <a href="pages/noticias.html" class="text-decoration-none fw-bold" style="color: #fe0988;">
+            Ver todas las noticias <i class="bi-arrow-right"></i>
+          </a>
+        </div>
+        <div class="row g-4 mt-1">
+          <div class="col-12 col-md-4">
+            <div class="card h-100 news-card-home"
+              style="border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 20px; overflow: hidden; background: white;">
+              <div style="position: relative; height: 200px; overflow: hidden;">
+                <img alt="Encuentro Nacional Mujeres"
+                  src="https://www.tecnacional.edu.ni/media/encuentro-naciona-mujeres-01.jpg.900x450_q85_crop-top.jpg"
+                  style="width: 100%; height: 100%; object-fit: cover;" />
+                <span
+                  style="position: absolute; top: 15px; left: 15px; background: rgba(254,9,136,0.9); color: #fff; font-size: 11px; font-weight: 900; border-radius: 6px; padding: 4px 12px; backdrop-filter: blur(4px);">RECIENTE</span>
+              </div>
+              <div class="card-body d-flex flex-column" style="padding: 16px 20px;">
+                <div style="color: #adb5bd; font-size: 13px; margin-bottom: 8px; font-weight: 600;">
+                  <i class="bi bi-calendar-check" style="margin-right: 5px;"></i>
+                  06.03.2026
+                </div>
+                <a href="noticias/encuentro-nacional-mujeres-que-transforman-vidas-con-valentía-y-amor.html"
+                  style="text-decoration: none;">
+                  <h5
+                    style="color: #1a2d3e; font-weight: 800; font-size: 1.15rem; margin-bottom: 12px; line-height: 1.4; transition: color 0.3s;">
+                    Encuentro Nacional “Mujeres que transforman vidas con valentía y amor”
+                  </h5>
+                </a>
+                <div style="color: #5c6c7b; font-size: 14px; line-height: 1.6; margin-bottom: 12px;">
+                  En un vibrante testimonio de valentía, amor y compromiso, más de 2 mil mujeres de todo el país se
+                  unieron...
+                </div>
+                <a href="noticias/encuentro-nacional-mujeres-que-transforman-vidas-con-valentía-y-amor.html"
+                  class="btn btn-outline-primary btn-sm rounded-pill fw-bold px-4 mt-auto ms-auto">Leer noticia</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="card h-100 news-card-home"
+              style="border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 20px; overflow: hidden; background: white;">
+              <div style="position: relative; height: 200px; overflow: hidden;">
+                <img alt="Inclusión y aprendizaje"
+                  src="https://www.tecnacional.edu.ni/media/inclusion-aprendizaje-matagalpa-01.jpg.900x450_q85_crop-top.jpg"
+                  style="width: 100%; height: 100%; object-fit: cover;" />
+              </div>
+              <div class="card-body d-flex flex-column" style="padding: 16px 20px;">
+                <div style="color: #adb5bd; font-size: 13px; margin-bottom: 8px; font-weight: 600;">
+                  <i class="bi bi-calendar-check" style="margin-right: 5px;"></i>
+                  05.03.2026
+                </div>
+                <a href="noticias/inclusión-y-aprendizaje-protagonistas-de-educación-especial-destacan-en-curso-de-batidos-nutritivos.html"
+                  style="text-decoration: none;">
+                  <h5
+                    style="color: #1a2d3e; font-weight: 800; font-size: 1.15rem; margin-bottom: 12px; line-height: 1.4;">
+                    Inclusión y aprendizaje: protagonistas de educación especial destacan...
+                  </h5>
+                </a>
+                <div style="color: #5c6c7b; font-size: 14px; line-height: 1.6; margin-bottom: 12px;">
+                  A través del curso “Elaboración de Batidos Naturales y Nutritivos”, los estudiantes transformaron
+                  frutas locales...
+                </div>
+                <a href="noticias/inclusión-y-aprendizaje-protagonistas-de-educación-especial-destacan-en-curso-de-batidos-nutritivos.html"
+                  class="btn btn-outline-primary btn-sm rounded-pill fw-bold px-4 mt-auto ms-auto">Leer noticia</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="card h-100 news-card-home"
+              style="border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 20px; overflow: hidden; background: white;">
+              <div style="position: relative; height: 200px; overflow: hidden;">
+                <img alt="Chávez en el Corazón del Pueblo"
+                  src="https://www.tecnacional.edu.ni/media/chavez-festival-centro-managua-01.jpg.900x450_q85_crop-top.jpg"
+                  style="width: 100%; height: 100%; object-fit: cover;" />
+              </div>
+              <div class="card-body d-flex flex-column" style="padding: 16px 20px;">
+                <div style="color: #adb5bd; font-size: 13px; margin-bottom: 8px; font-weight: 600;">
+                  <i class="bi bi-calendar-check" style="margin-right: 5px;"></i>
+                  05.03.2026
+                </div>
+                <a href="noticias/chávez-en-el-corazón-del-pueblo-festival-cultural-recuerda-su-legado-de-unidad-latinoamericana.html"
+                  style="text-decoration: none;">
+                  <h5
+                    style="color: #1a2d3e; font-weight: 800; font-size: 1.15rem; margin-bottom: 12px; line-height: 1.4;">
+                    Chávez en el Corazón del Pueblo”: festival cultural recuerda su legado...
+                  </h5>
+                </a>
+                <div style="color: #5c6c7b; font-size: 14px; line-height: 1.6; margin-bottom: 12px;">
+                  En conmemoración del 13º aniversario del paso a la inmortalidad del Comandante Hugo Chávez
+                  Frías...
+                </div>
+                <a href="noticias/chávez-en-el-corazón-del-pueblo-festival-cultural-recuerda-su-legado-de-unidad-latinoamericana.html"
+                  class="btn btn-outline-primary btn-sm rounded-pill fw-bold px-4 mt-auto ms-auto">Leer noticia</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-xs-12 col-md-3 d-flex flex-column">
+        <h6
+          style="font-weight: 800; display: inline-block; background: linear-gradient(135deg, #04afef 0%, #30c1f5 100%); padding: 12px 40px 12px 15px; border-radius: 0px 50px 50px 0px; color: white; box-shadow: 0 4px 15px rgba(4,175,239,0.3); align-self: flex-start;">
+          <i class="bi-journal-check" style="color: white; margin-right: 8px;"></i> BOLETÍN INFORMATIVO
+        </h6>
+        <div class="mt-3 flex-grow-1 d-flex flex-column"
+          style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: white; padding: 12px;">
+          <img alt="Informativo Tecnológico Febrero 2026" src="https://www.tecnacional.edu.ni/media/boletin/314/1.jpg"
+            style="flex-grow: 1; height: 0; min-height: 250px; width: 100%; cursor: pointer; object-fit: cover; object-position: top; border-radius: 15px;" />
+          <div class="pt-3 pb-2 text-center mt-auto">
+            <a href="https://www.tecnacional.edu.ni/boletin/view/informativo-tecnologico-febrero-2026/"
+              class="btn btn-info text-white rounded-pill px-4 py-2 fw-bold w-100 mb-2"
+              style="box-shadow: 0 4px 12px rgba(4,175,239,0.2);">Ver Boletín Mensual</a>
+
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-xs-12 col-md-2">
+                    <h6 style="font-weight: bold; font-weight: bold; display: inline-block; background-color: #87bd47; padding: 10px 30px 10px 10px; border-radius: 0px 50px 0px 0px; color: white">
+                        <i class="bi-caret-right-fill" style="color: white;"></i> Podcast TEC</h6>
+
+                    <div class="container-episodios">
+
+                        
+                            
+                                <a href="https://www.tecnacional.edu.ni/" target="_blank">
+                                    <div class="image-container" style="margin-top: 5px">
+                                        <img class="img-podcast"
+                                             style="height: auto; width: 100%; object-fit: cover; cursor: pointer"
+                                             src="https://minio-migrado.tecnacional.edu.ni/tecnacional-des-media/podcast/img1-podcast-destacado.png"
+                                             alt="On the other hand, we denounce with righteous indignation and dislike men who are so beguiled">
+                                        <div class="image-text">On the other hand, we denounce with righteous indignation and dislike men who are so beguiled</div>
+                                    </div>
+                                </a>
+                            
+                                <a href="https://www.tecnacional.edu.ni/" target="_blank">
+                                    <div class="image-container" style="margin-top: 5px">
+                                        <img class="img-podcast"
+                                             style="height: auto; width: 100%; object-fit: cover; cursor: pointer"
+                                             src="https://minio-migrado.tecnacional.edu.ni/tecnacional-des-media/podcast/img3-podcast_RmBrUcr.png"
+                                             alt="aecati cupiditate non provident, similique sunt in culpa qui officia deseru">
+                                        <div class="image-text">aecati cupiditate non provident, similique sunt in culpa qui officia deseru</div>
+                                    </div>
+                                </a>
+                            
+                        
+
+                    </div>
+
+                    <a href="pages/podcast.html"><h5
+                            style="margin-top:3px; display: inline-block; position: sticky; background-color: #87bd47; padding: 5px; border-radius: 0px 0px 14px 14px; font-size: 14px; color: white">
+                        <i class="bi-plus-circle-fill"></i> Ver Más</h5></a>
+                </div> -->
+    </div>
+  </div>
+  <div class="unified-container">
+    <div class="row align-items-center mb-4">
+      <div class="col-md-9 text-start">
+        <h6 class="section-badge mb-0" style="background: linear-gradient(135deg, #fe0988 0%, #ff4fa1 100%);">
+          <i class="bi-play-circle-fill me-2"></i> ÚLTIMOS VIDEOS
+        </h6>
+      </div>
+      <div class="col-md-3 text-md-end text-start mt-2 mt-md-0">
+        <a href="pages/videos.html" class="text-decoration-none fw-bold" style="color: #fe0988;">
+          Ver todos los videos <i class="bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Video Principal (Destacado) -->
+      <div class="col-lg-8">
+        <a href="pages/videos.html" class="video-main-featured-card">
+          <img alt="Chavez en el Corazón del Pueblo"
+            src="https://www.tecnacional.edu.ni/media/chavez-festival-centro-managua-01.jpg.900x450_q85_crop-top.jpg"
+            class="video-thumb-large" />
+          <div class="video-overlay-large">
+            <div class="video-play-btn-large">
+              <i class="bi-play-fill"></i>
+            </div>
+            <div class="video-content-bottom">
+              <span class="badge rounded-pill bg-pink mb-2">DESTACADO</span>
+              <h3 class="video-main-featured-title">Chávez en el Corazón del Pueblo: Festival Cultural de Unidad</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Columna Lateral -->
+      <div class="col-lg-4">
+        <div class="d-flex flex-column gap-4 h-100">
+          <!-- Video Sugerido 1 -->
+          <a href="pages/videos.html" class="video-side-card">
+            <img alt="Encuentro Nacional Mujeres"
+              src="https://www.tecnacional.edu.ni/media/encuentro-naciona-mujeres-01.jpg.900x450_q85_crop-top.jpg"
+              class="video-thumb" />
+            <div class="video-overlay">
+              <div class="video-play-btn-mini">
+                <i class="bi-play-fill"></i>
+              </div>
+              <h6 class="video-side-title">Mujeres que transforman vidas con valentía y amor</h6>
+            </div>
+          </a>
+          <!-- Video Sugerido 2 -->
+          <a href="pages/videos.html" class="video-side-card">
+            <img alt="Inclusión y aprendizaje"
+              src="https://www.tecnacional.edu.ni/media/inclusion-aprendizaje-matagalpa-01.jpg.900x450_q85_crop-top.jpg"
+              class="video-thumb" />
+            <div class="video-overlay">
+              <div class="video-play-btn-mini">
+                <i class="bi-play-fill"></i>
+              </div>
+              <h6 class="video-side-title">Inclusión y aprendizaje: protagonistas de educación especial</h6>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .video-side-card {
+      flex: 1;
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      display: block;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      min-height: 140px;
+    }
+
+    .video-side-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.6s;
+    }
+
+    .video-side-card:hover .video-thumb {
+      transform: scale(1.1);
+    }
+
+    .video-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+      transition: background 0.3s;
+    }
+
+    .video-side-card:hover .video-overlay {
+      background: linear-gradient(to top, rgba(254, 9, 136, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
+    }
+
+    .video-play-btn-mini {
+      width: 35px;
+      height: 35px;
+      background: #fe0988;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(254, 9, 136, 0.3);
+      transition: all 0.3s;
+    }
+
+    .video-side-card:hover .video-play-btn-mini {
+      background: white;
+      color: #fe0988;
+      transform: scale(1.1);
+    }
+
+    .video-side-title {
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin: 0;
+      line-height: 1.3;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-main-featured-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+      text-decoration: none;
+      display: block;
+      height: 100%;
+      min-height: 400px;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1);
+    }
+
+    .video-main-featured-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    .video-thumb-large {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s;
+    }
+
+    .video-main-featured-card:hover .video-thumb-large {
+      transform: scale(1.05);
+    }
+
+    .video-overlay-large {
+      position: absolute;
+      inset: 0;
+      padding: 40px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: background 0.4s;
+    }
+
+    .video-main-featured-card:hover .video-overlay-large {
+      background: linear-gradient(to top, rgba(10, 45, 82, 0.85) 0%, rgba(0, 0, 0, 0.2) 100%);
+    }
+
+    .video-content-bottom {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      right: 40px;
+      text-align: left;
+    }
+
+    .video-play-btn-large {
+      width: 80px;
+      height: 80px;
+      background: #fe0988;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      box-shadow: 0 10px 30px rgba(254, 9, 136, 0.4);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      margin-bottom: 20px;
+    }
+
+    .video-main-featured-card:hover .video-play-btn-large {
+      transform: scale(1.15) rotate(5deg);
+      background: white;
+      color: #fe0988;
+    }
+
+    .video-main-featured-title {
+      color: white;
+      font-weight: 800;
+      font-size: 2rem;
+      margin: 0;
+      line-height: 1.2;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .bg-pink {
+      background-color: #fe0988;
+      color: white;
+    }
+
+    @media (max-width: 991.98px) {
+      .video-main-featured-card {
+        min-height: 300px;
+      }
+
+      .video-main-featured-title {
+        font-size: 1.5rem;
+      }
+
+      .video-content-bottom {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+      }
+
+      .video-play-btn-large {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+
+  <!-- SECCION BIBLIOTECA VIRTUAL (Diseño en 3 Espacios) -->
+  <div class="unified-container my-5">
+    <div class="biblioteca-triple-banner shadow-lg overflow-hidden">
+      <div class="container-fluid h-100 px-4 px-lg-5">
+        <div class="row align-items-center h-100 g-0 py-5 py-lg-0">
+
+          <!-- ESPACIO 1: Identidad y Título -->
+          <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0 d-flex flex-column justify-content-center">
+            <div class="pe-lg-4">
+              <span class="badge rounded-pill bg-white text-info mb-3 px-3 py-2 fw-bold shadow-sm"
+                style="color: #00adee !important; font-size: 0.8rem; letter-spacing: 0.5px;">RECURSOS DIGITALES</span>
+              <h2 class="display-4 fw-black text-white mb-0" style="line-height: 1; letter-spacing: -1px;">Biblioteca
+                <br><span style="color: rgba(255,255,255,0.85);">Virtual</span></h2>
+            </div>
+          </div>
+
+          <!-- ESPACIO 2: Información y CTA -->
+          <div class="col-lg-4 text-center text-lg-start px-lg-4 mb-4 mb-lg-0 border-split">
+            <div class="py-lg-5">
+              <p class="text-white mb-4 lh-lg" style="font-size: 1.05rem; opacity: 0.95;">
+                Explora nuestro repositorio digital con miles de manuales, guías técnicas y material educativo de alta
+                calidad para complementar tu aprendizaje.
+              </p>
+              <a href="pages/biblioteca-virtual.html"
+                class="btn btn-light cta-triple px-4 py-3 fw-bold w-100 w-lg-auto shadow">
+                VER REPOSITORIO <i class="bi-arrow-right-circle-fill ms-2"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- ESPACIO 3: Visual (Imagen en aspecto original) -->
+          <div class="col-lg-4 d-flex justify-content-center align-items-center position-relative">
+            <div class="img-frame py-3 py-lg-0">
+              <img src="Free_A4_Brochure_Mockup_02.png" alt="Biblioteca Digital" class="img-fluid triple-mockup">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .biblioteca-triple-banner {
+      background: linear-gradient(135deg, #00adee 0%, #008fcc 100%);
+      min-height: 380px;
+      border-radius: 32px;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .fw-black {
+      font-weight: 900;
+    }
+
+    .border-split {
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .cta-triple {
+      background: #ffffff;
+      color: #00adee !important;
+      border: none;
+      border-radius: 12px;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+    }
+
+    .cta-triple:hover {
+      background: #f0f9ff;
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .triple-mockup {
+      max-height: 420px;
+      width: auto;
+      filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
+      transition: transform 0.6s ease;
+    }
+
+    .biblioteca-triple-banner:hover .triple-mockup {
+      transform: translateY(-10px) rotate(-1deg);
+    }
+
+    @media (max-width: 991.98px) {
+      .biblioteca-triple-banner {
+        min-height: auto;
+      }
+
+      .border-split {
+        border: none;
+        padding: 20px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .display-4 {
+        font-size: 2.8rem;
+      }
+
+      .triple-mockup {
+        max-height: 300px;
+      }
+    }
+  </style>
+
+  <!-- SECCION GALERÍA TIPO FEED (Instagram Style) -->
+  <div class="unified-container my-5" data-aos="fade-up">
+    <div class="row align-items-center mb-4">
+      <div class="col-8 col-md-9 text-start">
+        <h6 class="section-badge mb-0" style="background: linear-gradient(135deg, #00adee 0%, #008fcc 100%);">
+          <i class="bi bi-camera me-2"></i> GALERÍA
+        </h6>
+      </div>
+      <div class="col-4 col-md-3 text-end">
+        <a href="pages/galeria.html" class="text-decoration-none fw-bold small-caps"
+          style="color: #00adee; font-size: 0.85rem;">
+          VER TODAS <i class="bi-grid-3x3 ms-1"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <!-- Item 1 -->
+      <div class="col-6 col-md-4 col-lg-2">
+        <a href="pages/galeria.html" class="insta-feed-item shadow-sm">
+          <img
+            src="https://www.tecnacional.edu.ni/media/festival-bartender-matagalpa-35.png.900x450_q85_crop-center.png"
+            alt="Festival Bartender">
+          <div class="insta-overlay">
+            <div class="insta-title">Festival Nacional de Bartender 2024</div>
+          </div>
+        </a>
+      </div>
+      <!-- Item 2 -->
+      <div class="col-6 col-md-4 col-lg-2">
+        <a href="pages/galeria.html" class="insta-feed-item shadow-sm">
+          <img src="https://www.tecnacional.edu.ni/media/juegos-tec-9_O6uzL0Y.png.900x450_q85_crop-center.png"
+            alt="Juegos TEC">
+          <div class="insta-overlay">
+            <div class="insta-title">Etapa Final Juegos Nacionales TEC</div>
+          </div>
+        </a>
+      </div>
+      <!-- Item 3 -->
+      <div class="col-6 col-md-4 col-lg-2">
+        <a href="pages/galeria.html" class="insta-feed-item shadow-sm">
+          <img
+            src="https://www.tecnacional.edu.ni/media/estrategia-nacional-educacion-01_b180t6K.jpg.900x450_q85_crop-center.jpg"
+            alt="Congreso Educación">
+          <div class="insta-overlay">
+            <div class="insta-title">Congreso Nacional de Educación 2024</div>
+          </div>
+        </a>
+      </div>
+      <!-- Item 4 -->
+      <div class="col-6 col-md-4 col-lg-2">
+        <a href="pages/galeria.html" class="insta-feed-item shadow-sm">
+          <img
+            src="https://www.tecnacional.edu.ni/media/escuela-hotel-nicarao-12_9162Kw5.jpg.900x450_q85_crop-center.jpg"
+            alt="Escuela Hotel">
+          <div class="insta-overlay">
+            <div class="insta-title">Inauguración Escuela Hotel Nicarao</div>
+          </div>
+        </a>
+      </div>
+      <!-- Item 5 -->
+      <div class="col-6 col-md-4 col-lg-2">
+        <a href="pages/galeria.html" class="insta-feed-item shadow-sm">
+          <img
+            src="https://www.tecnacional.edu.ni/media/Portada-20Mayo-InaugaracionCTBlancaSegovia-1_6Go9ylr.jpeg.900x450_q85_crop-center.jpg"
+            alt="Centro Blanco Segovia">
+          <div class="insta-overlay">
+            <div class="insta-title">Nuevo Centro Tecnológico Blanca Segovia</div>
+          </div>
+        </a>
+      </div>
+      <!-- Item 6 -->
+      <div class="col-6 col-md-4 col-lg-2">
+        <a href="pages/galeria.html" class="insta-feed-item shadow-sm">
+          <img src="https://www.tecnacional.edu.ni/media/encuentro-naciona-mujeres-01.jpg.900x450_q85_crop-top.jpg"
+            alt="Encuentro Mujeres">
+          <div class="insta-overlay">
+            <div class="insta-title">Encuentro Nacional de Mujeres Protagonistas</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .insta-feed-item {
+      display: block;
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      background: #f1f5f9;
+    }
+
+    .insta-feed-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .insta-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 60px 20px 20px;
+      background: linear-gradient(to top, rgba(0, 173, 238, 0.95) 0%, rgba(0, 0, 0, 0.45) 50%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 40%;
+      transition: background 0.4s;
+    }
+
+    .insta-title {
+      color: white;
+      font-weight: 800;
+      font-size: 1.15rem;
+      margin: 0;
+      line-height: 1.1;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      transform: translateY(0);
+      transition: transform 0.3s;
+      letter-spacing: -0.02em;
+    }
+
+    @media (max-width: 1200px) {
+      .insta-title {
+        font-size: 1rem;
+      }
+    }
+
+    .insta-feed-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .insta-feed-item:hover .insta-overlay {
+      background: linear-gradient(to top, rgba(10, 61, 107, 0.95) 0%, rgba(0, 173, 238, 0.6) 100%);
+    }
+
+    .insta-feed-item:hover .insta-title {
+      transform: translateY(-5px);
+    }
+
+    .small-caps {
+      letter-spacing: 0.05rem;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 576px) {
+      .insta-title {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+  </div>
+
+
+  </section>
+
+  <!-- SECCIÓN BANNER PRE-FOOTER -->
+  <div class="pre-footer-banner w-100 overflow-hidden">
+    <img src="banner footer.png" alt="Banner Institucional" class="img-fluid w-100 d-block">
+  </div>
+
+  <!-- ==========================================================
+       FOOTER (Pie de Pagina)
+       - Logo INATEC + Datos de contacto (izquierda)
+       - Links del sitio + Redes sociales (centro)
+       - Logo Gobierno + Formulario suscripcion (derecha)
+       - Barra de copyright (fondo azul)
+  =========================================================== -->
+  <style>
+    :root {
+      --footer-bg: #00adee;
+      --footer-accent: #ffffff;
+      --footer-text-muted: rgba(255, 255, 255, 0.8);
+    }
+
+    .premium-footer {
+      background-color: var(--footer-bg);
+      color: white;
+      padding: 80px 0 30px;
+      font-family: 'Inter', sans-serif;
+      position: relative;
+    }
+
+    /* Decoración Superior */
+    .premium-footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--footer-accent), transparent);
+    }
+
+    .footer-brand {
+      margin-bottom: 30px;
+    }
+
+    .footer-logo-wrapper {
+      display: inline-flex;
+      background: white;
+      padding: 10px;
+      border-radius: 12px;
+      margin-right: 15px;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-logo-wrapper:hover {
+      transform: translateY(-5px);
+    }
+
+    .footer-logo-wrapper img {
+      height: 45px;
+      width: auto;
+    }
+
+    .footer-title-modern {
+      color: white;
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      position: relative;
+    }
+
+    .footer-title-modern::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 30px;
+      height: 2px;
+      background: var(--footer-accent);
+    }
+
+    .footer-link-modern {
+      display: flex;
+      align-items: center;
+      color: var(--footer-text-muted);
+      text-decoration: none !important;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+    }
+
+    .footer-link-modern:hover {
+      color: var(--footer-accent);
+      padding-left: 8px;
+    }
+
+    .footer-link-modern i {
+      margin-right: 10px;
+      font-size: 0.8rem;
+    }
+
+    .contact-card-glass {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 25px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: start;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .contact-icon {
+      width: 35px;
+      height: 35px;
+      background: white;
+      color: var(--footer-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .contact-text h6 {
+      font-size: 0.75rem;
+      color: var(--footer-text-muted);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+      letter-spacing: 1px;
+    }
+
+    .contact-text p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: white;
+      font-weight: 500;
+    }
+
+    .social-modern {
+      display: flex;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .social-btn-modern {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .social-btn-modern:hover {
+      background: white;
+      color: var(--footer-bg);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .newsletter-box {
+      margin-top: 30px;
+    }
+
+    .newsletter-input {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: white;
+      padding: 12px 15px;
+      width: 100%;
+      font-size: 0.9rem;
+    }
+
+    .newsletter-input:focus {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--footer-accent);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 173, 238, 0.1);
+    }
+
+    .program-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 40px 0;
+      margin-top: 50px;
+    }
+
+    .footer-bottom-mini {
+      background: #008fcc;
+      padding: 20px 0;
+      color: white;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .program-logo-mini {
+      background: white;
+      padding: 8px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      height: 40px;
+      width: auto;
+      margin: 0 10px;
+    }
+
+    .program-logo-mini:hover {
+      transform: scale(1.1);
+    }
+  </style>
+
+  <footer class="premium-footer">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- Col 1: Identidad -->
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-brand mb-3">
+            <div class="d-flex flex-column gap-3">
+              <img src="static/core/img/Logo INATEC Blanco.png" alt="INATEC" style="height: 45px; width: fit-content;">
+              <img src="static/core/img/Logo Gobierno Blanco.png" alt="Gobierno"
+                style="height: 55px; width: fit-content;">
+            </div>
+          </div>
+          <div class="social-modern">
+            <a href="https://www.facebook.com/TecNacional/" class="social-btn-modern"><i class="bi-facebook"></i></a>
+            <a href="https://twitter.com/TecNacional" class="social-btn-modern"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.instagram.com/tecnacional/" class="social-btn-modern"><i class="bi-instagram"></i></a>
+            <a href="https://www.youtube.com/c/TecNacional" class="social-btn-modern"><i class="bi-youtube"></i></a>
+            <a href="https://www.tiktok.com/@tecnacional" class="social-btn-modern"><i class="bi-tiktok"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navegación -->
+        <div class="col-lg-2 col-md-6">
+          <h5 class="footer-title-modern">Sitio</h5>
+          <nav>
+            <a href="index.html" class="footer-link-modern"><i class="bi-dash"></i> Inicio</a>
+            <a href="pages/nosotros.html" class="footer-link-modern"><i class="bi-dash"></i> Nosotros</a>
+            <a href="pages/oferta-academica.html" class="footer-link-modern"><i class="bi-dash"></i> Oferta</a>
+            <a href="pages/centros-tecnologicos.html" class="footer-link-modern"><i class="bi-dash"></i> Centros</a>
+            <a href="pages/noticias.html" class="footer-link-modern"><i class="bi-dash"></i> Noticias</a>
+          </nav>
+        </div>
+
+        <!-- Col 3: Contacto Dinámico -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title-modern">Contacto</h5>
+          <div class="dynamic-contact-list">
+            <div class="d-flex align-items-center mb-3">
+              <div class="contact-icon-small"><i class="bi-geo-alt"></i></div>
+              <span class="ms-2 small">Centro Cívico Zumen, Managua</span>
+            </div>
+            <div class="d-flex align-items-center mb-3 text-white">
+              <div class="contact-icon-small"><i class="bi-telephone"></i></div>
+              <a href="tel:22538888" class="ms-2 text-white text-decoration-none fw-bold">2253-8888</a>
+            </div>
+            <div class="d-flex align-items-center">
+              <div class="contact-icon-small"><i class="bi-envelope"></i></div>
+              <a href="mailto:info@tecnacional.edu.ni"
+                class="ms-2 text-white text-decoration-none small">info@tecnacional.edu.ni</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-title-modern">Newsletter</h5>
+          <p class="small mb-3" style="color: rgba(255,255,255,0.85);">Suscríbete para recibir noticias y
+            actualizaciones del Tecnológico Nacional.</p>
+          <div class="newsletter-compact">
+            <div class="input-group">
+              <input type="email" class="form-control newsletter-input-custom" placeholder="Tu email...">
+              <button class="btn btn-white-action" type="button"><i class="bi-send"></i></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .contact-icon-small {
+      width: 28px;
+      height: 28px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+    }
+
+    .newsletter-input-custom {
+      background: rgba(255, 255, 255, 0.15) !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      color: white !important;
+      border-radius: 10px 0 0 10px !important;
+    }
+
+    .newsletter-input-custom::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .btn-white-action {
+      background: white;
+      color: var(--footer-bg);
+      border-radius: 0 10px 10px 0 !important;
+      padding: 0 20px;
+    }
+
+    .btn-white-action:hover {
+      background: #f0f0f0;
+      color: var(--footer-bg);
+    }
+  </style>
+
+  <div class="footer-bottom-mini text-center">
+    <div class="container">
+      <span>© 2026 Tecnológico Nacional (INATEC). Todos los derechos reservados.</span>
+    </div>
+  </div>
+  <!-- Fin del Footer -->
+  <!-- Fin del Footer -->
+  <!-- ==========================================================
+       SCRIPTS JAVASCRIPT (al final del body para no bloquear el render)
+       Orden importante:
+         1. jQuery (requerido por Bootstrap y funciones propias)
+         2. functionLoader.js (loader de pagina)
+         3. buscador.js (logica del buscador de carreras)
+         4. bootstrap.bundle.min.js (componentes Bootstrap: modales, dropdowns)
+         5. aos.js (animaciones al hacer scroll)
+         6. swiper-bundle.min.js (carrusel de plataformas)
+         7. functionBase.js (funciones generales del sitio)
+  =========================================================== -->
+  <script src="static/core/js/jquery-3.6.0.min.js"></script>
+  <script src="static/core/js/functionLoader.js"></script>
+  <script src="static/core/js/buscador.js" defer></script>
+  <script src="static/core/js/bootstrap.bundle.min.js" defer></script>
+  <script src="static/core/js/aos.js" defer></script>
+  <script src="static/core/js/swiper-bundle.min.js" defer></script>
+  <script src="static/core/js/functionBase.js" defer></script>
+  <script>
+    $(document).ready(function () {
+      // ── Inicializacion de AOS (animaciones) con once: true para mejor performance ──
+      AOS.init({ easing: 'ease-in-out-sine', once: true, duration: 800 });
+      window.core_dispositivo = window.innerWidth > 680 ? 1 : 2;
+    });
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted || window.performance && window.performance.navigation.type === 2) {
+        ocultarLoader();
+      }
+    });
+  </script>
+  <!-- ── Configuracion del carrusel Swiper (seccion Plataformas Virtuales) ── -->
+  <script>
+    // Swiper configuración
+    $(document).ready(function () {
+      var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+        centeredSlides: false,
+        spaceBetween: 16,
+        loop: false,
+        speed: 700,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        breakpoints: {
+          425: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: 8,
+          },
+          768: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            spaceBetween: 12,
+          },
+          1024: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+            spaceBetween: 16,
+          },
+          1440: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+            spaceBetween: 16,
+          },
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        watchOverflow: true,
+        grabCursor: true,
+        grabCursor: true,
+        autoplay: false
+      });
+      setTimeout(function () {
+        if (swiper.navigation) swiper.navigation.update();
+      }, 100);
+    });
+
+  </script>
+  <!-- Google Translate: carga lazy después de que la página sea interactiva -->
+  <!-- ==========================================================
+       GOOGLE TRANSLATE (carga diferida)
+       Se carga despues del evento "load" para no bloquear la pagina
+  =========================================================== -->
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    window.addEventListener('load', function () {
+      var s = document.createElement('script');
+      s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      document.body.appendChild(s);
+    });
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'es', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+
+
+
+  <!-- Script para el buscador de carreras (Autocomplete y Navegación) -->
+  <script>
+    (function () {
+      // Función robusta para normalizar y limpiar texto (remover acentos y bajar a minúsculas)
+      const normalizeText = (str) => {
+        if (!str) return "";
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+      };
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const input = document.getElementById('career-search-input');
+        const suggestionsContainer = document.getElementById('career-suggestions');
+
+        if (!input || !suggestionsContainer) {
+          console.warn('Buscador de carreras: Elementos no encontrados.');
+          return;
+        }
+
+        // Datos de todas las carreras (versión optimizada y verificada)
+        const careersData = [
+          { "name": "Técnico General en Mecánica Automotriz", "sector_id": "6", "career_id": "19", "level": "Técnico General", "sector_name": "Automotriz" },
+          { "name": "Técnico Especialista en Administración de Flota Vehicular", "sector_id": "6", "career_id": "42", "level": "Técnico Especialista", "sector_name": "Automotriz" },
+          { "name": "Técnico General en Enderezado y Pintura", "sector_id": "6", "career_id": "40", "level": "Técnico General", "sector_name": "Automotriz" },
+          { "name": "Técnico General en Mecánica de Motocicleta", "sector_id": "6", "career_id": "77", "level": "Técnico General", "sector_name": "Automotriz" },
+          { "name": "Técnico General en Maestro de Obras", "sector_id": "18", "career_id": "28", "level": "Técnico General", "sector_name": "Construcción" },
+          { "name": "Técnico Especialista en Dibujo Arquitectónico", "sector_id": "18", "career_id": "29", "level": "Técnico Especialista", "sector_name": "Construcción" },
+          { "name": "Técnico General en Topografía", "sector_id": "18", "career_id": "24", "level": "Técnico General", "sector_name": "Construcción" },
+          { "name": "Técnico General en Construcción Civil", "sector_id": "18", "career_id": "27", "level": "Técnico General", "sector_name": "Construcción" },
+          { "name": "Bachillerato Técnico en Maestro de Obras", "sector_id": "18", "career_id": "69", "level": "Bachillerato Técnico", "sector_name": "Construcción" },
+          { "name": "Técnico General en Diseño y Elaboración de Productos de Cuero", "sector_id": "28", "career_id": "47", "level": "Técnico General", "sector_name": "Cuero y Calzado" },
+          { "name": "Técnico General en Instalaciones Eléctricas Automatizadas", "sector_id": "7", "career_id": "21", "level": "Técnico General", "sector_name": "Electricidad y Electrónica" },
+          { "name": "Técnico General en Electrónica", "sector_id": "7", "career_id": "35", "level": "Técnico General", "sector_name": "Electricidad y Electrónica" },
+          { "name": "Técnico General en Instalaciones de Telecomunicaciones", "sector_id": "7", "career_id": "23", "level": "Técnico General", "sector_name": "Electricidad y Electrónica" },
+          { "name": "Técnico General en Electricidad Industrial", "sector_id": "7", "career_id": "20", "level": "Técnico General", "sector_name": "Electricidad y Electrónica" },
+          { "name": "Bachillerato Técnico en Electricidad Industrial", "sector_id": "7", "career_id": "71", "level": "Bachillerato Técnico", "sector_name": "Electricidad y Electrónica" },
+          { "name": "Bachillerato Técnico en Electrónica", "sector_id": "7", "career_id": "68", "level": "Bachillerato Técnico", "sector_name": "Electricidad y Electrónica" },
+          { "name": "Técnico General en Instalación y Mantenimiento de Equipos Electrónicos Médicos", "sector_id": "7", "career_id": "22", "level": "Técnico General", "sector_name": "Electricidad y Electrónica" },
+          { "name": "Técnico General en Energías Renovables", "sector_id": "8", "career_id": "13", "level": "Técnico General", "sector_name": "Energías Renovables" },
+          { "name": "Técnico General en Fabricación de Productos de Madera", "sector_id": "21", "career_id": "38", "level": "Técnico General", "sector_name": "Madera Mueble" },
+          { "name": "Técnico Especialista en Supervisión de Procesos Industriales", "sector_id": "9", "career_id": "45", "level": "Técnico Especialista", "sector_name": "Metal mecánica" },
+          { "name": "Técnico General en Operación de Máquinas Herramientas", "sector_id": "9", "career_id": "37", "level": "Técnico General", "sector_name": "Metal mecánica" },
+          { "name": "Técnico Especialista en Higiene y Seguridad Industrial", "sector_id": "9", "career_id": "46", "level": "Técnico Especialista", "sector_name": "Metal mecánica" },
+          { "name": "Técnico General en Corte y Soldadura", "sector_id": "9", "career_id": "14", "level": "Técnico General", "sector_name": "Metal mecánica" },
+          { "name": "Técnico Especialista en Mantenimiento Industrial", "sector_id": "9", "career_id": "36", "level": "Técnico Especialista", "sector_name": "Metal mecánica" },
+          { "name": "Técnico General en Mecánica Naval", "sector_id": "20", "career_id": "57", "level": "Técnico General", "sector_name": "Pesca" },
+          { "name": "Técnico General en Pesca", "sector_id": "20", "career_id": "26", "level": "Técnico General", "sector_name": "Pesca" },
+          { "name": "Técnico Especialista en Análisis Químico Industrial", "sector_id": "27", "career_id": "73", "level": "Técnico Especialista", "sector_name": "Química" },
+          { "name": "Técnico General en Refrigeración y Aire Acondicionado Comercial", "sector_id": "19", "career_id": "39", "level": "Técnico General", "sector_name": "Refrigeración" },
+          { "name": "Técnico General en Diseño, Corte y Confección", "sector_id": "14", "career_id": "16", "level": "Técnico General", "sector_name": "Textil-Vestuario" },
+          { "name": "Técnico General en Entrenamiento de Deporte en Balón y Pelota", "sector_id": "4", "career_id": "75", "level": "Técnico General", "sector_name": "Actividades Físicas y Deportivas" },
+          { "name": "Técnico Especialista en Entrenamiento Físico y Deportivo", "sector_id": "4", "career_id": "4", "level": "Técnico Especialista", "sector_name": "Actividades Físicas y Deportivas" },
+          { "name": "Técnico General en Entrenamiento de Deporte en Combate", "sector_id": "4", "career_id": "72", "level": "Técnico General", "sector_name": "Actividades Físicas y Deportivas" },
+          { "name": "Técnico General en Asistente Ejecutivo", "sector_id": "3", "career_id": "5", "level": "Técnico General", "sector_name": "Administración" },
+          { "name": "Técnico Especialista en Marketing y Publicidad", "sector_id": "3", "career_id": "76", "level": "Técnico Especialista", "sector_name": "Administración" },
+          { "name": "Técnico General en Administración", "sector_id": "3", "career_id": "17", "level": "Técnico General", "sector_name": "Administración" },
+          { "name": "Bachillerato Técnico en Asistente Ejecutivo", "sector_id": "3", "career_id": "65", "level": "Bachillerato Técnico", "sector_name": "Administración" },
+          { "name": "Bachillerato Técnico en Administración", "sector_id": "3", "career_id": "62", "level": "Bachillerato Técnico", "sector_name": "Administración" },
+          { "name": "Técnico General en Gestión Aduanera", "sector_id": "3", "career_id": "49", "level": "Técnico General", "sector_name": "Administración" },
+          { "name": "Técnico General en Gestión de Recursos Humanos", "sector_id": "3", "career_id": "50", "level": "Técnico General", "sector_name": "Administración" },
+          { "name": "Técnico Especialista en Didáctica del Idioma Ingles", "sector_id": "10", "career_id": "59", "level": "Técnico Especialista", "sector_name": "Docencia" },
+          { "name": "Técnico Especialista en Docencia de Educación Técnica", "sector_id": "10", "career_id": "58", "level": "Técnico Especialista", "sector_name": "Docencia" },
+          { "name": "Técnico Especialista en Banca y Finanzas", "sector_id": "13", "career_id": "3", "level": "Técnico Especialista", "sector_name": "Finanzas" },
+          { "name": "Técnico General en Contabilidad", "sector_id": "13", "career_id": "18", "level": "Técnico General", "sector_name": "Finanzas" },
+          { "name": "Bachillerato Técnico en Contabilidad", "sector_id": "13", "career_id": "63", "level": "Bachillerato Técnico", "sector_name": "Finanzas" },
+          { "name": "Técnico Especialista en Atención al Cliente y Recepción Hotelera", "sector_id": "2", "career_id": "10", "level": "Técnico Especialista", "sector_name": "Hotelería y Turismo" },
+          { "name": "Técnico General en Cocina y Gastronomía", "sector_id": "2", "career_id": "6", "level": "Técnico General", "sector_name": "Hotelería y Turismo" },
+          { "name": "Bachillerato Técnico en Guía de Turista", "sector_id": "2", "career_id": "70", "level": "Bachillerato Técnico", "sector_name": "Hotelería y Turismo" },
+          { "name": "Técnico General en Pastelería y Panadería", "sector_id": "2", "career_id": "7", "level": "Técnico General", "sector_name": "Hotelería y Turismo" },
+          { "name": "Técnico Especialista en Dirección de Alimentos y Bebidas", "sector_id": "2", "career_id": "9", "level": "Técnico Especialista", "sector_name": "Hotelería y Turismo" },
+          { "name": "Técnico General en Servicio de Restaurante, Bar y Cafetería", "sector_id": "2", "career_id": "8", "level": "Técnico General", "sector_name": "Hotelería y Turismo" },
+          { "name": "Técnico Especialista en Hotelería Rural", "sector_id": "2", "career_id": "12", "level": "Técnico Especialista", "sector_name": "Hotelería y Turismo" },
+          { "name": "Técnico General en Administración de Empresas Turísticas", "sector_id": "2", "career_id": "78", "level": "Técnico General", "sector_name": "Hotelería y Turismo" },
+          { "name": "Técnico Especialista en Guía de Turista Nacional", "sector_id": "2", "career_id": "11", "level": "Técnico Especialista", "sector_name": "Hotelería y Turismo" },
+          { "name": "Técnico General en Gestión del Departamento de Habitaciones", "sector_id": "2", "career_id": "51", "level": "Técnico General", "sector_name": "Hotelería y Turismo" },
+          { "name": "Técnico Especialista en Guía de Turista por Espacios Naturales", "sector_id": "2", "career_id": "60", "level": "Técnico Especialista", "sector_name": "Hotelería y Turismo" },
+          { "name": "Bachillerato Técnico en Computación", "sector_id": "12", "career_id": "74", "level": "Bachillerato Técnico", "sector_name": "Informática" },
+          { "name": "Técnico Especialista en Seguridad Informática", "sector_id": "12", "career_id": "48", "level": "Técnico Especialista", "sector_name": "Informática" },
+          { "name": "Técnico Especialista en Programación", "sector_id": "12", "career_id": "2", "level": "Técnico Especialista", "sector_name": "Informática" },
+          { "name": "Técnico General en Computación", "sector_id": "12", "career_id": "1", "level": "Técnico General", "sector_name": "Informática" },
+          { "name": "Técnico Especialista en Tecnología Educativa", "sector_id": "12", "career_id": "79", "level": "Técnico Especialista", "sector_name": "Informática" },
+          { "name": "Técnico Especialista en Diseño Gráfico", "sector_id": "12", "career_id": "61", "level": "Técnico Especialista", "sector_name": "Informática" },
+          { "name": "Técnico General en Procesamiento de Granos, Frutas y Hortalizas", "sector_id": "5", "career_id": "82", "level": "Técnico General", "sector_name": "Agroindustria de los Alimentos" },
+          { "name": "Técnico General en Agroindustria del Café", "sector_id": "5", "career_id": "43", "level": "Técnico General", "sector_name": "Agroindustria de los Alimentos" },
+          { "name": "Técnico General en Procesamiento de Productos Lácteos", "sector_id": "5", "career_id": "80", "level": "Técnico General", "sector_name": "Agroindustria de los Alimentos" },
+          { "name": "Técnico General en Procesamiento Cárnicos, Pescados y Mariscos", "sector_id": "5", "career_id": "81", "level": "Técnico General", "sector_name": "Agroindustria de los Alimentos" },
+          { "name": "Técnico General en Transformación de Productos Apícolas", "sector_id": "5", "career_id": "52", "level": "Técnico General", "sector_name": "Agroindustria de los Alimentos" },
+          { "name": "Técnico General en Agroindustria de los Alimentos", "sector_id": "5", "career_id": "15", "level": "Técnico General", "sector_name": "Agroindustria de los Alimentos" },
+          { "name": "Técnico General Agrícola en Café", "sector_id": "15", "career_id": "67", "level": "Técnico General", "sector_name": "Agropecuaria" },
+          { "name": "Técnico General en Acuicultura", "sector_id": "15", "career_id": "53", "level": "Técnico General", "sector_name": "Agropecuaria" },
+          { "name": "Bachillerato Técnico Agropecuario", "sector_id": "15", "career_id": "64", "level": "Bachillerato Técnico", "sector_name": "Agropecuaria" },
+          { "name": "Técnico Especialista en Gestión de Fincas Ganaderas", "sector_id": "15", "career_id": "54", "level": "Técnico Especialista", "sector_name": "Agropecuaria" },
+          { "name": "Técnico General en Producción Apícola", "sector_id": "15", "career_id": "55", "level": "Técnico General", "sector_name": "Agropecuaria" },
+          { "name": "Técnico General Agropecuario", "sector_id": "15", "career_id": "30", "level": "Técnico General", "sector_name": "Agropecuaria" },
+          { "name": "Técnico General en Agronomía", "sector_id": "15", "career_id": "32", "level": "Técnico General", "sector_name": "Agropecuaria" },
+          { "name": "Técnico General en Riego Agrícola", "sector_id": "15", "career_id": "56", "level": "Técnico General", "sector_name": "Agropecuaria" },
+          { "name": "Técnico General en Zootecnia", "sector_id": "15", "career_id": "33", "level": "Técnico General", "sector_name": "Agropecuaria" },
+          { "name": "Técnico Especialista Forestal", "sector_id": "17", "career_id": "34", "level": "Técnico Especialista", "sector_name": "Forestal" },
+          { "name": "Técnico General en Veterinaria", "sector_id": "16", "career_id": "31", "level": "Técnico General", "sector_name": "Veterinaria" }
+        ];
+
+        // Función principal de búsqueda
+        const performSearch = () => {
+          const query = normalizeText(input.value);
+
+          if (query.length < 1) { // Reducido a 1 para mayor sensibilidad
+            suggestionsContainer.style.display = 'none';
+            return;
+          }
+
+          const matches = careersData.filter(career =>
+            normalizeText(career.name).includes(query) ||
+            normalizeText(career.sector_name).includes(query)
+          ).slice(0, 10);
+
+          if (matches.length > 0) {
+            renderMatches(matches);
+            suggestionsContainer.style.display = 'block';
+            suggestionsContainer.style.opacity = '1';
+            suggestionsContainer.style.visibility = 'visible';
+          } else {
+            suggestionsContainer.style.display = 'none';
+          }
+        };
+
+        const renderMatches = (matches) => {
+          suggestionsContainer.innerHTML = '';
+          matches.forEach(career => {
+            const item = document.createElement('div');
+            item.className = 'suggestion-item';
+            item.style.borderBottom = '1px solid #eee';
+            item.innerHTML = `
+              <div style="font-weight: 700; color: #1e293b; font-size: 0.95rem;">${career.name}</div>
+              <div style="font-size: 0.75rem; color: #64748b; font-weight: 500;">${career.level} | ${career.sector_name}</div>
+            `;
+
+            item.addEventListener('click', function () {
+              window.location.href = `carreras/${career.sector_id}-${career.career_id}.html`;
+            });
+
+            suggestionsContainer.appendChild(item);
+          });
+        };
+
+        // Eventos
+        input.addEventListener('input', performSearch);
+        input.addEventListener('focus', function () { if (this.value.length >= 1) performSearch(); });
+        input.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            handleGlobalSearch();
+          }
+        });
+
+        // Cerrar al hacer clic fuera
+        document.addEventListener('click', function (e) {
+          if (!input.contains(e.target) && !suggestionsContainer.contains(e.target)) {
+            suggestionsContainer.style.display = 'none';
+          }
+        });
+
+        // Definir handleSearch global para el botón
+        window.handleGlobalSearch = function () {
+          const query = normalizeText(input.value);
+          if (query) {
+            const match = careersData.find(c => normalizeText(c.name).includes(query));
+            if (match) {
+              window.location.href = `carreras/${match.sector_id}-${match.career_id}.html`;
+            } else {
+              window.location.href = 'pages/carreras-educacion-tecnica.html';
+            }
+          }
+        };
+
+        // Re-asignar el onclick del botón por si acaso
+        const searchBtn = document.querySelector('.oferta-search-btn');
+        if (searchBtn) {
+          searchBtn.onclick = window.handleGlobalSearch;
+        }
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
