@@ -1,0 +1,1392 @@
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/png" href="../static//favicon.ico"/>
+  <!--<title>  Tecnológico Nacional </title>-->
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  <!-- Bootstrap -->
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+  <link href="../static/css/calendar.min.css" rel="stylesheet">
+  <link href="../static/css/calendar-extra.css" rel="stylesheet">
+  <link href="../static/css/s-chat-support.css" rel="stylesheet">
+  <link href="../static/css/custom.min.css" rel="stylesheet">
+  <link href="../static/css/bolsa.min.css" rel="stylesheet">
+  <link href="../static/css/social.min.css" rel="stylesheet">
+  <link href="../static/css/galerias.min.css" rel="stylesheet">
+  <link href="../static/css/responsive.min.css" rel="stylesheet">
+     <style>
+        @media only screen and (max-width: 768px) {
+            /* For mobile phones: */
+            .logo_cd {
+                  width: 50% !important;
+                  float: none!important;
+              }
+          }
+     </style>
+  
+  
+  
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '251606296640644');
+fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=251606296640644&ev=PageView&noscript=1" />
+</noscript>
+<!-- End Facebook Pixel Code -->
+
+<script>
+  (function(d){
+  var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+  js = d.createElement('script'); js.id = id; js.async = true;
+  js.src = "https://connect.facebook.net/es_LA/all.js";
+  d.getElementsByTagName('head')[0].appendChild(js);
+}(document));
+</script>
+
+<!--  -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6EK9GZJS0N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6EK9GZJS0N');
+</script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+
+
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- INICIO HEADER -->
+
+<div class="container-fluid">
+    <div class="row header">
+      <div class="container">
+        <div class="col-xs-8 col-sm-4 col-md-4">
+                <a href="../index.html"><img src="../static/img/Logo-Gobierno.png" class="img-responsive pull-left" alt="Logo Gobierno"></a><br />
+        </div>
+        <div class="col-xs-4 col-sm-3 col-md-4"><a href="../index.html"><img src="../static/img/logo-inatec.png" class="img-responsive logo-inatec" style="max-width: 100% !important;width: auto !important" alt="Logo inatec" /></a></div>
+        <div class="hidden-xs col-xs-6 col-sm-5 col-md-4 col-lg-4">
+                <div class="col-xs-8 col-sm-5 col-md-6 redes_main pull-right">
+                    <div class="ico"><a href="https://www.facebook.com/TecNacional" target="_blank"><img src="../static/img/f_social.png" alt="Facebook" class="img-responsive"></a></div>
+                    <div class="ico"><a href="https://twitter.com/TecNacional" target="_blank"><img src="../static/img/t_social.png" alt="Twitter" class="img-responsive"></a></div>
+                    <div class="ico"><a href="https://www.instagram.com/tecnacional/?hl=es" target="_blank"><img src="../static/img/i_social.png" alt="Facebook" class="img-responsive"></a></div>
+                     <div class="ico"><a href="https://www.youtube.com/user/TecnologicoNacional" target="_blank"><img src="../static/img/y_social.png" alt="Youtube" class="img-responsive"></a></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-sm-11 col-md-9 pull-right hidden-xs search-head">
+				    <script>
+                        (function() {
+                            var cx = '005445765376423713591:nwmwu2w0oic';
+                            var gcse = document.createElement('script');
+                            gcse.type = 'text/javascript';
+                            gcse.async = true;
+                            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                            var s = document.getElementsByTagName('script')[0];
+                            s.parentNode.insertBefore(gcse, s);
+                        })();
+                    </script>
+                    <gcse:searchbox-only  resultsUrl="/busqueda/"></gcse:searchbox-only>
+                </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- MENU -->
+<div class="blog-masthead">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a class="navbar-brand" href="#">Project name</a>-->
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                    
+
+<ul class="nav navbar-nav">
+    <li class=""><a href="../index.html">INICIO</a></li>
+    <li class=" dropdown">
+        <a href="" class="dropdown-toggle" data-toggle="dropdown">
+          ESTRATEGIA DE EDUCACIÓN
+          <span class="caret" id="dropdownEstrategia"></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownEstrategia">
+        <li><a href="/estrategia_educacion_nacional/">Documento Estrategia</a></li>
+        <li><a href="/estrategia_educacion/">Acerca de la Estrategia</a></li>
+        </ul>
+    </li>
+    <li class=" dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" id="dropdownRecursos">MAPAS INTERACTIVOS <span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownRecursos">
+        <li><a href="https://mapa.tecnacional.edu.ni/" target="_blank">Educación Técnica</a></li>
+        <li><a href="https://escuelasdeoficio.gob.ni/" target="_blank">Escuelas de Oficio</a></li>
+        </ul>
+    </li>
+    <li class=""><a href="/acerca/">NOSOTROS</a></li>
+    <li class=" dropdown"><a href="/ofertas/" class="dropdown-toggle" data-toggle="dropdown" id="dropdownOferta">OFERTA ACADÉMICA <span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownOferta">
+        
+            
+              <li><a href="/educacion-tecnica/">Carreras de Educación Técnica</a></li>
+            
+        
+            
+        
+            
+              <li><a href="../pages/programas.html">Cursos y Estrategias de Capacitación</a></li>
+            
+        
+            
+              <li><a href="../pages/experiencia-laboral.html">Reconocimiento de la Experiencia Laboral</a></li>
+            
+        
+        </ul>
+    </li>
+    <li class=" dropdown">
+        <a href="" class="dropdown-toggle" data-toggle="dropdown">
+          CENTROS
+          <span class="caret" id="dropdownCentros"></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownCentros">
+        <li><a href="../pages/centros-tecnologicos.html">Centros Tecnológicos</a></li>
+        <li><a href="/centros-acreditados/">Centros Acreditados</a></li>
+        </ul>
+    </li>
+    <!--<li class=""><a href="../pages/empresas.html">EMPRESAS</a></li>!-->
+     <li class=" dropdown">
+        <a href="" class="dropdown-toggle" data-toggle="dropdown">
+          EMPRESAS
+          <span class="caret" id="dropdownEmpresas"></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownEmpresas">
+          <li><a href="../pages/empresas.html">Información</a></li>
+          <li class=""><a href="/foroempresas">Foro Nacional Transformación Evolutiva ET FP</a></li>
+        </ul>
+     </li>
+    <li class=""><a href="https://campus.tecnacional.edu.ni/" target="_blank"> CAMPUS VIRTUAL</a></li>
+    <!-- <li class=""><a href="../static/img/servidor.png" target="_blank"> CAMPUS VIRTUAL</a></li> -->
+    <!--<li class=""><a href="../pages/calidad.html">CALIDAD</a></li>-->
+    <li class=""><a href="https://serviciosenlinea.tecnacional.edu.ni/" class="azul" target="_blank" onmouseover="this.style.background='#14578B';" >SERVICIOS EN LÍNEA</a></li>
+    <!--<li class=""><a href="../pages/adquisiciones.html">ADQUISICIONES</a></li>-->
+    <li class=" dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" id="dropdownRecursos">RECURSOS <span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownRecursos">
+        <li><a href="../pages/noticias.html">Noticias</a></li>
+        <li><a href="../pages/eventos.html">Eventos</a></li>
+        <li><a href="../pages/videos.html">Videos</a></li>
+        <li><a href="../pages/galeria.html">Galería</a></li>
+        <li><a href="../pages/boletines.html">Boletín</a></li>
+        <li><a href="../pages/calidad.html">CALIDAD</a></li>
+        <li><a href="/investigacion/">INVESTIGACIÓN</a></li>
+        <li><a href="../pages/adquisiciones.html">ADQUISICIONES</a></li>
+        <li><a href="/documentos/">BIBLIOTECA VIRTUAL</a></li>
+        <li><a href="/bolsa/">BOLSA DE TRABAJO</a></li>
+        <li class=""><a href="/congresodedocentes">CONGRESO DOCENTES</a></li>
+        <!--<li><a href="/congreso_docente/">CONGRESO DE DOCENTES</a></li>-->
+        <li><a href="https://mail.inatec.edu.ni/webmail/src/login.php" target="_blank">Correo Institucional</a></li>
+        </ul>
+    </li>
+</ul>
+
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- FIN MENU -->
+
+<!-- FIN HEADER -->
+
+    
+
+
+
+    
+    
+
+
+    <div class="seccion-title">
+        <img class="img-responsive" src="../static/img/SLIDER.png" alt="Centros Tecnologicos" width="100%" />
+        <div class="carousel-caption carousel-header">CENTROS TECNOLÓGICOS</div>
+    </div>
+
+<div class="container-fluid bg-interna">
+  <div class="row">
+    <div class="container interna">
+      
+<div class="col-md-9">
+<ul class="breadcrumb">
+    
+        <li>
+            
+                <a href="../index.html">Inicio</a>
+            
+            
+                <span class="divider">/</span>
+            
+        </li>
+    
+        <li>
+            
+                <a href="/centros/">Centros</a>
+            
+            
+                <span class="divider">/</span>
+            
+        </li>
+    
+        <li>
+            
+                Centros Tecnológicos
+            
+            
+        </li>
+    
+</ul>
+
+
+    <h1></h1>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Portada_web_Urtecho_Mesa_de_trabajo_1.jpg.245x160_q85_crop-center.jpg" alt="Centro Cultural y Politécnico José Coronel Urtecho ¡No Volverá el Pasado!, Managua" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-cultural-politecnico-jose-coronel-urtecho-no-volvera-el-pasado-managua/" target="_blank">Centro Cultural y Politécnico José Coronel Urtecho ¡No Volverá el Pasado!, Managua</a></h4>
+                <p>El Centro Cultural y Polit&eacute;cnico Jos&eacute; Coronel Urtecho &iexcl;No volver&aacute; el pasado!,&nbsp;aporta&nbsp;al desarrollo de conocimientos, habilidades, destrezas y al florecimiento del arte y la cultura.&nbsp; Cuenta con una oferta de mas de 210 cursos de capacitaci&oacute;n y&nbsp;carreras t&eacute;cnicas en los ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_de_Capacitacion_Comandante_Carlos-15.jpg.900x450_q85_crop-top.jpg.245x160_q85_crop-center.jpg" alt="Centro de Capacitación Comandante Carlos" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-de-capacitacion-comandante-carlos/" target="_blank">Centro de Capacitación Comandante Carlos</a></h4>
+                <p>Se ha establecido el Centro&nbsp;de Capacitaci&oacute;n &quot;Comandante Carlos&quot; con el prop&oacute;sito de fomentar una cultura de superaci&oacute;n de barreras sociales y culturales frente a diversas discapacidades. Este centro, ubicado en Managua, servir&aacute; como referencia para la formaci&oacute;n especializada de servidores ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/centro-francisco-sambola-01.jpg.245x160_q85_crop-center.jpg" alt="Centro de Desarrollo Humano con Identidad “Francisco Sambola” en Wawashang, Laguna de Perlas" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-de-desarrollo-humano-con-identidad-francisco-sambola-en-wawashang-laguna-de-perlas/" target="_blank">Centro de Desarrollo Humano con Identidad “Francisco Sambola” en Wawashang, Laguna de Perlas</a></h4>
+                <p>El 27 de septiembre de 2024 se inaugur&oacute; el Centro de Desarrollo Humano con Identidad &ldquo;Francisco Sambola&rdquo;&nbsp;en&nbsp;Wawashang, Laguna de Perlas, con aulas y ambientes destinados a la formaci&oacute;n de j&oacute;venes y adultos en cursos agropecuarios.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/nuevo-centro-nieves-cajina-managua-inatec-creatividad61_qZeADg1.jpg.245x160_q85_crop-center.jpg" alt="Centro Nacional de Desarrollo del Talento Creativo Nieves Cajina" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-nacional-de-desarrollo-del-talento-creativo-nieves-cajina/" target="_blank">Centro Nacional de Desarrollo del Talento Creativo Nieves Cajina</a></h4>
+                <p>Es un Centro de Desarrollo de Talentos y Creatividad a nivel especializado con el prop&oacute;sito de desarrollar en las familias nicarag&uuml;enses el talento natural para la prosperidad. Atendemos a protagonistas, j&oacute;venes y adultos creativos con experiencia y conocimiento vinculados a: ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Alcides_Miranda_Fitoria_Boaco.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Alcides Miranda Fitoria, Boaco" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-alcides-miranda-fitoria/" target="_blank">Centro Tecnológico Alcides Miranda Fitoria, Boaco</a></h4>
+                <p>Ubicado en la ciudad de dos pisos, Boaco, dispone de dos edificios, aulas te&oacute;ricas, laboratorios de computaci&oacute;n, talleres para la realizaci&oacute;n de pr&aacute;cticas, zonas con acceso a internet, modalidad de internado para albergar a estudiantes de zonas alejadas.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_de_la_Isla_de_Ometepe.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico “Álvaro Diroy Méndez”, Isla de Ometepe" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-isla-ometepe/" target="_blank">Centro Tecnológico “Álvaro Diroy Méndez”, Isla de Ometepe</a></h4>
+                <p>Ofertamos las carreras T&eacute;cnico General en Contabilidad y T&eacute;cnico General en Administraci&oacute;n, ambas del Sector Comercio y Servicio. Nuestra infraestructura est&aacute; compuesta por aulas did&aacute;cticas,&nbsp;laboratorio de computaci&oacute;n, Auditorio, taller de soldadura para protagonistas de cursos libres y modulares.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/centro-tecnologico-aquiles-machado.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Aquiles Machado, San Miguelito" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-aquiles-machado-san-miguelito/" target="_blank">Centro Tecnológico Aquiles Machado, San Miguelito</a></h4>
+                <p>Ubicado en el&nbsp;municipio de San Miguelito, R&iacute;o San Juan, atender&aacute;&nbsp;oferta formativa de 7&nbsp;cursos&nbsp;de:&nbsp;habilitaci&oacute;n,&nbsp;complementaci&oacute;n&nbsp;y&nbsp;especializaci&oacute;n en el&nbsp;sector&nbsp;agropecuario, con los rubros de: Cultivo&nbsp;de Ra&iacute;ces,&nbsp;Tub&eacute;rculos, Mus&aacute;ceas.&nbsp;Proyecta la atenci&oacute;n este a&ntilde;o de 600 protagonistas.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Portada_Web_Ariel_Darce_Mesa_de_trabajo_1.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Ariel Darce, Managua" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-ariel-darce-managua/" target="_blank">Centro Tecnológico Ariel Darce, Managua</a></h4>
+                <p>Atendemos carreras del sector comercio y servicio en los niveles de bachillerato t&eacute;cnico, t&eacute;cnico general y t&eacute;cnico especialista, en los turnos matutino, vespertino, sabatino y dominical. &nbsp; &nbsp;</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Arlen_Siu_El_Sauce.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Arlen Siu, El Sauce" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-arlen-siu/" target="_blank">Centro Tecnológico Arlen Siu, El Sauce</a></h4>
+                <p>Estamos ubicados en el departamento de Le&oacute;n, municipio El Sauce, una zona meramente agropecuaria, atendemos especialidades&nbsp;en este importante sector para nuestro pa&iacute;s, los estudiantes cuentan con internado completamente gratis, adem&aacute;s de su alimentaci&oacute;n y recreaci&oacute;n, brindando una formaci&oacute;n integral.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Bernardino_D%C3%ADaz_Ochoa_Siuna.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Bernardino Díaz Ochoa, Siuna" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-bernardino-diaz-ochoa/" target="_blank">Centro Tecnológico Bernardino Díaz Ochoa, Siuna</a></h4>
+                <p>Garantiza una Capacitaci&oacute;n y Educaci&oacute;n T&eacute;cnica y&nbsp;Tecnol&oacute;gica ajustada a la demanda del sector productivo agropecuario en el Tri&aacute;ngulo Minero y sus comunidades, en la actualidad brindamos&nbsp;carreras de sector Agropecuario, Comercio y Servicio.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Bidkar_Mu%C3%B1oz_Granada.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Bidkart Muñoz, Granada" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-bidkar-munoz/" target="_blank">Centro Tecnológico Bidkart Muñoz, Granada</a></h4>
+                <p>Ofertamos carreras t&eacute;cnicas y cursos de capacitaci&oacute;n del sector Comercio y Servicio. Contamos con personal altamente capacitado para brindar un aprendizaje de calidad. As&iacute; mismo, disponemos de &aacute;reas did&aacute;cticas para la formaci&oacute;n y desarrollo de las/os estudiantes:&nbsp;&nbsp;Aulas te&oacute;ricas equipadas, Laboratorios ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/centro-tecnologico-blanca-segovia.png.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Blanca Segovia, San Rafael del Norte" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-blanca-segovia-san-rafael-del-norte/" target="_blank">Centro Tecnológico Blanca Segovia, San Rafael del Norte</a></h4>
+                <p>El Gobierno de Reconciliaci&oacute;n y Unidad Nacional, a trav&eacute;s del Tecnol&oacute;gico Nacional (INATEC), est&aacute; inaugurando el Centro Tecnol&oacute;gico Blanca Segovia, que est&aacute; ubicado en la comarca Sabana Grande, municipio de San Rafael del Norte, a 23.6 kil&oacute;metros de la cabecera ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Carlos_Manuel_Vanegas_Olivas_Chinandega.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Carlos Manuel Vanegas Olivas, Chinandega" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-carlos-manuel-vanegas/" target="_blank">Centro Tecnológico Carlos Manuel Vanegas Olivas, Chinandega</a></h4>
+                <p>Somos un centro agropecuario que ofrece internado y educaci&oacute;n t&eacute;cnica en las modalidades diurna y sabatina. Adem&aacute;s, desarrollamos estrategias como Escuelas de Campo, Escuelas de Oficio, Cursos Libres, Usura Cero y programas de Certificaci&oacute;n para emp&iacute;ricos.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Che_Guevara_Somoto.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Che Guevara, Somoto" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-che-guevara/" target="_blank">Centro Tecnológico Che Guevara, Somoto</a></h4>
+                <p>La oferta actual de la que disponemos de carreras t&eacute;cnicas profesionales del sector comercio y servicio. Para comodidades de nuestros estudiantes contamos con 4 modernos laboratorios de computaci&oacute;n y cocina did&aacute;ctica.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Cmdte._Camilo_Ortega_Saavedra_Masaya.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Cmdte. Camilo Ortega Saavedra, Masaya" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/tecnologico-cmdte-camilo-ortega-saavedra/" target="_blank">Centro Tecnológico Cmdte. Camilo Ortega Saavedra, Masaya</a></h4>
+                <p>Disponemos de una oferta formativa en los&nbsp;sectores Industria y Construcci&oacute;n, Comercio y Servicio. atendemos en&nbsp;los turnos matutino, vespertino, nocturno y sabatino. Contamos con modernos talleres did&aacute;cticos para las clases pr&aacute;cticas de los protagonistas.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Cmdte.__Hugo_Ch%C3%A1vez_Fr%C3%ADas_Managua.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Cmdte.  Hugo Chávez Frías, Managua" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-cmdte-hugo-chavez-frias/" target="_blank">Centro Tecnológico Cmdte.  Hugo Chávez Frías, Managua</a></h4>
+                <p>Somos un centro t&eacute;cnico de calidad, accesible, eficaz e innovador que contribuye al desarrollo de las personas y al progreso del pa&iacute;s, ofrecemos carreras t&eacute;cnicas del sector industria y construcci&oacute;n, comercio y servicio en los turnos: matutinos, vespertino, sabatino y ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Cmte._Germ%C3%A1n_Pomares_Ordo%C3%B1ez_Juigalpa.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Cmte. Germán Pomares Ordóñez, Juigalpa" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-german-pomares-ordonez/" target="_blank">Centro Tecnológico Cmte. Germán Pomares Ordóñez, Juigalpa</a></h4>
+                <p>Con m&aacute;s de 55 a&ntilde;os de experiencia en la formaci&oacute;n de t&eacute;cnicos profesionales en los sectores agropecuario y forestal, preparamos a especialistas que contribuyen al desarrollo socio-productivo del pa&iacute;s.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Naciones_Unidas_San_Isidro.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Comandante Tomás Borge Martínez, San Isidro" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-comandante-tomas-borge-martinez/" target="_blank">Centro Tecnológico Comandante Tomás Borge Martínez, San Isidro</a></h4>
+                <p>Instalado en una zona productiva, a 114.5 kil&oacute;metros de la capital, carretera Panamericana hacia Estel&iacute;, atiende carreras y cursos de capacitaci&oacute;n tecnol&oacute;gica, en los sectores productivos de Agropecuario y Forestal, Industria y Construcci&oacute;n y Comercio y Servicio.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_de_Somoto.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico “Coronel Santos López”, Somoto" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-somoto/" target="_blank">Centro Tecnológico “Coronel Santos López”, Somoto</a></h4>
+                <p>Nuestro centro cuenta con un laboratorio de computaci&oacute;n con programas instalados como AutoCAD Civil-cad y SketchUp, esto para fortalecer las capacidades de los estudiantes de las carreras T&eacute;cnico General en Construcci&oacute;n Civil y Topograf&iacute;a, as&iacute; como T&eacute;cnico Especialista en Dibujo ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/centro-tecnologico-datanli-01.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Datanlí, Jinotega" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-datanli-jinotega/" target="_blank">Centro Tecnológico Datanlí, Jinotega</a></h4>
+                <p>Con enfoque en el fortalecimiento de capacidades t&eacute;cnicas en la producci&oacute;n agropecuaria y tur&iacute;stica. Proyecta atender este a&ntilde;o a 1,200 j&oacute;venes y adultos. Estar&aacute; ubicado en Jinotega.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_de_Acahualinca_Managua_crU9rkV.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico de Acahualinca, Managua" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-industrial-acahualinca/" target="_blank">Centro Tecnológico de Acahualinca, Managua</a></h4>
+                <p>Es un centro t&eacute;cnico que imparte carreras t&eacute;cnicas del sector industrial, as&iacute; como cursos del sector Comercio y Servicio. Atiende las estrategias: Escuela de oficio y Escuela T&eacute;cnica de Campo. Ofrece las modalidades: matutino, vespertino, sabatino y dominical.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_de_Hoteler%C3%ADa_y_Turismo_Managua.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico de Hotelería y Turismo “Amanda Aguilar”, Managua" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-nacional-hoteleria-y-turismo/" target="_blank">Centro Tecnológico de Hotelería y Turismo “Amanda Aguilar”, Managua</a></h4>
+                <p>Nos especializamos en formar a los futuros profesionales del sector tur&iacute;stico y hotelero; ofrecemos siete especialidades en los turnos:&nbsp;matutino y vespertino donde formamos estudiantes l&iacute;deres, creativos, quienes desarrollan cualidades, destrezas y conocimientos que le permitir&aacute;n desempe&ntilde;arse en el sector p&uacute;blico ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/centro-tecnologico-hermana-paquita.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico de Hotelería y Turismo “Hermana Paquita”" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-hoteleria-turismo-hermana-paquita/" target="_blank">Centro Tecnológico de Hotelería y Turismo “Hermana Paquita”</a></h4>
+                <p>El nuevo&nbsp;Centro Tecnol&oacute;gico de Hoteler&iacute;a y Turismo &ldquo;Hermana Paquita&rdquo;, ubicado en el barrio&nbsp;Lomas de San Judas, Distrito III de&nbsp;Managua,&nbsp;rinde homenaje a Francisca Alcocer, destacada educadora y misionera que promovi&oacute; la formaci&oacute;n t&eacute;cnica comunitaria en zonas vulnerables, con una pedagog&iacute;a centrada ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/centro-tecnologico-nelly-flor-depino.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico de Hotelería y Turismo &quot;Nelly Flor de Pino&quot;" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-de-hoteleria-y-turismo-nelly-flor-de-pino/" target="_blank">Centro Tecnológico de Hotelería y Turismo &quot;Nelly Flor de Pino&quot;</a></h4>
+                <p>El Centro Tecnol&oacute;gico de Hoteler&iacute;a y Turismo &ldquo;Nelly, Flor de Pino&rdquo;, ubicado en Reparto Las Palmas, Managua, cuenta con ambientes did&aacute;cticos para cursos y carreras especializadas en gastronom&iacute;a nicarag&uuml;ense, as&iacute; como pasteler&iacute;a, panader&iacute;a, y barismo.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/523078304_122118131240925820_529770411863698333_n.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico de Idiomas “Blas Abraham Real Espinales”" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-de-idiomas-blas-abraham-real-espinales/" target="_blank">Centro Tecnológico de Idiomas “Blas Abraham Real Espinales”</a></h4>
+                <p>En un ambiente festivo, amenizado con bailes&nbsp;y la realizaci&oacute;n de juegos tradicionales el pueblo de Chinandega celebr&oacute; en 2025 el&nbsp;D&iacute;a Nacional de la Alegr&iacute;a&nbsp;con la inauguraci&oacute;n del&nbsp;Centro Tecnol&oacute;gico de Idiomas &ldquo;Blas Abraham Real Espinales&rdquo;.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_de_Idiomas_Managua2.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico de Idiomas &quot;Héroes y Mártires de Batahola&quot;, Managua" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-idiomas/" target="_blank">Centro Tecnológico de Idiomas &quot;Héroes y Mártires de Batahola&quot;, Managua</a></h4>
+                <p>Atendemos acciones formativas de educaci&oacute;n y capacitaci&oacute;n t&eacute;cnica de los idiomas ingl&eacute;s, franc&eacute;s y chino-mandar&iacute;n, en la formaci&oacute;n presencial y virtual. Ofrecemos horarios de atenci&oacute;n matutino, vespertino, nocturno y fines de semana. &nbsp;</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_de_Jalapa.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico de Jalapa" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-jalapa/" target="_blank">Centro Tecnológico de Jalapa</a></h4>
+                <p>Somos un centro de educaci&oacute;n t&eacute;cnica profesional donde ofrecemos arreras del Sector Comercio y Servicio, Agropecuario y Forestal. Los estudiantes cuentan con internado, finca did&aacute;ctica agroecol&oacute;gica para las clases pr&aacute;cticas, establos, porquerizas, galp&oacute;n para aves, laboratorios de inseminaci&oacute;n porcina, laboratorio ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_de_Ocotal_UWKtuTH.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico de Ocotal" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-ocotal/" target="_blank">Centro Tecnológico de Ocotal</a></h4>
+                <p>Dispone de talleres y aulas equipadas para el aprendizaje de calidad de los estudiantes de las carreras t&eacute;cnicas del Sector Industria y Construcci&oacute;n. En el a&ntilde;o 2017 se inaugur&oacute; en nuestro centro la Escuela Nacional de caf&eacute;, referente de la ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Ernst_Thalmann_Jinotepe.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Ernst Thalmann, Jinotepe" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-ernst-thalmann/" target="_blank">Centro Tecnológico Ernst Thalmann, Jinotepe</a></h4>
+                <p>Tenemos una amplia oferta acad&eacute;mica, para la formaci&oacute;n de j&oacute;venes y adultos que deseen un mejor futuro, de los sectores Comercio y Servicio, as&iacute; como Industria y Construcci&oacute;n.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/ctbocana-paiwas.jpeg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Evaristo Vásquez Sánchez “El Chino Santos”, Bocana de Paiwas" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-evaristo-vasquez-sanchez-el-chino-santos-bocana-de-paiwas/" target="_blank">Centro Tecnológico Evaristo Vásquez Sánchez “El Chino Santos”, Bocana de Paiwas</a></h4>
+                <p>Este centro tiene&nbsp;la capacidad de atender a m&aacute;s de 2 mil j&oacute;venes y adultos. La inversi&oacute;n en instalaciones, equipamiento y mobiliario asciende a&nbsp; m&aacute;s de 13 millones de c&oacute;rdobas. Este nuevo centro t&eacute;cnico ofrece&nbsp;los siguientes cursos: Sistemas Operativos y Ofim&aacute;tica, ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Francisco_Rivera_Quintero_El_Zorro_Esteli.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Francisco Rivera Quintero &quot;El Zorro&quot;, Estelí" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-francisco-rivera-quintero/" target="_blank">Centro Tecnológico Francisco Rivera Quintero &quot;El Zorro&quot;, Estelí</a></h4>
+                <p>Ubicado a 148 kil&oacute;metros al norte de la capital, tiene una amplia cobertura en las comunidades del &aacute;rea rural y urbana, brindando un servicio de educaci&oacute;n y capacitaci&oacute;n t&eacute;cnica y tecnol&oacute;gica, gratuita y de calidad, en los sectores de Industria ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Gaspar_Garc%C3%ADa_Laviana_Rivas.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Gaspar García Laviana, Rivas" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/tecnologico-gaspar-garcia-laviana/" target="_blank">Centro Tecnológico Gaspar García Laviana, Rivas</a></h4>
+                <p>Disponemos con carreras t&eacute;cnicas profesionales de los sectores Comercio y Servicio, Industria y Construcci&oacute;n. Como parte de ampliar nuestra cobertura en educaci&oacute;n t&eacute;cnica gratuita y de calidad, contamos con una sub sede en el municipio de San Juan del Sur.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Gral._Augusto_Nicol%C3%A1s_Calder%C3%B3n_Sandino_Nueva_Guinea.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Gral. Augusto Nicolás Calderón Sandino, Nueva Guinea" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-augusto-nicolas-calderon-sandino/" target="_blank">Centro Tecnológico Gral. Augusto Nicolás Calderón Sandino, Nueva Guinea</a></h4>
+                <p>Este centro t&eacute;cnico dispone de una finca did&aacute;ctica de 49.29 manzanas, para garantizar las clases pr&aacute;cticas de los estudiantes que se forman como futuros profesionales t&eacute;cnicos del sector agropecuario.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Gral._Jos%C3%A9_Dolores_Estrada_Nandaime.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Gral. José Dolores Estrada, Nandaime" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-jose-dolores-estrada/" target="_blank">Centro Tecnológico Gral. José Dolores Estrada, Nandaime</a></h4>
+                <p>Somos un centro agropecuario, ofertamos carreras t&eacute;cnicas y cursos de capacitaci&oacute;n, contamos con espacios did&aacute;cticos para el desarrollo de habilidades de los estudiantes como finca de 30 manzanas de tierra productiva y forestal-ecol&oacute;gica, granja porcina, av&iacute;cola y establecimiento ovino, tenemos ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_de_Granada.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Gral. Miguel Ángel Ortez, Granada" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-granada/" target="_blank">Centro Tecnológico Gral. Miguel Ángel Ortez, Granada</a></h4>
+                <p>Somos un centro de formaci&oacute;n t&eacute;cnica profesional del sector Comercio y Servicio contamos con ambientes didacticos completamente equipados para el desarrollo integral de nuestros estudiantes t&eacute;cnicos.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/WhatsApp_Image_2023-07-11_at_1.42.08_PM.jpeg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Héroes de Bawas, Boaco" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-heroes-de-bawas-boaco/" target="_blank">Centro Tecnológico Héroes de Bawas, Boaco</a></h4>
+                <p>Este Centro Tecnol&oacute;gico cuenta con espacios de aprendizajes para la&nbsp;agro industrializaci&oacute;n, aulas te&oacute;ricas y laboratorios de computaci&oacute;n.&nbsp; Brindando Capacitaci&oacute;n y Educaci&oacute;n T&eacute;cnica, Gratuita y de Calidad.&nbsp;</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/centro_de_asturias.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Héroes y Mártires de Asturias, Jinotega" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-heroes-y-martires-de-asturias-jinotega/" target="_blank">Centro Tecnológico Héroes y Mártires de Asturias, Jinotega</a></h4>
+                <p>El nuevo Centro Tecnol&oacute;gico de Asturias es el n&uacute;mero 46 donde se form&aacute;n de manera gratuita y con calidad los futuros t&eacute;cnicos profesionales del sector agropecuario, en 7 especialidades t&eacute;cnicas.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_H%C3%A9roes_y_M%C3%A1rtires_de_Puerto_Cabezas.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Héroes y Mártires de Puerto Cabezas" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centrotecnologico-heroes-martires-puerto-cabezas/" target="_blank">Centro Tecnológico Héroes y Mártires de Puerto Cabezas</a></h4>
+                <p>Ubicado en la Ciudad de Bilwi, Puerto Cabezas, Costa Caribe Norte de Nicaragua, es uno de los 45 centros tecnol&oacute;gicos a nivel nacional, multiling&uuml;e; desarrolla las actividades educativas basados en el Modelo de Educaci&oacute;n T&eacute;cnica y Formaci&oacute;n Profesional Basado en ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_H%C3%A9roes_y_M%C3%A1rtires_de_Villanueva_Chinandega.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Héroes y Mártires de Villanueva, Chinandega" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-heroes-martires-villanueva/" target="_blank">Centro Tecnológico Héroes y Mártires de Villanueva, Chinandega</a></h4>
+                <p>Ubicado en el departamento de Chinandega en el occidente de Nicaragua, este centro tiene una amplia oferta de carreras del sector productivo industrial y cursos de capacitaci&oacute;n dirigidos a due&ntilde;os, trabajadores, socios, microempresarios y a las familias.&nbsp; Atiende carreras T&eacute;cnicas ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/CUA_PORTADA.jpeg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Heroicas Mujeres de El Cuá, Matagalpa" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-heroicas-mujeres-de-el-cua-matagalpa/" target="_blank">Centro Tecnológico Heroicas Mujeres de El Cuá, Matagalpa</a></h4>
+                <p>Ubicado en la comunidad Molino Norte, a tres kil&oacute;metros del casco urbano de la ciudad de Matagalpa, este centro&nbsp;se especializa en agroturismo y cuenta con una capacidad para atender a unas 2 mil personas a trav&eacute;s de 47 cursos de ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_de_El_Rama_9bezFkO.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico &quot;Hugo Francisco Urbina Rodríguez&quot;, El Rama" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-el-rama/" target="_blank">Centro Tecnológico &quot;Hugo Francisco Urbina Rodríguez&quot;, El Rama</a></h4>
+                <p>Implementamos Carreras Tecnicas y Cursos de Capacitaci&oacute;n de los Sectores Agropecuario, Comercio y Servicio, contamos con internado para estudiantes de las zonas mas alejadas, asi como acceso gratuito a WIFI, laboratorio de computaci&oacute;n y unidades didacticas para el fortalecimiento de ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/JoseEulogio.jpeg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico José Eulogio Hernández Alvarado, Las Sabanas" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-jose-eulogio-hernandez-alvarado-las-sabanas/" target="_blank">Centro Tecnológico José Eulogio Hernández Alvarado, Las Sabanas</a></h4>
+                <p>El Centro Tecnol&oacute;gico Jos&eacute; Eulogio Hern&aacute;ndez Alvarado, Las Sabanas, Madriz, cuenta con una oferta de formaci&oacute;n actual, en cursos de capacitaci&oacute;n disponibles de forma gratuita y de calidad para la poblaci&oacute;n nicarag&uuml;ense. En especialidades de Ofim&aacute;tica, Caf&eacute;, Belleza, AgroIndustria de ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Josefa_Toledo_de_Aguerr%C3%AD_Juigalpa.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Josefa Toledo de Aguerri, Juigalpa" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-josefa-toledo-aguerri/" target="_blank">Centro Tecnológico Josefa Toledo de Aguerri, Juigalpa</a></h4>
+                <p>El Centro Tecnologico cuenta con 40 a&ntilde;os de formar los t&eacute;cnicos profesionales del Sector Comercio y Servicio en Juigalpa, en carreras relacionadas a las ciencias econ&oacute;micas, inform&aacute;tica y finanzas.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/subsede-centro-tecnologico-idiomas.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Juan Carlos Herrera Cuaresma “La Foquita”, Managua" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-juan-carlos-herrera-cuaresma-la-foquita-managua/" target="_blank">Centro Tecnológico Juan Carlos Herrera Cuaresma “La Foquita”, Managua</a></h4>
+                <p>Centro Tecnol&oacute;gico Juan Carlos Herrera Cuaresma &ldquo;La Foquita&rdquo;, Managua, fue inaugurado el 24 de julio 2024, como extensi&oacute;n del Centro Tecnol&oacute;gico de Idiomas, para brindar mayor y mejor atenci&oacute;n a m&aacute;s de 2 mil protagonistas en el aprendizaje gratuito de ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/TECNacional-CT_LEON_6.jpg.900x500_q85_crop-top_XOtKUq2.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Juan de Dios Muñoz Reyes, León" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-juan-dios-munoz-reyes/" target="_blank">Centro Tecnológico Juan de Dios Muñoz Reyes, León</a></h4>
+                <p>Es un centro del sector Comercio y Servicio, atiende carreras en modalidad de bachillerato t&eacute;cnico y t&eacute;cnicos generales, as&iacute; como cursos y estrategias de gobierno, Certificaci&oacute;n A Emp&iacute;ricos, Pyme, ingl&eacute;s, Escuelas Municipales de Oficio, Escuelas T&eacute;cnicas de Campo, Programa Amor, ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_San_Carlos_R%C3%ADo_San_Juan.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico “Juan María Brenes Roque”, San Carlos" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-san-carlos/" target="_blank">Centro Tecnológico “Juan María Brenes Roque”, San Carlos</a></h4>
+                <p>Para comodidad de nuestros estudiantes de zonas rurales lejanas, contamos con internado, garantizando alimentaci&oacute;n y dando la oportunidad a los protagonistas a que se forman en carreras t&eacute;cnicas profesionales. Disponemos de laboratorio de computaci&oacute;n, maquinaria agr&iacute;cola, parcelas demostrativas, comedor, aula ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Carlos_Manuel_Vanegas_Olivas_Chinandega_YERqeEL.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Leonel Rugama, León" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-leonel-rugama/" target="_blank">Centro Tecnológico Leonel Rugama, León</a></h4>
+                <p>Atendemos Educaci&oacute;n T&eacute;cnica y Capacitaci&oacute;n, del sector industria y construcci&oacute;n, as&iacute; como del sector de hoteler&iacute;a y turismo, en los turnos diurno y sabatino.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Manuel_Land%C3%A9z_Rojas_Ticuantepe.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Manuel Landéz Rojas, Ticuantepe" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-manuel-landes-rojas/" target="_blank">Centro Tecnológico Manuel Landéz Rojas, Ticuantepe</a></h4>
+                <p>Este Centro Tecnologico que forma profesionales en las especialidades relacionadas con el desarrollo agropecuario, mediante clases te&oacute;ricas y pr&aacute;cticas. Cuenta con un equipo de docentes de calidad, ofrece ademas&nbsp;la modalidad de internado para los estudiantes de lugares lejanos, infraestructura acorde ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Manuel_Olivares_Rodr%C3%ADguez_Managua.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Manuel Olivares Rodríguez, Managua" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-manuel-olivares-rodriguez/" target="_blank">Centro Tecnológico Manuel Olivares Rodríguez, Managua</a></h4>
+                <p>Respondemos a las necesidades de educaci&oacute;n y formaci&oacute;n profesional de la comunidad. Atendemos carreras del sector comercio y servicio en los niveles de bachillerato t&eacute;cnico, t&eacute;cnico general y t&eacute;cnico especialista, en los turnos matutino, vespertino, sabatino y dominical. &nbsp;</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/jinotega.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Marcos Homero Guatemala, Jinotega" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-marcos-homero-guatemala/" target="_blank">Centro Tecnológico Marcos Homero Guatemala, Jinotega</a></h4>
+                <p>Somos un referente en la ciudad de Jinotega en la formaci&oacute;n y capacitaci&oacute;n t&eacute;cnica de los sectores productivos: Comercio, Servicio, Agropecuaria y Forestal. Contamos con una subsede en la Comunidad de Asturias, en el kil&oacute;metro 195 Carretera a Santa Mar&iacute;a ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_de_Masaya.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico “Martha Isabel Navarro Mendoza”, Masaya" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-masaya/" target="_blank">Centro Tecnológico “Martha Isabel Navarro Mendoza”, Masaya</a></h4>
+                <p>El Centro Tecnol&oacute;gico &ldquo;Martha Isabel Navarro Mendoza&rdquo;, Masaya se caracteriza por formar j&oacute;venes profesionales competentes, mediante el modelo aprender haciendo, lo que les permite poder desarrollar sus ideas y obtener como resultado un producto de calidad.&nbsp; &nbsp;</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/WhatsApp_Image_2023-03-07_at_11.04.06_AM.jpeg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Monimbó Heroico, Masaya" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-monimbo-heroico-masaya/" target="_blank">Centro Tecnológico Monimbó Heroico, Masaya</a></h4>
+                <p>El Centro Tecnol&oacute;gico Monimb&oacute; Heroico, ser&aacute; especializado en formar a j&oacute;venes y adultos en la Agroindustria, adem&aacute;s impartir&aacute; carreras y cursos del sector agropecuario, comercio y servicio; atender&aacute; a 6 mil protagonistas, entre j&oacute;venes, adultos y mujeres con una oferta ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Monse%C3%B1or_Benedicto_Herrera_Matagalpa.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Monseñor Benedicto Herrera, Matagalpa" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-monsenor-benedicto-herrera/" target="_blank">Centro Tecnológico Monseñor Benedicto Herrera, Matagalpa</a></h4>
+                <p>El Centro Tecnol&oacute;gico Monse&ntilde;or Benedicto Herrera Matagalpa, anualmente, atiende una matr&iacute;cula que supera los 20 mil protagonistas en carreras t&eacute;cnicas relacionadas a las ciencias econ&oacute;micas, propias del sector productivo de Comercio y Servicio, estrategias de capacitaci&oacute;n Tecnol&oacute;gica y el emblem&aacute;tico ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/d7f30d08-e34e-43b7-9fba-02b950b2f58e.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Muchachos, Horizonte Valiente" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-muchachos-horizonte-valiente/" target="_blank">Centro Tecnológico Muchachos, Horizonte Valiente</a></h4>
+                <p>El Centro Tecnol&oacute;gico Muchachos, Horizonte Valiente&nbsp;brinda nuevas oportunidades de formaci&oacute;n y educaci&oacute;n t&eacute;cnica a j&oacute;venes y adultos de Managua y sectores aleda&ntilde;os en carreras del sector Industria y Construcci&oacute;n, as&iacute; como carreras y m&aacute;s de 30 cursos del sector Comercio ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Olof_Palme_Estel%C3%AD.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Olof Palme, Estelí" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-olof-palme/" target="_blank">Centro Tecnológico Olof Palme, Estelí</a></h4>
+                <p>Atiende a su poblaci&oacute;n estudiantil con una oferta de carreras y cursos t&eacute;cnico de los sectores productivos: Agropecuario y Forestal, Comercio y Servicio e Industria y Construcci&oacute;n. Cuenta con biblioteca, aulas te&oacute;ricas, laboratorio de computaci&oacute;n y taller de ebanister&iacute;a, adem&aacute;s ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Onofre_Mart%C3%ADnez_Waspam.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Onofre Martínez, Waspam" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-agropecuario-onofre-martinez/" target="_blank">Centro Tecnológico Onofre Martínez, Waspam</a></h4>
+                <p>Es parte de los 45&nbsp;Centros Tecnol&oacute;gicos del INATEC en donde el Gobierno del Bien Com&uacute;n garantiza a las familias, comunidades, instituciones y empresas un servicio de educaci&oacute;n y capacitaci&oacute;n tecnol&oacute;gica gratuita y de calidad, ajustada a la demanda del sector ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/centro-tecnologico-pablo-ubeda.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Pablo Úbeda, Comalapa" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-pablo-ubeda-comalapa/" target="_blank">Centro Tecnológico Pablo Úbeda, Comalapa</a></h4>
+                <p>Centro Tecnol&oacute;gico &ldquo;Pablo &Uacute;beda&rdquo;, ubicado&nbsp;en la Comarca San Patricio del municipio de Comalapa, Chontales, brindar&aacute; atenci&oacute;n a 600 protagonistas en una amplia oferta formativa orientada a fortalecer las competencias t&eacute;cnicas y tecnol&oacute;gicas de j&oacute;venes y adultos en el Sector Agropecuario ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/WhatsApp_Image_2022-09-30_at_1.42.54_PM.jpeg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Padre Rafael María Fabretto, Managua" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-padre-rafael-maria-fabretto-managua/" target="_blank">Centro Tecnológico Padre Rafael María Fabretto, Managua</a></h4>
+                <p>Ubicado en la ciudad de Managua; este centro dispone con los siguientes&nbsp;espacios de aprendizajes: 1 taller de&nbsp;mec&aacute;nicas de motos, 1 taller de electricidad domiciliar, 1 taller de soldadura vertical, 6 aulas did&aacute;cticas de comercio, 3 aulas did&aacute;cticas de ingl&eacute;s, 1 ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/CUSMAPA-TEC.jpeg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Padre Rafael María Fabretto, San José de Cusmapa" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-padre-rafael-maria-fabretto-san-jose-de-cusmapa/" target="_blank">Centro Tecnológico Padre Rafael María Fabretto, San José de Cusmapa</a></h4>
+                <p>El Centro Tecnol&oacute;gico Padre Rafael Mar&iacute;a Fabretto de San Jos&eacute; de Cusmapa, Madriz, cuenta con una oferta de formaci&oacute;n actual, en cursos de capacitaci&oacute;n disponibles de forma gratuita y de calidad para la poblaci&oacute;n nicarag&uuml;ense. En especialidades de Caf&eacute;, Veterinaria, ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Padre_Teodoro_Kint_El_Viejo.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Padre Teodoro Kint, El Viejo" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-industrial-padre-teodoro-kint/" target="_blank">Centro Tecnológico Padre Teodoro Kint, El Viejo</a></h4>
+                <p>Este centro del sector industria y construcci&oacute;n imparte carreras t&eacute;cnicas del sector industrial y del sector comercio y servicio, para satisfacer las necesidades, brindar formaci&oacute;n y capacitaci&oacute;n de los recursos humanos de las empresas, los j&oacute;venes y poblaci&oacute;n en general.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Pedro_Ar%C3%A1uz_Palacios_Granada.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Pedro Aráuz Palacios, Granada" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-pedro-arauz-palacios/" target="_blank">Centro Tecnológico Pedro Aráuz Palacios, Granada</a></h4>
+                <p>Estamos ubicados en Granada, Final avenida Espa&ntilde;a N&deg;1, Salida a Malacatoya, Frente al Gran lago de Nicaragua.Ofrecemos a j&oacute;venes de todo el pa&iacute;s 20 carreras t&eacute;cnicas en el sector industria y construcci&oacute;n, de los niveles de formaci&oacute;n (T&eacute;cnico Medio, Bachillerato ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Ricardo_Morales_Avil%C3%A9s_Diriamba.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Ricardo Morales Avilés, Diriamba" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-ricardo-morales-aviles/" target="_blank">Centro Tecnológico Ricardo Morales Avilés, Diriamba</a></h4>
+                <p>Somos un centro de formaci&oacute;n t&eacute;cnica profesional, donde atendemos a estudiantes en carreras del sector Comercio y Servicio, en los turnos matutino, sabatino y dominical.&nbsp;</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Rolando_Rodr%C3%ADguez_Gonz%C3%A1lez_Chichigalpa.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Rolando Rodríguez González, Chichigalpa" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-rolando-rodriguez-gonzalez/" target="_blank">Centro Tecnológico Rolando Rodríguez González, Chichigalpa</a></h4>
+                <p>Este centro ofrece carreras del sector productivo comercio y servicio, atiende estrategias como: Cursos Libres y&nbsp;Modulares, Capacitaci&oacute;n a&nbsp;Microempresarios, Docentes MINED, Escuelas Municipales de Oficios,&nbsp;Programa Amor, Proyecto Empuje, Rehabilitaci&oacute;n, y TICS.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Santiago_Baldovino_Muy_Muy.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Santiago Baldovino, Muy Muy" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-santiago-baldovino/" target="_blank">Centro Tecnológico Santiago Baldovino, Muy Muy</a></h4>
+                <p>Ubicado en el municipio de Muy Muy, Matagalpa, somos uno de los primeros Centros T&eacute;cnicos Agropecuarios de Nicaragua. Contamos con una finca y unidades productivas de uso did&aacute;ctico para garantizar el 70 por ciento de clases pr&aacute;cticas de nuestros estudiantes. ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_Sim%C3%B3n_Bol%C3%ADvar_Managua.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Simón Bolívar, Managua" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-simon-bolivar/" target="_blank">Centro Tecnológico Simón Bolívar, Managua</a></h4>
+                <p>Ofertamos Carreras T&eacute;cnicas y Cursos de Capacitaci&oacute;n, contamos con, herramientas, talleres de enderezado y pintura, hidr&aacute;ulica, neum&aacute;tica, m&aacute;quinas de coser, aula taller de textil vestuario ebanister&iacute;a, soldadura, construcci&oacute;n, mec&aacute;nica automotriz, mec&aacute;nica industrial, refrigeraci&oacute;n, laboratorios de computaci&oacute;n, gimnasio para la especialidad ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/WhatsApp_Image_2023-10-29_at_4.59.19_PM.jpeg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Ulises Santiago Gogo, Bilwi" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-ulises-santiago-gogo-bilwi/" target="_blank">Centro Tecnológico Ulises Santiago Gogo, Bilwi</a></h4>
+                <p>El nuevo centro de formaci&oacute;n t&eacute;cnica profesional cuenta con 6 aulas te&oacute;ricas, aula did&aacute;ctica para belleza, gastronom&iacute;a, agroindustria de los alimentos, bodega, vest&iacute;bulo, bater&iacute;a de servicios sanitarios, cancha deportiva multiusos, tarima techada y oficinas administrativas.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Centro_Tecnol%C3%B3gico_de_Bluefields2.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico “William Schwartz Cunningham”, Bluefields" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-bluefields/" target="_blank">Centro Tecnológico “William Schwartz Cunningham”, Bluefields</a></h4>
+                <p>Es un referente en materia de formaci&oacute;n y capacitaci&oacute;n tecnol&oacute;gica en Bluefields y sus comunidades, garantiza una educaci&oacute;n gratuita y de calidad a nuestros pueblos originarios como reconocimiento de nuestra constituci&oacute;n pol&iacute;tica y de la Ley 28 &ldquo;Ley de Autonom&iacute;a, ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/centro-tecnologico-xilotepelt-01.jpg.245x160_q85_crop-center.jpg" alt="Centro Tecnológico Xilotepelt, Jinotepe" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/centro-tecnologico-xilotepelt-jinotepe/" target="_blank">Centro Tecnológico Xilotepelt, Jinotepe</a></h4>
+                <p>El Centro Tecnol&oacute;gico Xilotepelt, en Jinotepe, Carazo, fue inaugurado el 14 de agosto de 2024, para brindar atenci&oacute;n a 1500 protagonistas en cursos t&eacute;cnicos como Establecimiento y Manejo de Viveros en Frutales, Manejo Agroecol&oacute;gico de Plagas y Enfermedades, Riego por ...</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/Escuela_Hotel_Casa_Luxemburgo_Pochomil.jpg.245x160_q85_crop-center.jpg" alt="Escuela Hotel Casa Luxemburgo, Pochomil" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/escuela-hotel-casa-luxemburgo/" target="_blank">Escuela Hotel Casa Luxemburgo, Pochomil</a></h4>
+                <p>Esta escuela est&aacute; orientada a brindar carreras y cursos t&eacute;cnicos para las personas amantes del sector turismo y hoteler&iacute;a, contamos con&nbsp;ambientes reales de trabajo, ofreciendo al p&uacute;blico los servicios de Estad&iacute;a, Hospedaje, Restaurante, Auditorio, entre otros. &nbsp;</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/escuela-hotel-nicarao-web_4gWFyAM.jpg.245x160_q85_crop-center.jpg" alt="Escuela Hotel Nicarao, San Juan del Sur" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/escuela-hotel-nicarao-san-juan-del-sur/" target="_blank">Escuela Hotel Nicarao, San Juan del Sur</a></h4>
+                <p>La Escuela Hotel Nicarao, ubicada en San Juan del Sur, es un Centro Tecnol&oacute;gico que atender&aacute; a m&aacute;s&nbsp;600 estudiantes se formar&aacute;n en hoteler&iacute;a, turismo, administraci&oacute;n financiera e idiomas, preparando a futuros profesionales para el sector tur&iacute;stico y hotelero.</p>
+            </div>
+        </div>
+    
+        <div class="clearfix lista">
+            <div class="col-xs-12 col-sm-4  col-md-4">
+                
+                <img src="/media/IMG-20230920-WA0102.jpg.245x160_q85_crop-center.jpg" alt="Escuela Hotel Volcán Maderas, Ometepe" class="fotos img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h4><a href="/centro/escuela-hotel-volcan-maderas-ometepe/" target="_blank">Escuela Hotel Volcán Maderas, Ometepe</a></h4>
+                <p>La Escuela Hotel Volc&aacute;n Maderas, Ometepe, ubicada en la comunidad de M&eacute;rida, municipio de Altagracia, forma parte de la red de Centros del Instituto Nacional T&eacute;cnico y Tecnol&oacute;gico - INATEC. Esta instituci&oacute;n contribuye al desarrollo de aprendizajes, destrezas y habilidades ...</p>
+            </div>
+        </div>
+    
+</div>
+
+      
+      <div class="col-sm-12 col-md-3 submenu">
+        
+    <div class="busqueda">
+      <div class="title rosado">BUSCADOR DE CENTROS</div>
+      <div class="searchcontent">
+        
+        <form action="/centros-tecnologicos/" method="get">
+            <p> <select id="id_municipio__departamento" name="municipio__departamento">
+<option value="" selected="selected">Departamento</option>
+<option value="16">Boaco</option>
+<option value="4">Carazo</option>
+<option value="6">Chinandega</option>
+<option value="5">Chontales</option>
+<option value="10">Estelí</option>
+<option value="8">Granada</option>
+<option value="9">Jinotega</option>
+<option value="11">León</option>
+<option value="12">Madriz</option>
+<option value="1">Managua</option>
+<option value="3">Masaya</option>
+<option value="13">Matagalpa</option>
+<option value="7">Nueva Segovia</option>
+<option value="15">RACCN</option>
+<option value="14">RACCS</option>
+<option value="17">Río San Juan</option>
+<option value="2">Rivas</option>
+</select></p>
+<p> <select id="id_municipio" name="municipio">
+<option value="" selected="selected">Municipio</option>
+<option value="60">Altagracia</option>
+<option value="71">Asturias</option>
+<option value="70">Asturias</option>
+<option value="53">Bilwí</option>
+<option value="52">Bluefields</option>
+<option value="54">Boaco</option>
+<option value="90">Bocana de Paiwas</option>
+<option value="73">Bonanza</option>
+<option value="5">Carazo</option>
+<option value="27">Cárdenas</option>
+<option value="20">Chichigalpa</option>
+<option value="7">Chinandega</option>
+<option value="6">Chontales</option>
+<option value="14">Cinco Pinos</option>
+<option value="18">Ciudad Sandino</option>
+<option value="92">Comalapa</option>
+<option value="22">Condega</option>
+<option value="38">Corinto</option>
+<option value="81">Corn Island</option>
+<option value="24">Cuá-Bocay</option>
+<option value="42">Diriamba</option>
+<option value="30">Diriomo</option>
+<option value="69">El Ayote</option>
+<option value="58">El Crucero</option>
+<option value="41">El Rama</option>
+<option value="31">El Rosario</option>
+<option value="43">El Sauce</option>
+<option value="89">El Tortuguero</option>
+<option value="78">El Tuma-La Dalia</option>
+<option value="19">El Viejo</option>
+<option value="12">Estelí</option>
+<option value="10">Granada</option>
+<option value="44">Jalapa</option>
+<option value="11">Jinotega</option>
+<option value="49">Jinotepe</option>
+<option value="9">Juigalpa</option>
+<option value="82">Kukra Hill</option>
+<option value="17">Laguna de Perlas</option>
+<option value="26">Larreynaga</option>
+<option value="34">Las Sabanas</option>
+<option value="80">Las Sabanas</option>
+<option value="93">Las Sabanas</option>
+<option value="13">León</option>
+<option value="1">Managua</option>
+<option value="76">Masatepe</option>
+<option value="3">Masaya</option>
+<option value="16">Matagalpa</option>
+<option value="21">Mateare</option>
+<option value="86">Moyogalpa</option>
+<option value="75">Muelle de los Bueyes</option>
+<option value="46">Muy Muy</option>
+<option value="45">Nagarote</option>
+<option value="39">Nueva Guinea</option>
+<option value="8">Ocotal</option>
+<option value="47">Ometepe</option>
+<option value="56">Palacagüina</option>
+<option value="65">Pochomil</option>
+<option value="85">Potosí</option>
+<option value="61">Puerto Cabezas</option>
+<option value="28">Río Blanco</option>
+<option value="25">Rivas</option>
+<option value="55">San Carlos</option>
+<option value="88">San Dionisio</option>
+<option value="62">San Francisco Libre</option>
+<option value="50">San Isidro</option>
+<option value="29">San José de Bocay</option>
+<option value="33">San Jose de Cusmapa</option>
+<option value="79">San José de Cusmapa</option>
+<option value="2">San Juan del Sur</option>
+<option value="32">San Juan de Oriente</option>
+<option value="72">San Juan de Rio Coco</option>
+<option value="77">San Lucas</option>
+<option value="36">San Marcos</option>
+<option value="91">San Miguelito</option>
+<option value="59">San Pedro de Lóvago</option>
+<option value="83">San Rafael del Norte</option>
+<option value="57">San Rafael del Sur</option>
+<option value="64">San Rafael del Sur</option>
+<option value="63">Santa Rosa del Peñón</option>
+<option value="4">Santa Teresa</option>
+<option value="74">Santo Domingo</option>
+<option value="87">Santo Tomás</option>
+<option value="40">Siuna</option>
+<option value="35">Somotillo</option>
+<option value="15">Somoto</option>
+<option value="67">Telpaneca</option>
+<option value="48">Ticuantepe</option>
+<option value="23">Tipitapa</option>
+<option value="68">Tola</option>
+<option value="84">Totogalpa</option>
+<option value="66">Villa El Carmen</option>
+<option value="37">Waslala</option>
+<option value="51">Waspam</option>
+</select></p>
+<p> <input id="id_nombre" name="nombre" placeholder="Nombre del centro" type="text" /></p>
+            <div class="pull-right"><input type="submit" value="Buscar" class="btn rosado"/></div>
+        </form>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <script>
+        function goto(form) {
+        var index=form.id_rubro.selectedIndex
+        if (form.id_rubro.options[index].value != "0") {
+            location='/educacion-tecnica/' + form.id_rubro.options[index].value;}
+        }
+    </script>
+
+        
+        <div class="clearfix"></div>
+        
+        
+        
+        
+        
+        <div class="panel redes">
+          <h1>Nuestras Redes</h1>
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="social" class="active fb"><a href="#facebook" aria-controls="facebook" role="tab"
+                                                   data-toggle="tab"><i class="fa fa-facebook" aria-hidden="true"></i>
+              facebook</a></li>
+            <li role="social" class="tw"><a href="#twitter" aria-controls="twitter" role="tab" data-toggle="tab"><i
+              class="fa fa-twitter" aria-hidden="true"></i> twitter</a></li>
+          </ul>
+          <div class="panel-body">
+            <div class="tab-content">
+              <div role="social" class="tab-pane active" id="facebook">
+                <div>
+                  <div class="fb-page" data-href="https://www.facebook.com/TecNacional" data-width="270"
+                       data-height="400" data-tabs="timeline" data-small-header="true"
+                       data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/TecNacional" class="fb-xfbml-parse-ignore"><a
+                      href="https://www.facebook.com/TecNacional">Tecnológico Nacional</a></blockquote>
+                  </div>
+                </div>
+              </div>
+              <div role="social" class="tab-pane" id="twitter">
+                <div>
+                  <a class="twitter-timeline" data-height="380" href="https://twitter.com/TecNacional">Tweets by
+                    TecNacional</a>
+                  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container ultimod">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-2" align="center" style="padding-top: 5px">
+        <img class="img-responsive logo_cd" src="../static/img/logofooter.png" alt="Logo Inatec Blanco">
+      </div>
+      <div class="col-xs-12 col-sm-9 col-md-8">
+        <div class="content text-center">
+          Capacitación y Educación Técnica Gratuita y de Calidad. <br>
+          Dirección: Centro Cívico Zumen, frente al Hospital Bertha Calderón, Managua. <br>
+          Teléfonos: Planta Central 2253-8830, Atención al Protagonista 2253-8888
+        </div>
+        <div class="row">
+          <div class="col-xs-4 col-sm-4 col-md-4">
+            <a href="../index.html" class="blanco">INICIO</a><br/>
+            <a href="/acerca/" class="blanco">NOSOTROS</a><br/>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4 separador">
+            <a href="/ofertas/" class="blanco">OFERTA ACADÉMICA </a><br/>
+            <a href="" class="blanco">CENTROS</a><br/>
+            <a href="../pages/calidad.html" class="blanco">CALIDAD</a><br/>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4 separador">
+            <a href="../pages/empresas.html" class="blanco">EMPRESAS</a><br/>
+            <a href="../pages/adquisiciones.html" class="blanco">ADQUISICIONES</a><br>
+            <a href="" class="blanco">RECURSOS</a><br/>
+          </div>
+        </div>
+        <div class="social">
+          <a href="https://www.facebook.com/TecNacional" target="_blank" class="blanco"><i class="fa fa-facebook fa-lg"
+                                                                                           aria-hidden="true"></i></a>
+          <a href="https://twitter.com/TecNacional" target="_blank" class="blanco"><i class="fa fa-twitter fa-lg"
+                                                                                      aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/tecnacional/?hl=es" target="_blank" class="blanco"><i
+            class="fa fa-instagram fa-lg" aria-hidden="true"></i></a>
+          <a href="https://www.youtube.com/user/TecnologicoNacional" target="_blank" class="blanco"><i
+            class="fa fa-youtube-play fa-lg" aria-hidden="true"></i></a>
+
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-2" align="center">
+        <img  src="../static/img/logo_gobierno_anual.png" class="img-responsive pull-right logo_cd" alt="logo gobierno 2023"/>
+      </div>
+    </div>
+  </div>
+  <div class="autoria text-center azul">Todos los derechos reservados Tecnológico Nacional</div>
+</footer>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/125f4e6c22.js"></script>
+<link rel="stylesheet" href="https://cdn.rawgit.com/FortAwesome/Font-Awesome/master/css/font-awesome.min.css">
+<script src="../static/js/s-chat-support.js"></script>
+<script>
+  $(document).ready(function () {
+    $('[data-toggle="popover"]').popover();
+    sChat.init('zNCB6pBMBkzHqcK2N', {
+      ssl: true,
+      welcomeMessage: '¿Hola, como podemos ayudarte?',
+      hostName: 'www.simplechat.support',
+      labels: {
+        sendPlaceholder: 'Enviar mensaje...',
+        headerTitle: 'Chat Tecnológico Nacional'
+      }
+    });
+  });
+</script>
+<script>
+  $("#demandas").hide();
+  $("input[name = scope]").click(function () {
+    if ($(this).val() == "demandas") {
+      $("#demandas").show();
+      $("#ofertas").hide();
+    }
+    else {
+      $("#ofertas").show();
+      $("#demandas").hide();
+    }
+  });
+</script>
+
+
+  <script>
+    $("#id_municipio__departamento").change(function () {
+        var url = "/cargar_municipios";
+        var id = $(this).val();
+        $.ajax({
+          url: url,
+          data: {'departamento': id },
+          success: function (data) {
+            $("#id_municipio").html(data);
+          }
+        });
+    });
+  </script>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript">
+var addthis_config =
+{
+ services_exclude: 'google_plusone_share, pinterest_share,'
+}
+</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5866aa632541afde"></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104148260-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
+<script id="f5_cspm">(function(){var f5_cspm={f5_p:'EHGIEEFCCBJOIHIBLMJOOICNHMDCBCCJMBHCOLIKKFAGNDJEKHHBGPHNNGIKFODAOPLBEEBMAALDFEENOMPAFCJPAACBOFKJBEFPLLCDOEILIBEJGEFNBLOGIJAOHEPB',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,40,(latency>>8));str=f5_cspm.set_byte(str,41,(latency&0xff));str=f5_cspm.set_byte(str,35,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='f5avr0820719904aaaaaaaaaaaaaaaa_cspm_='+encodeURIComponent(cookie_val)+';path=/;'+'';}
+return;}}
+catch(err){return;}
+setTimeout(f5_cspm.wait_perf_data,100);return;},go:function(){var chunk=window.document.cookie.split(/\s*;\s*/);for(var i=0;i<chunk.length;++i){var pair=chunk[i].split(/\s*=\s*/);if(pair[0]=='f5_cspm'&&pair[1]=='1234')
+{var d=new Date();d.setTime(d.getTime()-1000);window.document.cookie='f5_cspm=;expires='+d.toUTCString()+';path=/;'+';';setTimeout(f5_cspm.wait_perf_data,100);}}}}
+f5_cspm.go();}());</script>
