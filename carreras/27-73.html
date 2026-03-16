@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="../static/core/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../static/core/css/base.css" rel="stylesheet" />
+    <link href="../static/core/css/bootstrap-icons.css" rel="stylesheet" />
+    
+    
+  <title>Técnico Especialista en Análisis Químico Industrial - Tecnológico Nacional</title>
+  <meta name="description" content="Desarrollan en los sectores en los que la evaluación y ...">
+</head>
+<body class="bg-light">
+  <style>
+    /* ── Navbar background: matches banner blue ── */
+    #modern-navbar {
+      z-index: 1030;
+      background: linear-gradient(90deg, #0a3d6b 0%, #14578b 55%, #1a72b0 100%) !important;
+      transition: background 0.4s, box-shadow 0.3s;
+      box-shadow: 0 4px 24px rgba(10,61,107,0.45) !important;
+    }
+
+    #modern-navbar.scrolled {
+      background: linear-gradient(90deg, #072d50 0%, #0e3f6b 55%, #1260a0 100%) !important;
+      box-shadow: 0 4px 24px rgba(10,61,107,0.45) !important;
+    }
+
+    /* ── Logo: keep natural colors (white filter on dark bg) ── */
+    #modern-navbar .navbar-brand img {
+      filter: brightness(0) invert(1);
+      transition: filter 0.2s, opacity 0.2s;
+    }
+    #modern-navbar .navbar-brand:hover img { opacity: 0.85; }
+
+    /* ── Nav links: white on dark blue ── */
+    #modern-navbar .nav-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.9) !important;
+      padding: 0.5rem 0.7rem;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    /* Animated underline on hover */
+    #modern-navbar .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 4px;
+      width: 0;
+      height: 2px;
+      background: #87c440;
+      transition: width 0.25s, left 0.25s;
+      border-radius: 2px;
+    }
+    #modern-navbar .nav-link:hover::after,
+    #modern-navbar .nav-link.active::after { width: 70%; left: 15%; }
+
+    #modern-navbar .nav-link:hover,
+    #modern-navbar .nav-link.active {
+      color: #fff !important;
+    }
+
+    /* Toggler icon: white on blue */
+    #modern-navbar .navbar-toggler {
+      border: 1px solid rgba(255,255,255,0.4);
+      outline: none;
+      box-shadow: 0 4px 24px rgba(10,61,107,0.45) !important;
+    }
+    #modern-navbar .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* ── Dropdown menu: deep blue with glass effect ── */
+    #modern-navbar .dropdown-menu {
+      background: rgba(10, 50, 90, 0.97);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+      padding: 8px;
+      min-width: 240px;
+      backdrop-filter: blur(8px);
+      animation: dropIn 0.18s ease;
+    }
+
+    @keyframes dropIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    #modern-navbar .dropdown-item {
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(220,240,255,0.92);
+      padding: 8px 14px;
+      transition: background 0.15s, color 0.15s;
+    }
+    #modern-navbar .dropdown-item:hover,
+    #modern-navbar .dropdown-item:focus {
+      background: #00adee;
+      color: #fff;
+    }
+
+    /* ── Mobile: full blue panel ── */
+    @media (max-width: 991.98px) {
+      #modern-navbar .navbar-collapse {
+        background: linear-gradient(180deg, #0e3e6b 0%, #0a2d52 100%);
+        border-radius: 0 0 16px 16px;
+        padding: 14px 18px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      }
+      #modern-navbar .nav-link {
+        color: rgba(255,255,255,0.92) !important;
+        padding: 0.55rem 0.5rem;
+      }
+      #modern-navbar .nav-link:hover { color: #87c440 !important; }
+      #modern-navbar .nav-link::after { display: none; }
+      #modern-navbar .dropdown-menu {
+        background: rgba(7,35,65,0.98);
+        border-radius: 10px;
+        box-shadow: 0 4px 24px rgba(10,61,107,0.45) !important;
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      #modern-navbar .dropdown-item { color: #c8e4ff; }
+      #modern-navbar .dropdown-item:hover { background: #00adee; color: #fff; }
+
+    }
+
+    /* Permitir que el botón sea enlace y abra al pasar el mouse (Desktop) */
+    @media (min-width: 992px) {
+      .nav-item.dropdown:hover > .dropdown-menu {
+        display: block;
+        margin-top: 0;
+      }
+    }
+  
+        .event-card:hover { transform: translateY(-8px) !important; box-shadow: 0 12px 30px rgba(13, 110, 253, 0.15) !important; }
+    </style>
+
+  <nav class="navbar navbar-expand-lg fixed-top" id="modern-navbar" style="z-index:1030;">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand d-flex align-items-center gap-2 py-1" href="../index.html">
+        <img src="../static/core/img/Recurso 36.png" alt="Logo Gobierno"
+          style="height:38px; width:auto; max-width:180px; object-fit:contain;" />
+        <img src="../static/core/img/Recurso 37.png" alt="Logo INATEC"
+          style="height:38px; width:auto; max-width:120px; object-fit:contain;" />
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#modernNavbarContent" aria-controls="modernNavbarContent" aria-expanded="false"
+        aria-label="Abrir menú" style="color:#14578b;">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="modernNavbarContent">
+        <ul class="navbar-nav ms-auto mb-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="../index.html">INICIO</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="../pages/oferta-academica.html" id="ofertaDropdown" role="button" data-bs-toggle="dropdown" 
+              aria-expanded="false" data-bs-auto-close="outside">OFERTA ACADÉMICA</a>
+            <ul class="dropdown-menu shadow" aria-labelledby="ofertaDropdown">
+              <li><a class="dropdown-item" href="../pages/carreras-educacion-tecnica.html">CARRERAS DE EDUCACIÓN TÉCNICA</a></li>
+              <li><a class="dropdown-item" href="../pages/programas.html">CURSOS Y ESTRATEGIAS DE CAPACITACIÓN</a></li>
+              <li><a class="dropdown-item" href="../pages/experiencia-laboral.html">RECONOCIMIENTO A LA EXPERIENCIA LABORAL</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../pages/centros-tecnologicos.html">CENTROS TECNOLÓGICOS</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="empresasDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">EMPRESAS</a>
+            <ul class="dropdown-menu" aria-labelledby="empresasDropdown">
+              <li><a class="dropdown-item" href="../pages/empresas.html">INFORMACIÓN</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="recursosDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">RECURSOS</a>
+            <ul class="dropdown-menu" aria-labelledby="recursosDropdown">
+              <li><a class="dropdown-item" href="../pages/noticias.html">NOTICIAS</a></li>
+              <li><a class="dropdown-item" href="../pages/eventos.html">EVENTOS</a></li>
+              <li><a class="dropdown-item" href="../pages/videos.html">VIDEOS</a></li>
+              <li><a class="dropdown-item" href="../pages/galeria.html">GALERIAS</a></li>
+              <li><a class="dropdown-item" href="../pages/boletines.html">BOLETÍN</a></li>
+              <li><a class="dropdown-item" href="../pages/calidad.html">CALIDAD</a></li>
+              <li><a class="dropdown-item" href="../pages/adquisiciones.html">ADQUISICIONES</a></li>
+              <li><a class="dropdown-item" href="../pages/biblioteca-virtual.html">BIBLIOTECA VIRTUAL</a></li>
+              <li><a class="dropdown-item" href="../pages/congreso.html">CONGRESO DOCENTE</a></li>
+              <li><a class="dropdown-item" href="https://correo.tecnacional.edu.ni/">CORREO INSTITUCIONAL</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SECCION BANNER DE SUBPAGINA -->
+  <section class="subpage-banner" style="margin-top: 55px; width: 100%; position: relative;">
+    <img src="https://www.tecnacional.edu.ni/media/tec-industrial.jpg.380x200_q85_crop-center.jpg" alt="Construyo mi sueño en el Tecnológico Nacional" style="width: 100%; height: auto; max-height: 380px; object-fit: cover; object-position: center;" />
+  </section>
+<script>
+    const modernNav = document.getElementById("modern-navbar");
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 50) { 
+        modernNav.style.setProperty("background", "linear-gradient(90deg, #0a3d6b 0%, #14578b 55%, #1a72b0 100%)", "important");
+        modernNav.classList.add("scrolled", "shadow-sm"); 
+      }
+      else { 
+        modernNav.style.setProperty("background", "linear-gradient(90deg, #0a3d6b 0%, #14578b 55%, #1a72b0 100%)", "important");
+        modernNav.classList.remove("scrolled", "shadow-sm"); 
+      }
+    });
+  </script>
+  <!-- End of modern navbar -->
+
+  <div class="container py-5">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb" style="background:transparent;">
+        <li class="breadcrumb-item"><a href="../index.html" class="text-decoration-none" style="color:#0d6efd;">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="../pages/carreras-educacion-tecnica.html" class="text-decoration-none" style="color:#0d6efd;">Carreras</a></li>
+        <li class="breadcrumb-item active fw-bold" style="color:#1e293b;">Técnico Especialista en Análisis Químico...</li>
+      </ol>
+    </nav>
+
+    <!-- Career Header -->
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-8">
+        <h6 class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill fw-bold text-white mb-3 shadow-sm" 
+            style="background:#6c757d;font-size:.8rem;letter-spacing:.05em;">
+          <i class="bi-bookmark-fill"></i>SECTOR 27
+        </h6>
+        <h2 class="fw-bold mb-3 display-6" style="color:#1e293b;">Técnico Especialista en Análisis Químico Industrial</h2>
+        <span class="badge bg-light text-dark border p-2 px-3 fs-6 rounded-pill shadow-sm mb-4"><i class="bi-award me-2"></i>Técnico Especialista</span>
+      </div>
+    </div>
+
+    <div class="row g-5">
+      <!-- Description -->
+      <div class="col-lg-7">
+        <div class="card border-0 shadow-sm p-4 p-md-5" style="border-radius:20px;">
+          <h4 class="fw-bold mb-4" style="color:#1e293b;">
+            <i class="bi-info-circle-fill text-primary me-2"></i>Sobre la Carrera
+          </h4>
+          <p class="text-muted fs-6" style="line-height:1.8;">Desarrollan en los sectores en los que la evaluación y ...</p>
+        </div>
+      </div>
+      
+      <!-- Centers list -->
+      <div class="col-lg-5">
+        <div class="card border-0 shadow-sm p-4" style="border-radius:20px;background:#f8fafc;">
+          <h5 class="fw-bold mb-4" style="color:#1e293b;">
+            <i class="bi-geo-alt-fill text-danger me-2"></i>Disponible en
+            <span class="badge bg-danger rounded-pill ms-2">0</span>
+          </h5>
+          <div class="list-group list-group-flush" style="max-height:500px;overflow-y:auto;">
+            <div class="alert alert-light border">No hay centros asignados actualmente para esta carrera.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<footer>
+    <div class="container-fluid base_footer">
+      <div class="row pt-5">
+        <div class="container text-center">
+          <img class="mx-3" id="icon-ci" src="../static/core/img/logo_ci_2022.png" style="width: 12%" />
+          <img class="mx-3" id="icon-mapa-interactivo" src="../static/core/img/logo_mid_2022.png" style="width: 9%" />
+          <img class="mx-3" id="icon-indice-nicaragua" src="../static/core/img/logo_in_2022.png" style="width: 12%" />
+        </div>
+        <div class="row">
+          <div class="col-xs-1 col-sm-3 text-start" style="margin-left: 0px">
+            <div class="row">
+              <div class="col"><img id="icon-inatec-nacional" src="../static/core/img/logo_inatec_2022.png"
+                  style="margin-left: 10%; height: 100px; width:auto" /></div>
+            </div>
+            <div class="row">
+              <div class="col col_contactanos">
+                <div>
+                  <h5 class="text-light"><strong>Contactanos</strong></h5>
+                  <h6 class="text-light enlace">Centro Cívico Zumen, Frente al Hospital Bertha Calderón,
+                    Managua</h6>
+                  <h6 class="text-light enlace"><i></i>Atención al Protagonista: 2253-8888</h6>
+                  <h6 class="text-light enlace"><i></i>Planta Central: 2253-8830</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-1 col-sm-6 container_links">
+            <div class="row">
+              <div class="col">
+                <a href="../index.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> INICIO</h6>
+                </a>
+                <a href="../pages/nosotros.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> NOSOTROS</h6>
+                </a>
+                <a href="../pages/oferta-academica.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> OFERTA FORMATIVA</h6>
+                </a>
+                <a href="../pages/centros-tecnologicos.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> CENTROS TECNOLOGICOS</h6>
+                </a>
+                <a href="../pages/empresas.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> EMPRESAS</h6>
+                </a>
+              </div>
+              <div class="col">
+                <a href="https://serviciosenlinea.tecnacional.edu.ni/">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> SERVICIOS EN LINEA</h6>
+                </a>
+                <a href="../pages/galeria.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> GALERIAS FOTOGRAFICAS</h6>
+                </a>
+                <a href="../pages/boletines.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> BOLETINES INFORMATIVOS
+                  </h6>
+                </a>
+                <a href="../pages/eventos.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> EVENTOS</h6>
+                </a>
+                <a href="https://campus.tecnacional.edu.ni/">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> ENTORNOS VIRTUALES</h6>
+                </a>
+              </div>
+              <div class="col">
+                <a href="https://campus.tecnacional.edu.ni/">
+                  <h6 class="text-light"> Plataformas Educativas</h6>
+                </a>
+                <a href="../pages/innovatec.html">
+                  <h6 class="text-light pesta_innovatec"> Innovatec</h6>
+                </a><br />
+                <a href="../pages/podcast.html">
+                  <h6 class="text-light pesta_podcast"> Podcast TEC</h6>
+                </a> <br />
+                <a href="../pages/campus-virtual.html">
+                  <h6 class="text-light pesta_campus"> Campus Virtual</h6>
+                </a><br />
+              </div>
+            </div>
+            <div class="row justify-content-center container_icons_links">
+              <ul class="icons_redes_sociales d-flex gap-3 justify-content-center list-unstyled mb-0 mt-3 align-items-center">
+    <li title="Facebook"><a href="https://www.facebook.com/TecNacional/" target="_blank" class="text-white fs-4"><i class="bi-facebook"></i></a></li>
+    <li title="Twitter"><a href="https://twitter.com/TecNacional" target="_blank" class="text-white fs-4"><i class="bi-twitter"></i></a></li>
+    <li title="Instagram"><a href="https://www.instagram.com/tecnacional/" target="_blank" class="text-white fs-4"><i class="bi-instagram"></i></a></li>
+    <li title="YouTube"><a href="https://www.youtube.com/c/TecNacional" target="_blank" class="text-white fs-4"><i class="bi-youtube"></i></a></li>
+    <li title="Tiktok"><a href="https://www.tiktok.com/@tecnacional" target="_blank" class="text-white fs-4"><i class="bi-tiktok"></i></a></li>
+</ul>
+            </div>
+          </div>
+          <div class="col-xs-1 col-sm-3 text-end">
+            <img id="icon-anio" src="../static/core/img/logo_gobierno.png"
+              style="height: 142px; margin-right: 10%; margin-top: -12px" />
+            <div class="row">
+              <div class="col text-start">
+                <p class="label_correo">Solicitá Información</p>
+                <div class="input-group mb-3">
+                  <input class="input_correo" placeholder="Ingresá tu Correo Electrónico" style="border-radius: 20px" />
+                  <span class="input-group-text" id="btn-suscribirse"
+                    style="cursor:pointer; background-color:#87c440; color: white;"
+                    title="Suscribirse para recibir información">Suscríbete</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row">
+          </div>
+          <div class="row text-center" style="color: white">
+            <h6>Capacitación y Educación Técnica, Gratuita y de Calidad</h6>
+          </div>
+        </div>
+        <div class="row text-center" style="background-color: #0a80b9; color: white">
+          <h6 style="margin: 0px; padding: 10px;">Todos los Derechos Reservados Instituto Nacional
+            Tecnológico - INATEC -
+            2026</h6>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Fin del Footer -->
+  <!-- ==========================================================
+       SCRIPTS JAVASCRIPT (al final del body para no bloquear el render)
+       Orden importante:
+         1. jQuery (requerido por Bootstrap y funciones propias)
+         2. functionLoader.js (loader de pagina)
+         3. buscador.js (logica del buscador de carreras)
+         4. bootstrap.bundle.min.js (componentes Bootstrap: modales, dropdowns)
+         5. aos.js (animaciones al hacer scroll)
+         6. swiper-bundle.min.js (carrusel de plataformas)
+         7. functionBase.js (funciones generales del sitio)
+  =========================================================== -->
+  <script src="../static/core/js/jquery-3.6.0.min.js"></script>
+  <script src="../static/core/js/functionLoader.js"></script>
+  <script src="../static/core/js/buscador.js"></script>
+  <script src="../static/core/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/core/js/aos.js"></script>
+  <script src="../static/core/js/swiper-bundle.min.js"></script>
+  <script src="../static/core/js/functionBase.js"></script>
+  <script>
+    $(document).ready(function () {
+    // ── Inicializacion de AOS (animaciones) y deteccion de dispositivo ──
+      AOS.init({ easing: 'ease-in-out-sine' });
+      window.core_dispositivo = window.innerWidth > 680 ? 1 : 2;
+    });
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted || window.performance && window.performance.navigation.type === 2) {
+        ocultarLoader();
+      }
+    });
+  </script>
+  <!-- ── Configuracion del carrusel Swiper (seccion Plataformas Virtuales) ── -->
+  <script>
+    // Swiper configuración
+    $(document).ready(function () {
+      var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+        centeredSlides: false,
+        spaceBetween: 16,
+        loop: false,
+        speed: 700,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        breakpoints: {
+          425: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: 8,
+          },
+          768: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            spaceBetween: 12,
+          },
+          1024: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+            spaceBetween: 16,
+          },
+          1440: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+            spaceBetween: 16,
+          },
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        watchOverflow: true,
+        grabCursor: true,
+        grabCursor: true,
+        autoplay: false
+      });
+      setTimeout(function () {
+        if (swiper.navigation) swiper.navigation.update();
+      }, 100);
+    });
+
+  </script>
+  <!-- Google Translate: carga lazy después de que la página sea interactiva -->
+  <!-- ==========================================================
+       GOOGLE TRANSLATE (carga diferida)
+       Se carga despues del evento "load" para no bloquear la pagina
+  =========================================================== -->
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    window.addEventListener('load', function() {
+      var s = document.createElement('script');
+      s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      document.body.appendChild(s);
+    });
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'es', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+
+</body>
+</html>
+
