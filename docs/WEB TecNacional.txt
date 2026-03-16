@@ -1,0 +1,165 @@
+PENDIENTE DE REVISION
+- pagina de sub opción OFERTA ACADEMICA / CURSOS Y ESTRATEGIAS DE CAPACITACION
+- pagina de galería
+- pagina de boletín
+
+
+
+
+
+INICIO
+
+- Quitar la opción de idioma
+
+- SECCION BANNER:
+reemplazar el video sliders de banner.
+
+- SECCION DE DESCRIPCION
+solamente queda la descripción sin titulo
+
+- SECCION OFERTA FORMATIVA
+se actualiza en base a la nueva propuesta de comunicación
+se debe actualizar información
+
+- SECCION PLATAFORMAS VIRTUALES
+actualizar titulo de la sección (PENDIENTE DEFINIRLO)
+se actualizan los card en base a la nueva propuesta
+
+- SECCION DE NOTICIA
+iría en dos columnas con el informativo tecnológico
+incluirle el llamado a la accion a cada noticia
+ubicar el botón ver mas a la derecha tanto para las noticias como para la oferta, actualmente esta a la izquierda
+
+- NUEVA SECCION DE VIDEO
+se van a ubicar 4 videos en la sección
+
+- NUEVA SECCION DE EVENTOS
+poner los últimos 4 eventos
+
+- NUEVA SECCION MULTIMEDIA
+Nuevo diseño
+
+- NUEVA SECCION DE MULTIMEDIA
+
+- NUEVA SECCION DE GALERIA
+
+- NUEVO SECCION DE CENTROS
+filtro de de centros con redireccionamiento a la pagina principal de los centros
+
+- SECCION DE FOOTER
+entra en revisión por comunicaciones
+
+ 
+
+
+
+
+PESTAÑA NOSOTROS
+- quitarla del menú principal y ubicarla en el pie para redireccionar a la pagina correspondiente
+- revisar lo que va a llevar porque existe un organigrama
+
+
+
+
+
+
+PAGINA DE OFERTA FORMATIVA 
+se actualizara el diseño utilizando la estructura ya establecida
+
+
+
+
+PAGINA DETALLE DE OFERTAS FORMATIVA
+se tomara en cuenta el filtro del slide izquierda
+se tomara en cuenta el nuevo diseño para mostrar las ofertas
+
+
+
+
+PAGINA DETALLE DE CARRERA
+se conseva el diseño actual migrado
+se añade al lateral derecho el llamado a la accion "prematricula en linea y descarga plan formativo"
+
+
+
+
+
+PAGINA DE RECONOCIMIENTO A LA EXPERIENCIA LABORAL
+queda igual al migrado
+
+
+
+
+
+PAGINA DE MICROSITIO DE CENTROS
+la pagina de inicio se cambia la pagina en base a la nueva propuesta
+mejorar el diseño de los subsitios dentro de la pagina de centros en base a la estructura ya establecida
+cada centro podrá tener un banner propio o tendrá uno por defecto
+
+
+
+
+
+
+PAGINA DE INFORMACION A EMPRESA
+mejorar diseño conservando la estructura elaborada
+
+
+
+
+
+PAGINA GENERAL DE NOTICIA
+incluir llamada a la accion de las noticias
+dejar 3 noticias destacadas
+
+
+
+
+
+PAGINA DETALLE DE NOTICIA
+se agregara la sección lateral derecha con componentes
+se queda la estructura y diseño migrado
+
+
+
+
+
+PAGINA PRINCIPAL EVENTOS
+se actualiza diseño en base a la estructura creada
+
+
+
+
+PAGINA DETALLE DE EVENTOS
+se actualizara el diseño en base a la estructura ya creada
+
+
+
+PAGINA DE BOLETIN
+valorar mejoras en base al migrado
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
