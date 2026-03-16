@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="../static/core/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../static/core/css/base.css" rel="stylesheet" />
+    <link href="../static/core/css/bootstrap-icons.css" rel="stylesheet" />
+    <title>Centros Tecnológicos - Tecnológico Nacional</title>
+<style>
+        :root {
+            --primary-blue: #13588B;
+            --secondary-cyan: #99DFF9;
+            --accent-pink: #FF0085;
+            --light-bg: #F7F8FA;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            margin: 0;
+        }
+
+        .centros-hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #0a80b9 100%);
+            color: white;
+            padding: 80px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .centros-hero::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--light-bg);
+            transform: skewY(-2deg);
+        }
+
+        .centros-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .search-centros-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-centros-input {
+            width: 100%;
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+            outline: none;
+        }
+
+        .centros-grid {
+            margin-top: -50px;
+            position: relative;
+            z-index: 20;
+        }
+
+        .centro-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .centro-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .centro-card-img {
+            height: 160px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .centro-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: var(--accent-pink);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            backdrop-filter: blur(4px);
+        }
+
+        .centro-card-body {
+            padding: 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .centro-name {
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .centro-location {
+            color: #666;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 12px;
+        }
+
+        .centro-location i {
+            color: var(--accent-pink);
+        }
+
+        .btn-ver-centro {
+            background-color: var(--primary-blue);
+            color: white;
+            border-radius: 25px;
+            padding: 7px 20px;
+            font-weight: bold;
+            border: none;
+            transition: all 0.3s;
+            width: 100%;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
+
+        .btn-ver-centro:hover {
+            background-color: var(--accent-pink);
+            color: white;
+        }
+
+        /* Pagination Styles */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 30px 15px 10px;
+            flex-wrap: wrap;
+        }
+
+        .pagination-container .page-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            color: #555;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pagination-container .page-btn:hover {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(19, 88, 139, 0.15);
+        }
+
+        .pagination-container .page-btn.active {
+            background: linear-gradient(135deg, var(--primary-blue), #0a80b9);
+            color: white;
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 15px rgba(19, 88, 139, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .pagination-container .page-btn.nav-btn {
+            width: auto;
+            padding: 0 18px;
+            font-size: 0.85rem;
+            gap: 5px;
+            border-radius: 20px;
+        }
+
+        .pagination-container .page-btn.nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .pagination-info {
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+            padding: 0 15px 10px;
+        }
+
+        .pagination-info strong {
+            color: var(--primary-blue);
+        }
+
+        .page-dots {
+            width: 30px;
+            text-align: center;
+            color: #aaa;
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: default;
+        }
+
+        @media (max-width: 991px) {
+            .centro-name {
+                font-size: 0.9rem;
+            }
+
+            .centro-card-img {
+                height: 140px;
+            }
+
+            .centros-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .centros-hero {
+                padding: 50px 0 70px;
+            }
+
+            .centros-hero h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        .active-dept {
+            background-color: var(--primary-blue) !important;
+            color: white !important;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(19, 88, 139, 0.2);
+        }
+        
+        #departamentos-list .list-group-item:hover:not(.active-dept) {
+            background-color: rgba(153, 223, 249, 0.2);
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+        
+        #departamentos-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        #departamentos-list::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+    <style>
+      #modern-navbar {z-index:1030;background:linear-gradient(90deg,#0a3d6b 0%,#14578b 55%,#1a72b0 100%)!important;transition:background .4s,box-shadow .3s;box-shadow:0 4px 24px rgba(10,61,107,.45)!important}
+      #modern-navbar.scrolled{background:linear-gradient(90deg,#072d50 0%,#0e3f6b 55%,#1260a0 100%)!important}
+      #modern-navbar .navbar-brand img{filter:brightness(0) invert(1);transition:filter .2s,opacity .2s}
+      #modern-navbar .navbar-brand:hover img{opacity:.85}
+      #modern-navbar .nav-link{font-size:.82rem;font-weight:600;letter-spacing:.05em;color:rgba(255,255,255,.9)!important;padding:.5rem .7rem;position:relative;transition:color .2s}
+      #modern-navbar .nav-link::after{content:"";position:absolute;left:50%;bottom:4px;width:0;height:2px;background:#87c440;transition:width .25s,left .25s;border-radius:2px}
+      #modern-navbar .nav-link:hover::after,#modern-navbar .nav-link.active::after{width:70%;left:15%}
+      #modern-navbar .nav-link:hover,#modern-navbar .nav-link.active{color:#fff!important}
+      #modern-navbar .navbar-toggler{border:1px solid rgba(255,255,255,.4);outline:none}
+      #modern-navbar .navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")}
+      #modern-navbar .dropdown-menu{background:rgba(10,50,90,.97);border:1px solid rgba(255,255,255,.12);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.35);padding:8px;min-width:240px;backdrop-filter:blur(8px);animation:dropIn .18s ease}
+      @keyframes dropIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+      #modern-navbar .dropdown-item{border-radius:8px;font-size:.82rem;font-weight:600;color:rgba(220,240,255,.92);padding:8px 14px;transition:background .15s,color .15s}
+      #modern-navbar .dropdown-item:hover,#modern-navbar .dropdown-item:focus{background:#00adee;color:#fff}
+    </style>
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg fixed-top" id="modern-navbar">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand d-flex align-items-center gap-2 py-1" href="../index.html">
+        <img src="../static/core/img/Recurso 36.png" alt="Logo Gobierno" style="height:38px;width:auto;max-width:180px;object-fit:contain;" />
+        <img src="../static/core/img/Recurso 37.png" alt="Logo INATEC" style="height:38px;width:auto;max-width:120px;object-fit:contain;" />
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#modernNavbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="modernNavbarContent">
+        <ul class="navbar-nav ms-auto mb-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="../index.html">INICIO</a></li>
+          <li class="nav-item"><a class="nav-link " href="../pages/nosotros.html">NOSOTROS</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="../pages/oferta-academica.html" id="ofertaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">OFERTA ACADÉMICA</a>
+            <ul class="dropdown-menu shadow" aria-labelledby="ofertaDropdown">
+              <li><a class="dropdown-item" href="../pages/carreras-educacion-tecnica.html">CARRERAS DE EDUCACIÓN TÉCNICA</a></li>
+              <li><a class="dropdown-item" href="../pages/programas.html">CURSOS Y ESTRATEGIAS DE CAPACITACIÓN</a></li>
+              <li><a class="dropdown-item" href="../pages/experiencia-laboral.html">RECONOCIMIENTO A LA EXPERIENCIA LABORAL</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../pages/centros-tecnologicos.html">CENTROS TECNOLÓGICOS</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="empresasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">EMPRESAS</a>
+            <ul class="dropdown-menu" aria-labelledby="empresasDropdown">
+              <li><a class="dropdown-item" href="../pages/empresas.html">INFORMACIÓN</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="recursosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">RECURSOS</a>
+            <ul class="dropdown-menu" aria-labelledby="recursosDropdown">
+              <li><a class="dropdown-item" href="../pages/noticias.html">NOTICIAS</a></li>
+              <li><a class="dropdown-item" href="../pages/eventos.html">EVENTOS</a></li>
+              <li><a class="dropdown-item" href="../pages/videos.html">VIDEOS</a></li>
+              <li><a class="dropdown-item" href="../pages/galeria.html">GALERÍAS</a></li>
+              <li><a class="dropdown-item" href="../pages/boletines.html">BOLETÍN</a></li>
+              <li><a class="dropdown-item" href="../pages/biblioteca-virtual.html">BIBLIOTECA VIRTUAL</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<section class="centros-hero">
+        <div class="container">
+            <h1>Centros Tecnológicos</h1>
+            <p class="lead">Explora nuestra red nacional de centros de formación técnica y tecnológica.</p>
+
+            <div class="search-centros-container mt-4">
+                <input type="text" id="search-centros" class="search-centros-input"
+                    placeholder="Busca por nombre o ubicación...">
+            </div>
+        </div>
+    </section>
+
+        <section class="container mb-5 centros-grid">
+        <div class="row g-4">
+            <!-- Columna Izquierda: Filtro Departamentos -->
+            <div class="col-lg-3">
+                <div class="card border-0 shadow-sm rounded-4 position-sticky" style="top: 100px;">
+                    <div class="card-header bg-white border-0 pt-4 pb-2 px-4 rounded-top-4">
+                        <h5 class="fw-bold mb-0" style="color: var(--primary-blue);"><i class="bi bi-geo-alt-fill me-2"></i> Departamentos</h5>
+                    </div>
+                    <div class="card-body p-0 px-2 pb-3">
+                        <ul class="list-group list-group-flush border-0" id="departamentos-list" style="max-height: 60vh; overflow-y: auto;">
+                            <!-- Los departamentos se cargarán aquí -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Columna Derecha: Cuadrícula Centros -->
+            <div class="col-lg-9">
+                <div class="row g-4" id="centros-container">
+                    <!-- Los centros se cargarán dinámicamente aquí -->
+                </div>
+                <div id="pagination-info" class="pagination-info mt-5"></div>
+                <div id="pagination-controls" class="pagination-container"></div>
+            </div>
+        </div>
+    </section>
+
+    
+<footer>
+    <div class="container-fluid base_footer">
+      <div class="row pt-5">
+        <div class="container text-center">
+          <img class="mx-3" src="../static/core/img/logo_ci_2022.png" style="width: 12%" />
+          <img class="mx-3" src="../static/core/img/logo_mid_2022.png" style="width: 9%" />
+          <img class="mx-3" src="../static/core/img/logo_in_2022.png" style="width: 12%" />
+        </div>
+        <div class="row">
+          <div class="col-xs-1 col-sm-3 text-start">
+            <div class="row">
+              <div class="col"><img src="../static/core/img/logo_inatec_2022.png" style="margin-left: 10%; height: 100px; width:auto" /></div>
+            </div>
+            <div class="row">
+              <div class="col col_contactanos">
+                <div>
+                  <h5 class="text-light"><strong>Contactanos</strong></h5>
+                  <h6 class="text-light enlace">Centro Cívico Zumen, Managua</h6>
+                  <h6 class="text-light enlace">Atención al Protagonista: 2253-8888</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-1 col-sm-6 container_links">
+            <div class="row">
+              <div class="col">
+                <a href="../index.html"><h6 class="text-light enlace">> INICIO</h6></a>
+                <a href="../pages/nosotros.html"><h6 class="text-light enlace active">> NOSOTROS</h6></a>
+                <a href="../pages/carreras-educacion-tecnica.html"><h6 class="text-light enlace">> OFERTA FORMATIVA</h6></a>
+                <a href="../pages/centros-tecnologicos.html"><h6 class="text-light enlace">> CENTROS TECNOLOGICOS</h6></a>
+              </div>
+              <div class="col">
+                <a href=" galeria.html"><h6 class="text-light enlace">> GALERIAS</h6></a>
+                <a href="../pages/noticias.html"><h6 class="text-light enlace">> NOTICIAS</h6></a>
+                <a href="../pages/eventos.html"><h6 class="text-light enlace">> EVENTOS</h6></a>
+              </div>
+              <div class="col">
+                <h6 class="text-light">Redes Sociales</h6>
+                <div class="d-flex gap-2">
+                    <i class="bi-facebook text-white"></i>
+                    <i class="bi-twitter text-white"></i>
+                    <i class="bi-instagram text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-1 col-sm-3 text-end">
+            <img src="../static/core/img/logo_gobierno.png" style="height: 142px; margin-right: 10%;" />
+          </div>
+        </div>
+        <div class="row text-center mt-4" style="background-color: #0a80b9; color: white">
+          <h6 style="margin: 0px; padding: 10px;">Todos los Derechos Reservados - INATEC - 2026</h6>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <script src="../static/core/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/core/js/centros-data.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+                        const container = document.getElementById('centros-container');
+            const searchInput = document.getElementById('search-centros');
+            const paginationControls = document.getElementById('pagination-controls');
+            const paginationInfo = document.getElementById('pagination-info');
+                        const deptsList = document.getElementById('departamentos-list');
+
+            const ITEMS_PER_PAGE = 12;
+            let currentPage = 1;
+            let currentData = [];
+            let activeDept = 'todos';
+
+            if (!container || !window.centrosData) {
+                console.error("No se pudo cargar la información de los centros.");
+                return;
+            }
+            
+            // Mapeo manual de ubicaciones a Departamentos
+            const locationToDept = {
+                "Managua": "Managua",
+                "Laguna de Perlas": "Costa Caribe Sur",
+                "Boaco": "Boaco",
+                "Isla de Ometepe": "Rivas",
+                "San Miguelito": "Río San Juan",
+                "El Sauce": "León",
+                "Siuna": "Costa Caribe Norte",
+                "Granada": "Granada",
+                "San Rafael del Norte": "Jinotega",
+                "Chinandega": "Chinandega",
+                "Somoto": "Madriz",
+                "Masaya": "Masaya",
+                "Juigalpa": "Chontales",
+                "San Isidro": "Matagalpa",
+                "Puerto Cabezas": "Costa Caribe Norte",
+                "Jalapa": "Nueva Segovia",
+                "Ocotal": "Nueva Segovia",
+                "Jinotepe": "Carazo",
+                "Bocana de Paiwas": "Costa Caribe Sur",
+                "Estelí": "Estelí",
+                "Rivas": "Rivas",
+                "Nueva Guinea": "Costa Caribe Sur",
+                "Nandaime": "Granada",
+                "Waspam": "Costa Caribe Norte",
+                "Comalapa": "Chontales",
+                "San José de Cusmapa": "Madriz",
+                "El Viejo": "Chinandega",
+                "Diriamba": "Carazo",
+                "Chichigalpa": "Chinandega",
+                "Muy Muy": "Matagalpa",
+                "Bilwi": "Costa Caribe Norte",
+                "Bluefields": "Costa Caribe Sur",
+                "Pochomil": "Managua",
+                "San Juan del Sur": "Rivas",
+                "Ometepe": "Rivas",
+                "León": "León",
+                "Ticuantepe": "Managua",
+                "Las Sabanas": "Madriz",
+                "San Carlos": "Río San Juan",
+                "Horizonte Valiente": "Managua",
+                "El Cuá": "Jinotega",
+                "El Rama": "Costa Caribe Sur",
+                "Matagalpa": "Matagalpa",
+                "Jinotega": "Jinotega"
+            };
+
+            // Enriquecer datos con departamentos
+            window.centrosData = window.centrosData.map(c => {
+                let dept = locationToDept[c.ubicacion] || c.ubicacion; // Default to ubicacion si no existe
+                return { ...c, departamento: dept };
+            });
+
+            // Todos los departamentos reales de Nicaragua
+            const nicaraguaDepts = [
+                "Boaco", "Carazo", "Chinandega", "Chontales", "Costa Caribe Norte",
+                "Costa Caribe Sur", "Estelí", "Granada", "Jinotega", "León", "Madriz",
+                "Managua", "Masaya", "Matagalpa", "Nueva Segovia", "Rivas", "Río San Juan"
+            ];
+
+            // Renderiza la lista de departamentos y maneja los clicks
+            function renderDepartamentos() {
+                // Generar lista fija para que se vean todos los departamentos, aunque no tengan centros
+                deptsList.innerHTML = `
+                    <li class="list-group-item border-0 active-dept" style="cursor: pointer; border-radius: 8px; margin: 2px 8px; transition: all 0.2s;" data-dept="todos">
+                        <i class="bi bi-globe-americas me-2"></i> Todos los Departamentos
+                    </li>
+                `;
+                
+                nicaraguaDepts.forEach(dept => {
+                    deptsList.innerHTML += `
+                        <li class="list-group-item border-0" style="cursor: pointer; border-radius: 8px; margin: 2px 8px; transition: all 0.2s;" data-dept="${dept}">
+                            <i class="bi bi-geo-alt me-2 text-muted"></i> ${dept}
+                        </li>
+                    `;
+                });
+
+                // Añadir event listeners a cada item
+                deptsList.querySelectorAll('li').forEach(li => {
+                    li.addEventListener('click', (e) => {
+                        // Remover clase active de todos
+                        deptsList.querySelectorAll('li').forEach(el => el.classList.remove('active-dept'));
+                        // Añadir al clickeado
+                        e.currentTarget.classList.add('active-dept');
+                        
+                        activeDept = e.currentTarget.getAttribute('data-dept');
+                        
+                        // Scroll to top of grid
+                        document.querySelector('.centros-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                        filterData();
+                    });
+                });
+            }
+
+            // Filtro combinado de departamento y búsqueda
+            function filterData() {
+                const term = searchInput.value.toLowerCase();
+                
+                const filtered = window.centrosData.filter(c => {
+                    const matchTerm = c.nombre.toLowerCase().includes(term) || c.ubicacion.toLowerCase().includes(term) || c.departamento.toLowerCase().includes(term);
+                    const matchDept = (activeDept === 'todos') ? true : (c.departamento === activeDept);
+                    
+                    return matchTerm && matchDept;
+                });
+                
+                renderPage(filtered, 1);
+            }
+
+            const urlMapping = {
+                "jose-coronel-urtecho": "../centros/centro-cultural-politecnico-jose-coronel-urtecho-no-volvera-el-pasado-managua.html",
+                "comandante-carlos": "../centros/centro-de-capacitacion-comandante-carlos.html",
+                "francisco-sambola": "../centros/centro-de-desarrollo-humano-con-identidad-francisco-sambola-en-wawashang-laguna-de-perlas.html",
+                "nieves-cajina": "../centros/centro-nacional-de-desarrollo-del-talento-creativo-nieves-cajina.html",
+                "alcides-miranda": "../centros/centro-tecnologico-alcides-miranda-fitoria.html",
+                "alvaro-diroy": "../centros/centro-tecnologico-isla-ometepe.html",
+                "aquiles-machado": "../centros/centro-tecnologico-aquiles-machado-san-miguelito.html",
+                "ariel-darce": "../centros/centro-tecnologico-ariel-darce-managua.html",
+                "arlen-siu": "../centros/centro-tecnologico-arlen-siu.html",
+                "bernardino-diaz": "../centros/centro-tecnologico-bernardino-diaz-ochoa.html",
+                "bidkart-munoz": "../centros/centro-tecnologico-bidkar-munoz.html",
+                "blanca-segovia": "../centros/centro-tecnologico-blanca-segovia-san-rafael-del-norte.html",
+                "carlos-manuel-vanegas": "../centros/centro-tecnologico-carlos-manuel-vanegas.html",
+                "che-guevara": "../centros/centro-tecnologico-che-guevara.html",
+                "camilo-ortega": "../centros/tecnologico-cmdte-camilo-ortega-saavedra.html",
+                "hugo-chavez": "../centros/centro-tecnologico-cmdte-hugo-chavez-frias.html",
+                "german-pomares": "../centros/centro-tecnologico-german-pomares-ordonez.html",
+                "tomas-borge": "../centros/centro-tecnologico-comandante-tomas-borge-martinez.html",
+                "santos-lopez": "../centros/centro-tecnologico-somoto.html",
+                "datanli": "../centros/centro-tecnologico-datanli-jinotega.html",
+                "acahualinca": "../centros/centro-tecnologico-industrial-acahualinca.html",
+                "amanda-aguilar": "../centros/centro-nacional-hoteleria-y-turismo.html",
+                "hermana-paquita": "../centros/centro-tecnologico-hoteleria-turismo-hermana-paquita.html",
+                "nelly-flor-de-pino": "../centros/centro-tecnologico-de-hoteleria-y-turismo-nelly-flor-de-pino.html",
+                "idiomas-leon": "../centros/centro-tecnologico-de-idiomas-blas-abraham-real-espinales.html",
+                "idiomas-batahola": "../centros/centro-tecnologico-idiomas.html",
+                "jalapa": "../centros/centro-tecnologico-jalapa.html",
+                "ocotal": "../centros/centro-tecnologico-ocotal.html",
+                "ernst-thalmann": "../centros/centro-tecnologico-ernst-thalmann.html",
+                "evaristo-vasquez": "../centros/centro-tecnologico-evaristo-vasquez-sanchez-el-chino-santos-bocana-de-paiwas.html",
+                "francisco-rivera": "../centros/centro-tecnologico-francisco-rivera-quintero.html",
+                "gaspar-garcia": "../centros/tecnologico-gaspar-garcia-laviana.html",
+                "augusto-sandino": "../centros/centro-tecnologico-augusto-nicolas-calderon-sandino.html",
+                "jose-dolores-estrada": "../centros/centro-tecnologico-jose-dolores-estrada.html",
+                "miguel-angel-ortez": "../centros/centro-tecnologico-granada.html",
+                "heroes-de-bawas": "../centros/centro-tecnologico-heroes-de-bawas-boaco.html",
+                "heroes-asturias": "../centros/centro-tecnologico-heroes-y-martires-de-asturias-jinotega.html",
+                "heroes-puerto-cabezas": "../centros/centrotecnologico-heroes-martires-puerto-cabezas.html",
+                "heroes-villanueva": "../centros/centro-tecnologico-heroes-martires-villanueva.html",
+                "mujeres-el-cua": "../centros/centro-tecnologico-heroicas-mujeres-de-el-cua-matagalpa.html",
+                "hugo-urbina": "../centros/centro-tecnologico-el-rama.html",
+                "jose-eulogio": "../centros/centro-tecnologico-jose-eulogio-hernandez-alvarado-las-sabanas.html",
+                "josefa-toledo": "../centros/centro-tecnologico-josefa-toledo-aguerri.html",
+                "juan-carlos-herrera": "../centros/centro-tecnologico-juan-carlos-herrera-cuaresma-la-foquita-managua.html",
+                "juan-de-dios-munoz": "../centros/centro-tecnologico-juan-dios-munoz-reyes.html",
+                "juan-maria-brenes": "../centros/centro-tecnologico-san-carlos.html",
+                "leonel-rugama": "../centros/centro-tecnologico-leonel-rugama.html",
+                "manuel-landez": "../centros/centro-tecnologico-manuel-landes-rojas.html",
+                "manuel-olivares": "../centros/centro-tecnologico-manuel-olivares-rodriguez.html",
+                "marcos-homero": "../centros/centro-tecnologico-marcos-homero-guatemala.html",
+                "martha-navarro": "../centros/centro-tecnologico-masaya.html",
+                "monimbo-heroico": "../centros/centro-tecnologico-monimbo-heroico-masaya.html",
+                "benedicto-herrera": "../centros/centro-tecnologico-monsenor-benedicto-herrera.html",
+                "muchachos": "../centros/centro-tecnologico-muchachos-horizonte-valiente.html",
+                "olof-palme": "../centros/centro-tecnologico-olof-palme.html",
+                "onofre-martinez": "../centros/centro-tecnologico-agropecuario-onofre-martinez.html",
+                "pablo-ubeda": "../centros/centro-tecnologico-pablo-ubeda-comalapa.html",
+                "rafael-fabretto-managua": "../centros/centro-tecnologico-padre-rafael-maria-fabretto-managua.html",
+                "rafael-fabretto-cusmapa": "../centros/centro-tecnologico-padre-rafael-maria-fabretto-san-jose-de-cusmapa.html",
+                "teodoro-kint": "../centros/centro-tecnologico-industrial-padre-teodoro-kint.html",
+                "pedro-arauz": "../centros/centro-tecnologico-pedro-arauz-palacios.html",
+                "ricardo-morales": "../centros/centro-tecnologico-ricardo-morales-aviles.html",
+                "rolando-rodriguez": "../centros/centro-tecnologico-rolando-rodriguez-gonzalez.html",
+                "santiago-baldovino": "../centros/centro-tecnologico-santiago-baldovino.html",
+                "simon-bolivar": "../centros/centro-tecnologico-simon-bolivar.html",
+                "ulises-gogo": "../centros/centro-tecnologico-ulises-santiago-gogo-bilwi.html",
+                "william-schwartz": "../centros/centro-tecnologico-bluefields.html",
+                "xilotepelt": "../centros/centro-tecnologico-xilotepelt-jinotepe.html",
+                "casa-luxemburgo": "../centros/escuela-hotel-casa-luxemburgo.html",
+                "hotel-nicarao": "../centros/escuela-hotel-nicarao-san-juan-del-sur.html",
+                "volcan-maderas": "../centros/escuela-hotel-volcan-maderas-ometepe.html"
+            };
+
+            function renderPage(data, page) {
+                currentData = data;
+                currentPage = page;
+
+                const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
+                if (currentPage > totalPages) currentPage = totalPages;
+                if (currentPage < 1) currentPage = 1;
+
+                const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
+                const endIdx = Math.min(startIdx + ITEMS_PER_PAGE, data.length);
+                const pageData = data.slice(startIdx, endIdx);
+
+                container.innerHTML = '';
+
+                if (data.length === 0) {
+                    container.innerHTML = `
+                        <div class="col-12 text-center py-5">
+                            <i class="bi bi-search fs-1 text-muted d-block mb-3"></i>
+                            <p class="text-muted">No se encontraron centros que coincidan con la búsqueda.</p>
+                        </div>`;
+                    paginationControls.innerHTML = '';
+                    paginationInfo.innerHTML = '';
+                    return;
+                }
+
+                pageData.forEach(centro => {
+                    const centerUrl = urlMapping[centro.id] || `centro-detalle.html?id=${centro.id}`;
+                    const imgUrl = centro.banner || 'https://placehold.co/600x400/13588B/ffffff?text=' + encodeURIComponent(centro.nombre);
+                    const card = `
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <article class="centro-card">
+                                <div class="centro-card-img" style="background-image: url('${imgUrl}')">
+                                    <span class="centro-badge">${centro.ubicacion}</span>
+                                </div>
+                                <div class="centro-card-body">
+                                    <h3 class="centro-name">${centro.nombre}</h3>
+                                    <div class="centro-location">
+                                        <i class="bi bi-geo-alt-fill"></i> ${centro.ubicacion}, Nicaragua
+                                    </div>
+                                    <a href="${centerUrl}" class="btn-ver-centro">Ver Detalles</a>
+                                </div>
+                            </article>
+                        </div>
+                    `;
+                    container.innerHTML += card;
+                });
+
+                // Pagination info
+                paginationInfo.innerHTML = `Mostrando <strong>${startIdx + 1}</strong> – <strong>${endIdx}</strong> de <strong>${data.length}</strong> centros`;
+
+                // Render pagination controls
+                renderPagination(totalPages);
+            }
+
+            function renderPagination(totalPages) {
+                paginationControls.innerHTML = '';
+                if (totalPages <= 1) return;
+
+                // Prev button
+                const prevBtn = document.createElement('button');
+                prevBtn.className = 'page-btn nav-btn';
+                prevBtn.innerHTML = '<i class="bi bi-chevron-left"></i> Anterior';
+                prevBtn.disabled = currentPage === 1;
+                prevBtn.addEventListener('click', () => {
+                    renderPage(currentData, currentPage - 1);
+                    scrollToGrid();
+                });
+                paginationControls.appendChild(prevBtn);
+
+                // Page numbers
+                const pages = getPageNumbers(currentPage, totalPages);
+                pages.forEach(p => {
+                    if (p === '...') {
+                        const dots = document.createElement('span');
+                        dots.className = 'page-dots';
+                        dots.textContent = '...';
+                        paginationControls.appendChild(dots);
+                    } else {
+                        const btn = document.createElement('button');
+                        btn.className = 'page-btn' + (p === currentPage ? ' active' : '');
+                        btn.textContent = p;
+                        btn.addEventListener('click', () => {
+                            renderPage(currentData, p);
+                            scrollToGrid();
+                        });
+                        paginationControls.appendChild(btn);
+                    }
+                });
+
+                // Next button
+                const nextBtn = document.createElement('button');
+                nextBtn.className = 'page-btn nav-btn';
+                nextBtn.innerHTML = 'Siguiente <i class="bi bi-chevron-right"></i>';
+                nextBtn.disabled = currentPage === totalPages;
+                nextBtn.addEventListener('click', () => {
+                    renderPage(currentData, currentPage + 1);
+                    scrollToGrid();
+                });
+                paginationControls.appendChild(nextBtn);
+            }
+
+            function getPageNumbers(current, total) {
+                const pages = [];
+                if (total <= 7) {
+                    for (let i = 1; i <= total; i++) pages.push(i);
+                } else {
+                    pages.push(1);
+                    if (current > 3) pages.push('...');
+                    const start = Math.max(2, current - 1);
+                    const end = Math.min(total - 1, current + 1);
+                    for (let i = start; i <= end; i++) pages.push(i);
+                    if (current < total - 2) pages.push('...');
+                    pages.push(total);
+                }
+                return pages;
+            }
+
+            function scrollToGrid() {
+                document.querySelector('.centros-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+                        searchInput.addEventListener('input', () => {
+                filterData();
+            });
+
+            // Initial render
+            renderDepartamentos();
+            filterData();
+        });
+    </script>
+</body>
+</html>

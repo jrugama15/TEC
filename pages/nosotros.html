@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link href="../static/core/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../static/core/css/base.css" rel="stylesheet" />
+  <link href="../static/core/css/bootstrap-icons.css" rel="stylesheet" />
+  <title>Nosotros - Tecnológico Nacional</title>
+  <meta name="description"
+    content="Conoce más sobre el Instituto Nacional Técnico y Tecnológico (INATEC), nuestra misión, visión, valores y estructura organizacional.">
+  <style>
+    #modern-navbar {
+      z-index: 1030;
+      background: linear-gradient(90deg, #0a3d6b 0%, #14578b 55%, #1a72b0 100%) !important;
+      transition: background .4s, box-shadow .3s;
+      box-shadow: 0 4px 24px rgba(10, 61, 107, .45) !important
+    }
+
+    #modern-navbar.scrolled {
+      background: linear-gradient(90deg, #072d50 0%, #0e3f6b 55%, #1260a0 100%) !important
+    }
+
+    #modern-navbar .navbar-brand img {
+      filter: brightness(0) invert(1);
+      transition: filter .2s, opacity .2s
+    }
+
+    #modern-navbar .navbar-brand:hover img {
+      opacity: .85
+    }
+
+    #modern-navbar .nav-link {
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      color: rgba(255, 255, 255, .9) !important;
+      padding: .5rem .7rem;
+      position: relative;
+      transition: color .2s
+    }
+
+    #modern-navbar .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 4px;
+      width: 0;
+      height: 2px;
+      background: #87c440;
+      transition: width .25s, left .25s;
+      border-radius: 2px
+    }
+
+    #modern-navbar .nav-link:hover::after,
+    #modern-navbar .nav-link.active::after {
+      width: 70%;
+      left: 15%
+    }
+
+    #modern-navbar .nav-link:hover,
+    #modern-navbar .nav-link.active {
+      color: #fff !important
+    }
+
+    #modern-navbar .navbar-toggler {
+      border: 1px solid rgba(255, 255, 255, .4);
+      outline: none
+    }
+
+    #modern-navbar .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+    }
+
+    #modern-navbar .dropdown-menu {
+      background: rgba(10, 50, 90, .97);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 14px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .35);
+      padding: 8px;
+      min-width: 240px;
+      backdrop-filter: blur(8px);
+      animation: dropIn .18s ease
+    }
+
+    @keyframes dropIn {
+      from {
+        opacity: 0;
+        transform: translateY(-8px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    #modern-navbar .dropdown-item {
+      border-radius: 8px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: rgba(220, 240, 255, .92);
+      padding: 8px 14px;
+      transition: background .15s, color .15s
+    }
+
+    #modern-navbar .dropdown-item:hover,
+    #modern-navbar .dropdown-item:focus {
+      background: #00adee;
+      color: #fff
+    }
+
+    /* Breadcrumb & Section Badges */
+    .breadcrumb-modern {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(10, 61, 107, .06);
+      padding: 8px 20px;
+      border-radius: 50px;
+      margin-bottom: 0;
+      list-style: none;
+    }
+
+    .breadcrumb-modern li {
+      font-size: .8rem;
+      font-weight: 500;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .breadcrumb-modern li a {
+      color: #14578b;
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .breadcrumb-modern li a:hover {
+      color: #00adee;
+    }
+
+    .breadcrumb-modern li.active {
+      color: #0a3d6b;
+      font-weight: 700;
+    }
+
+    .breadcrumb-modern .bc-sep {
+      color: #94a3b8;
+      font-size: .65rem;
+    }
+
+    .section-title-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #14578b 0%, #0a3d6b 100%);
+      color: #fff;
+      font-size: .85rem;
+      font-weight: 700;
+      padding: 10px 28px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(20, 87, 139, .25);
+    }
+
+    body {
+      color: var(--text-dark);
+      background-color: #fff;
+    }
+
+    /* Nosotros Content Styles */
+    .content-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.8;
+      color: #374151;
+    }
+
+    .mv-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      border-left: 5px solid #14578b;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      height: 100%;
+      transition: transform 0.3s;
+    }
+
+    .mv-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .mv-card h4 {
+      color: #14578b;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .valor-item {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      border: 1px solid #f1f5f9;
+      height: 100%;
+    }
+
+    .valor-name {
+      color: #14578b;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    /* Organigrama Avanzado Dinámico */
+    .org-tree {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      overflow-x: auto;
+      padding-bottom: 40px;
+    }
+
+    .org-container-inner {
+      min-width: 1000px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .org-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      padding: 20px 0;
+      position: relative;
+    }
+
+    .org-card {
+      background: white;
+      border-radius: 12px;
+      padding: 12px 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e2e8f0;
+      min-width: 180px;
+      max-width: 240px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .org-card:hover {
+      transform: translateY(-3px);
+      border-color: #14578b;
+      box-shadow: 0 8px 20px rgba(20, 87, 139, 0.15);
+    }
+
+    .org-card.active {
+      border-color: #14578b;
+      background: #f0f7ff;
+    }
+
+    .org-card .title {
+      font-weight: 800;
+      color: #0a3d6b;
+      font-size: 0.85rem;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .org-card .subtitle {
+      font-size: 0.72rem;
+      color: #64748b;
+    }
+
+    .org-card.main-red {
+      background: #14578b;
+      color: white;
+      border: none;
+    }
+
+    .org-card.main-red .title {
+      color: white;
+    }
+
+    .org-card.main-red .subtitle {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Connection lines */
+    .org-v-line {
+      width: 2px;
+      height: 30px;
+      background: #cbd5e1;
+    }
+
+    .has-children::after {
+      content: '\F282';
+      font-family: 'bootstrap-icons';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 0.65rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #14578b;
+      transition: transform 0.3s;
+    }
+
+    .org-card.expanded::after {
+      transform: translateX(-50%) rotate(180deg);
+      background: #14578b;
+      color: #fff;
+    }
+
+    .org-children {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .org-children.show {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Horizontal line for branches */
+    .branch-line {
+      height: 2px;
+      background: #cbd5e1;
+      position: absolute;
+      top: -10px;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg fixed-top" id="modern-navbar">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand d-flex align-items-center gap-2 py-1" href="../index.html">
+        <img src="../static/core/img/Recurso 36.png" alt="Logo Gobierno"
+          style="height:38px;width:auto;max-width:180px;object-fit:contain;" />
+        <img src="../static/core/img/Recurso 37.png" alt="Logo INATEC"
+          style="height:38px;width:auto;max-width:120px;object-fit:contain;" />
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#modernNavbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="modernNavbarContent">
+        <ul class="navbar-nav ms-auto mb-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="../index.html">INICIO</a></li>
+          <li class="nav-item"><a class="nav-link active" href="../pages/nosotros.html">NOSOTROS</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="../pages/oferta-academica.html" id="ofertaDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">OFERTA ACADÉMICA</a>
+            <ul class="dropdown-menu shadow" aria-labelledby="ofertaDropdown">
+              <li><a class="dropdown-item" href="../pages/carreras-educacion-tecnica.html">CARRERAS DE EDUCACIÓN TÉCNICA</a></li>
+              <li><a class="dropdown-item" href="../pages/programas.html">CURSOS Y ESTRATEGIAS DE CAPACITACIÓN</a></li>
+              <li><a class="dropdown-item" href="../pages/experiencia-laboral.html">RECONOCIMIENTO A LA EXPERIENCIA LABORAL</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../pages/centros-tecnologicos.html">CENTROS TECNOLÓGICOS</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="empresasDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">EMPRESAS</a>
+            <ul class="dropdown-menu" aria-labelledby="empresasDropdown">
+              <li><a class="dropdown-item" href="../pages/empresas.html">INFORMACIÓN</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="recursosDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">RECURSOS</a>
+            <ul class="dropdown-menu" aria-labelledby="recursosDropdown">
+              <li><a class="dropdown-item" href="../pages/noticias.html">NOTICIAS</a></li>
+              <li><a class="dropdown-item" href="../pages/eventos.html">EVENTOS</a></li>
+              <li><a class="dropdown-item" href="../pages/videos.html">VIDEOS</a></li>
+              <li><a class="dropdown-item" href="../pages/galeria.html">GALERÍAS</a></li>
+              <li><a class="dropdown-item" href="../pages/boletines.html">BOLETÍN</a></li>
+              <li><a class="dropdown-item" href="../pages/biblioteca-virtual.html">BIBLIOTECA VIRTUAL</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="subpage-banner" style="margin-top:55px;width:100%;position:relative;">
+    <img src="../static/core/img/Construyo_mi_sueño_en_el_Tecnológico_Nacional.jpeg" alt="Banner"
+      style="width:100%;height:auto;max-height:380px;object-fit:cover;object-position:center;" />
+  </section>
+
+  <div class="container py-5">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-5">
+      <ol class="breadcrumb-modern">
+        <li><a href="../index.html"><i class="bi-house-fill" style="font-size:.85rem;"></i> Inicio</a></li>
+        <li><span class="bc-sep"><i class="bi-chevron-right"></i></span></li>
+        <li class="active">Nosotros</li>
+      </ol>
+    </nav>
+
+    <!-- Quienes Somos Section -->
+    <div class="row mb-5">
+      <div class="col-lg-7">
+        <h2 class="fw-bold mb-4" style="color: #0a3d6b;">Instituto Nacional Técnico y Tecnológico (INATEC)</h2>
+        <p class="content-text mb-4">Es la institución del Buen Gobierno de Reconciliación y Unidad Nacional por medio
+          de la cual se garantiza Capacitación, Educación Técnica y Tecnológica <strong>gratuita y de calidad</strong> a
+          las familias nicaragüenses, así como a instituciones y empresas aportantes del 2%.</p>
+
+        <p class="content-text mb-4">Contamos con <strong>74 centros</strong> en todo el país, con aulas didácticas,
+          laboratorios y talleres equipados con todo lo necesario para las prácticas de los estudiantes.</p>
+
+        <p class="content-text mb-4">Promovemos el desarrollo de capacidades, dignificamos los oficios y reconocemos las
+          competencias adquiridas en el ámbito laboral de trabajadores/as del campo y la ciudad.</p>
+
+        <div class="row g-4 mb-4">
+          <div class="col-md-6">
+            <ul class="list-unstyled">
+              <li class="mb-2 d-flex gap-2"><i class="bi-check-circle-fill text-success"></i> <span>Capacitamos a
+                  Mujeres protagonistas de los programas productivos Hambre Cero y Usura Cero.</span></li>
+              <li class="mb-2 d-flex gap-2"><i class="bi-check-circle-fill text-success"></i> <span>Certificamos a
+                  trabajadores/as de los diferentes sectores con experiencia laboral y sin título.</span></li>
+              <li class="mb-2 d-flex gap-2"><i class="bi-check-circle-fill text-success"></i> <span>Formación Técnica y
+                  Pedagógica de Docentes e Instructores.</span></li>
+              <li class="mb-2 d-flex gap-2"><i class="bi-check-circle-fill text-success"></i> <span>Capacitación a
+                  trabajadores de empresas aportantes del 2%.</span></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="list-unstyled">
+              <li class="mb-2 d-flex gap-2"><i class="bi-check-circle-fill text-success"></i> <span>Cursos para las
+                  Personas Discapacitadas.</span></li>
+              <li class="mb-2 d-flex gap-2"><i class="bi-check-circle-fill text-success"></i> <span>Capacitación a
+                  microempresarios.</span></li>
+              <li class="mb-2 d-flex gap-2"><i class="bi-check-circle-fill text-success"></i> <span>Acercamos la
+                  capacitación hasta la comunidad, barrios y colegios públicos.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="card border-0 shadow-sm p-4 rounded-4 h-100"
+          style="background: #fff; border-top: 6px solid #87c440 !important;">
+          <h5 class="fw-bold mb-4" style="color: #0a3d6b;">Estrategias de Formación</h5>
+          <p class="content-text mb-4">Enfocados en el Programa “Aprender, Emprender, Prosperar” que impulsa el Buen
+            Gobierno en todos los niveles educativos:</p>
+          <div class="d-grid gap-3">
+            <div class="p-3 rounded-3 bg-light border-start border-4 border-primary">
+              <h6 class="fw-bold mb-1">Educación Técnica en el Campo</h6>
+              <span class="small text-muted">Fortaleciendo el sector agropecuario.</span>
+            </div>
+            <div class="p-3 rounded-3 bg-light border-start border-4 border-success">
+              <h6 class="fw-bold mb-1">Tecnológicas de Campo</h6>
+              <span class="small text-muted">Innovación rural.</span>
+            </div>
+            <div class="p-3 rounded-3 bg-light border-start border-4 border-warning">
+              <h6 class="fw-bold mb-1">Escuelas Municipales de Oficio</h6>
+              <span class="small text-muted">Dignificando oficios locales.</span>
+            </div>
+            <div class="p-3 rounded-3 bg-light border-start border-4 border-info">
+              <h6 class="fw-bold mb-1">Tecnológicas de Oficios</h6>
+              <span class="small text-muted">Modernización de habilidades.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Misión & Visión -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-6">
+        <div class="mv-card">
+          <h4><i class="bi-bullseye me-2"></i> Misión</h4>
+          <p class="content-text mb-0">Somos la institución rectora de la Capacitación y la Educación Técnica y
+            Tecnológica en Nicaragua, que forma con calidad a jóvenes y adultos, contribuyendo a su inserción en el
+            mercado laboral, para el desarrollo económico y social del país.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mv-card" style="border-left-color: #87c440;">
+          <h4 style="color: #87c440;"><i class="bi-eye-fill me-2"></i> Visión</h4>
+          <p class="content-text mb-0">Consolidarnos como un referente nacional y regional de la Capacitación, Educación
+            Técnica y Tecnológica, con una oferta formativa innovadora, articulada con el territorio y con el sector
+            productivo y flexible a la dinámica social, económica y política del país.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nuestra Marca -->
+    <div class="row mb-5 align-items-center">
+      <div class="col-lg-6 order-2 order-lg-1">
+        <div class="p-4 rounded-4 shadow-sm border"
+          style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); position: relative; overflow: hidden;">
+          <div
+            style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: rgba(20,87,139,0.05); border-radius: 50%;">
+          </div>
+          <h3 class="fw-bold mb-3" style="color: #0a3d6b;">Nuestra Marca</h3>
+          <p class="content-text mb-0">Nuestra marca traslada los <strong>valores cristianos, socialistas y
+              solidarios</strong> de nuestro Gobierno y es un fiel reflejo de la cultura institucional que impera en
+            todas nuestras actividades de cara a satisfacer las demandas de formación de calidad, de los sectores
+            productivos y protagonists de la Educación Técnica y Formación Profesional.</p>
+        </div>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2 mb-4 mb-lg-0 text-center">
+        <div class="rounded-4 p-4 d-flex align-items-center justify-content-center"
+          style="background: #fff; min-height: 250px;">
+          <img src="../static/inicio/img/plat_english.png" alt="Logotipo Oficial INATEC a Color"
+            style="max-height: 150px; width: auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));">
+        </div>
+      </div>
+    </div>
+
+    <!-- Valores -->
+    <div class="mb-5">
+      <div class="text-center mb-4">
+        <span class="section-title-badge"><i class="bi-star-fill"></i> Nuestros Valores</span>
+      </div>
+      <p class="content-text text-center mb-4" style="max-width: 900px; margin: 0 auto;">En el marco de la Buena Gestión
+        Pública, el Tecnológico Nacional articula sus Valores Institucionales en plena coherencia con los Principios y
+        Valores Éticos con enfoque a la calidad del servicio público, siendo éstos:</p>
+
+      <div class="accordion row g-3" id="valoresAccordion">
+        <!-- Item 1 -->
+        <div class="col-md-6">
+          <div class="accordion-item border-0 rounded-3 shadow-sm" style="overflow:-hidden;">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
+                style="background:#f8f9fa; color:#14578b; font-weight:700;">
+                Honestidad
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+              data-bs-parent="#valoresAccordion">
+              <div class="accordion-body">
+                <p class="content-text mb-0">Consiste en actuar siempre con justicia en la relación con los demás y en
+                  tratar de no perjudicar a nadie como persona o como colectivo, en todo lo que se haga o diga.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="col-md-6">
+          <div class="accordion-item border-0 rounded-3 shadow-sm" style="overflow:-hidden;">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+                style="background:#f8f9fa; color:#14578b; font-weight:700;">
+                Disciplina
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+              data-bs-parent="#valoresAccordion">
+              <div class="accordion-body">
+                <p class="content-text mb-0">Conlleva la observancia y el estricto cumplimiento de las normas
+                  administrativas por parte de los servidores públicos en el ejercicio de sus funciones.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="col-md-6">
+          <div class="accordion-item border-0 rounded-3 shadow-sm" style="overflow:-hidden;">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
+                style="background:#f8f9fa; color:#14578b; font-weight:700;">
+                Responsabilidad
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+              data-bs-parent="#valoresAccordion">
+              <div class="accordion-body">
+                <p class="content-text mb-0">Conlleva el cumplimiento de las funciones del cargo, las tareas
+                  encomendadas
+                  dentro de los plazos establecidos, así como la disposición permanente de rendir cuentas y asumir las
+                  consecuencias de los resultados de su trabajo y de su conducta personal.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="col-md-6">
+          <div class="accordion-item border-0 rounded-3 shadow-sm" style="overflow:-hidden;">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
+                style="background:#f8f9fa; color:#14578b; font-weight:700;">
+                Respeto
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+              data-bs-parent="#valoresAccordion">
+              <div class="accordion-body">
+                <p class="content-text mb-0">Se refiere al trato de todas las personas sin discriminación por razones de
+                  condición social, política, económica, de género, capacidad diferente, religión, etnia, respetando
+                  fielmente sus derechos individuales.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="col-md-6">
+          <div class="accordion-item border-0 rounded-3 shadow-sm" style="overflow:-hidden;">
+            <h2 class="accordion-header" id="headingFive">
+              <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive"
+                style="background:#f8f9fa; color:#14578b; font-weight:700;">
+                Eficiencia
+              </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+              data-bs-parent="#valoresAccordion">
+              <div class="accordion-body">
+                <p class="content-text mb-0">Implica la capacidad de alcanzar los objetivos y metas institucionales
+                  programados, con el mínimo de tiempo y de recursos disponibles, logrando su optimización con alta
+                  calidad a las demandas de la población.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="col-md-6">
+          <div class="accordion-item border-0 rounded-3 shadow-sm" style="overflow:-hidden;">
+            <h2 class="accordion-header" id="headingSix">
+              <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix"
+                style="background:#f8f9fa; color:#14578b; font-weight:700;">
+                Compañerismo
+              </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+              data-bs-parent="#valoresAccordion">
+              <div class="accordion-body">
+                <p class="content-text mb-0">Se basa en el trabajo en equipo para lograr éxitos en las labores. Implica
+                  asumir una actitud de cordialidad, armonía, amistad y sobre todo un trato basado en el respeto y la
+                  colaboración.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 7 -->
+        <div class="col-md-6">
+          <div class="accordion-item border-0 rounded-3 shadow-sm" style="overflow:-hidden;">
+            <h2 class="accordion-header" id="headingSeven">
+              <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven"
+                style="background:#f8f9fa; color:#14578b; font-weight:700;">
+                Compromiso
+              </button>
+            </h2>
+            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+              data-bs-parent="#valoresAccordion">
+              <div class="accordion-body">
+                <p class="content-text mb-0">Implica que el servicio público asumirá compromiso consigo mismo, con sus
+                  valores, con la población, con el trabajo mismo, con una filosofía o cultura organizacional que
+                  implica
+                  una obligatoriedad moral.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 8 -->
+        <div class="col-md-6">
+          <div class="accordion-item border-0 rounded-3 shadow-sm" style="overflow:-hidden;">
+            <h2 class="accordion-header" id="headingEight">
+              <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight"
+                style="background:#f8f9fa; color:#14578b; font-weight:700;">
+                Calidad del servicio público
+              </button>
+            </h2>
+            <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
+              data-bs-parent="#valoresAccordion">
+              <div class="accordion-body">
+                <p class="content-text mb-0">Está vinculada al grado de satisfacción que experimentan los protagonistas
+                  o
+                  empresas. Implica la entrega diligente a las tareas asignadas, disposiciones para dar oportuna,
+                  esmerada
+                  y efectiva atención a los requerimientos y trabajos encomendados para encauzar cortésmente las
+                  peticiones, demandas, quejas y reclamos, así como resolverlos oportunamente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Organigrama Dinámico -->
+    <div class="bg-white rounded-4 p-4 p-md-5 shadow-sm border mb-5 overflow-hidden">
+      <div class="text-center mb-5">
+        <h3 class="fw-bold" style="color: #0a3d6b;">Estructura Organizativa Institucional</h3>
+        <p class="content-text mb-4">Explora la jerarquía del INATEC haciendo clic en las direcciones principales</p>
+      </div>
+
+      <div class="org-tree">
+        <div class="org-container-inner" id="org-root">
+          <!-- Consejo Directivo -->
+          <div class="org-card main-red">
+            <div class="title">CONSEJO DIRECTIVO</div>
+            <div class="subtitle">Órgano Superior</div>
+          </div>
+          <div class="org-v-line"></div>
+
+          <!-- Dirección Ejecutiva -->
+          <div class="org-card main-red has-children expanded" onclick="toggleChildren(this)">
+            <div class="title">DIRECCIÓN EJECUTIVA</div>
+            <div class="subtitle">Representación Legal y Ejecutiva</div>
+          </div>
+
+          <div class="org-children show">
+            <div class="org-v-line"></div>
+
+            <!-- Fila de Direcciones Generales -->
+            <div class="org-group">
+              <!-- Planificación -->
+              <div class="d-flex flex-column align-items-center">
+                <div class="org-card has-children" onclick="toggleChildren(this)">
+                  <div class="title">PLANIFICACIÓN Y DESARROLLO</div>
+                  <div class="subtitle">División General</div>
+                </div>
+                <div class="org-children">
+                  <div class="org-v-line"></div>
+                  <div class="org-card">
+                    <div class="title">PROYECTOS Y DESARROLLO</div>
+                  </div>
+                  <div class="org-v-line"></div>
+                  <div class="org-card">
+                    <div class="title">PLANIFICACIÓN Y ESTADÍSTICAS</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tecnología -->
+              <div class="d-flex flex-column align-items-center">
+                <div class="org-card has-children" onclick="toggleChildren(this)">
+                  <div class="title">TECNOLOGÍA DE LA INFORMACIÓN</div>
+                  <div class="subtitle">División General</div>
+                </div>
+                <div class="org-children">
+                  <div class="org-v-line"></div>
+                  <div class="org-card">
+                    <div class="title">INFRAESTRUCTURA DE TI</div>
+                  </div>
+                  <div class="org-v-line"></div>
+                  <div class="org-card">
+                    <div class="title">DESARROLLO DE SISTEMAS</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Formación Profesional (GRANDE) -->
+              <div class="d-flex flex-column align-items-center">
+                <div class="org-card main-red has-children" onclick="toggleChildren(this)"
+                  style="border: 2px solid #87c440;">
+                  <div class="title">FORMACIÓN PROFESIONAL</div>
+                  <div class="subtitle">Dirección General</div>
+                </div>
+                <div class="org-children">
+                  <div class="org-v-line"></div>
+                  <div class="org-group" style="gap: 10px;">
+                    <div class="org-card">
+                      <div class="title">CURRÍCULUM Y ACREDITACIÓN</div>
+                    </div>
+                    <div class="org-card">
+                      <div class="title">DIRECCIÓN TÉCNICA METODOLÓGICA</div>
+                    </div>
+                    <div class="org-card">
+                      <div class="title">TECNOLOGÍA EDUCATIVA</div>
+                    </div>
+                  </div>
+                  <div class="org-v-line"></div>
+                  <!-- Centros abajo -->
+                  <div class="org-group" style="gap: 15px;">
+                    <div class="org-card" style="border-bottom: 4px solid #87c440;">
+                      <div class="title">CENTROS AGROPECUARIOS</div>
+                    </div>
+                    <div class="org-card" style="border-bottom: 4px solid #14578b;">
+                      <div class="title">CENTROS INDUSTRIA</div>
+                    </div>
+                    <div class="org-card" style="border-bottom: 4px solid #00adee;">
+                      <div class="title">CENTROS COMERCIO</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RRHH -->
+              <div class="d-flex flex-column align-items-center">
+                <div class="org-card has-children" onclick="toggleChildren(this)">
+                  <div class="title">RECURSOS HUMANOS</div>
+                  <div class="subtitle">División</div>
+                </div>
+                <div class="org-children">
+                  <div class="org-v-line"></div>
+                  <div class="org-card">
+                    <div class="title">GESTIÓN DE PERSONAL</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Administrativa Financiera -->
+              <div class="d-flex flex-column align-items-center">
+                <div class="org-card has-children" onclick="toggleChildren(this)">
+                  <div class="title">ADMINISTRATIVA FINANCIERA</div>
+                  <div class="subtitle">División General</div>
+                </div>
+                <div class="org-children">
+                  <div class="org-v-line"></div>
+                  <div class="org-card">
+                    <div class="title">FINANZAS Y CONTABILIDAD</div>
+                  </div>
+                  <div class="org-v-line"></div>
+                  <div class="org-card">
+                    <div class="title">ADQUISICIONES</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <p class="content-text text-muted mb-3">Este organigrama representa la estructura oficial 2020-2024 del
+          Tecnológico
+          Nacional.</p>
+        <a href="https://www.tecnacional.edu.ni/media/uploads/2022/07/01/inatec-organigrama-2020.pdf" target="_blank"
+          class="btn btn-outline-primary rounded-pill px-4 fw-bold">
+          <i class="bi-file-earmark-pdf"></i> Descargar Documento Original
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="container-fluid base_footer">
+      <div class="row pt-5">
+        <div class="container text-center">
+          <img class="mx-3" src="../static/core/img/logo_ci_2022.png" style="width: 12%" />
+          <img class="mx-3" src="../static/core/img/logo_mid_2022.png" style="width: 9%" />
+          <img class="mx-3" src="../static/core/img/logo_in_2022.png" style="width: 12%" />
+        </div>
+        <div class="row">
+          <div class="col-xs-1 col-sm-3 text-start">
+            <div class="row">
+              <div class="col"><img src="../static/core/img/logo_inatec_2022.png"
+                  style="margin-left: 10%; height: 100px; width:auto" /></div>
+            </div>
+            <div class="row">
+              <div class="col col_contactanos">
+                <div>
+                  <h5 class="text-light"><strong>Contactanos</strong></h5>
+                  <h6 class="text-light enlace">Centro Cívico Zumen, Managua</h6>
+                  <h6 class="text-light enlace">Atención al Protagonista: 2253-8888</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-1 col-sm-6 container_links">
+            <div class="row">
+              <div class="col">
+                <a href="../index.html">
+                  <h6 class="text-light enlace">> INICIO</h6>
+                </a>
+                <a href="../pages/nosotros.html">
+                  <h6 class="text-light enlace active">> NOSOTROS</h6>
+                </a>
+                <a href="../pages/carreras-educacion-tecnica.html">
+                  <h6 class="text-light enlace">> OFERTA FORMATIVA</h6>
+                </a>
+                <a href="../pages/centros-tecnologicos.html">
+                  <h6 class="text-light enlace">> CENTROS TECNOLOGICOS</h6>
+                </a>
+              </div>
+              <div class="col">
+                <a href=" galeria.html">
+                  <h6 class="text-light enlace">> GALERIAS</h6>
+                </a>
+                <a href="../pages/noticias.html">
+                  <h6 class="text-light enlace">> NOTICIAS</h6>
+                </a>
+                <a href="../pages/eventos.html">
+                  <h6 class="text-light enlace">> EVENTOS</h6>
+                </a>
+              </div>
+              <div class="col">
+                <h6 class="text-light">Redes Sociales</h6>
+                <div class="d-flex gap-2">
+                  <i class="bi-facebook text-white"></i>
+                  <i class="bi-twitter text-white"></i>
+                  <i class="bi-instagram text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-1 col-sm-3 text-end">
+            <img src="../static/core/img/logo_gobierno.png" style="height: 142px; margin-right: 10%;" />
+          </div>
+        </div>
+        <div class="row text-center mt-4" style="background-color: #0a80b9; color: white">
+          <h6 style="margin: 0px; padding: 10px;">Todos los Derechos Reservados - INATEC - 2026</h6>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../static/core/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function toggleChildren(element) {
+      const childrenContainer = element.nextElementSibling;
+      if (childrenContainer && childrenContainer.classList.contains('org-children')) {
+        const isShowing = childrenContainer.classList.toggle('show');
+        element.classList.toggle('expanded', isShowing);
+
+        // Cerrar otros hermanos del mismo nivel si se desea (opcional)
+        // if (isShowing) {
+        //     const parentGroup = element.parentElement.parentElement;
+        //     Array.from(parentGroup.children).forEach(sibling => {
+        //         if (sibling !== element.parentElement) {
+        //             const siblingChildren = sibling.querySelector('.org-children');
+        //             if (siblingChildren) siblingChildren.classList.remove('show');
+        //             const siblingCard = sibling.querySelector('.org-card');
+        //             if (siblingCard) siblingCard.classList.remove('expanded');
+        //         }
+        //     });
+        // }
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="../static/core/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../static/core/css/base.css" rel="stylesheet" />
+    <link href="../static/core/css/bootstrap-icons.css" rel="stylesheet" />
+    <title>Carreras de Educación Técnica - Tecnológico Nacional</title>
+    <meta name="description" content="Explora las 78 carreras técnicas del Tecnológico Nacional organizadas por sector: Industria, Comercio y Agropecuario.">
+    <style>
+      #modern-navbar {z-index:1030;background:linear-gradient(90deg,#0a3d6b 0%,#14578b 55%,#1a72b0 100%)!important;transition:background .4s,box-shadow .3s;box-shadow:0 4px 24px rgba(10,61,107,.45)!important}
+      #modern-navbar.scrolled{background:linear-gradient(90deg,#072d50 0%,#0e3f6b 55%,#1260a0 100%)!important}
+      #modern-navbar .navbar-brand img{filter:brightness(0) invert(1);transition:filter .2s,opacity .2s}
+      #modern-navbar .navbar-brand:hover img{opacity:.85}
+      #modern-navbar .nav-link{font-size:.82rem;font-weight:600;letter-spacing:.05em;color:rgba(255,255,255,.9)!important;padding:.5rem .7rem;position:relative;transition:color .2s}
+      #modern-navbar .nav-link::after{content:"";position:absolute;left:50%;bottom:4px;width:0;height:2px;background:#87c440;transition:width .25s,left .25s;border-radius:2px}
+      #modern-navbar .nav-link:hover::after,#modern-navbar .nav-link.active::after{width:70%;left:15%}
+      #modern-navbar .nav-link:hover,#modern-navbar .nav-link.active{color:#fff!important}
+      #modern-navbar .navbar-toggler{border:1px solid rgba(255,255,255,.4);outline:none}
+      #modern-navbar .navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")}
+      #modern-navbar .dropdown-menu{background:rgba(10,50,90,.97);border:1px solid rgba(255,255,255,.12);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.35);padding:8px;min-width:240px;backdrop-filter:blur(8px);animation:dropIn .18s ease}
+      @keyframes dropIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+      #modern-navbar .dropdown-item{border-radius:8px;font-size:.82rem;font-weight:600;color:rgba(220,240,255,.92);padding:8px 14px;transition:background .15s,color .15s}
+      #modern-navbar .dropdown-item:hover,#modern-navbar .dropdown-item:focus{background:#00adee;color:#fff}
+      @media(max-width:991.98px){#modern-navbar .navbar-collapse{background:linear-gradient(180deg,#0e3e6b 0%,#0a2d52 100%);border-radius:0 0 16px 16px;padding:14px 18px;box-shadow:0 8px 24px rgba(0,0,0,.3)}#modern-navbar .nav-link{color:rgba(255,255,255,.92)!important;padding:.55rem .5rem}#modern-navbar .nav-link:hover{color:#87c440!important}#modern-navbar .nav-link::after{display:none}#modern-navbar .dropdown-menu{background:rgba(7,35,65,.98);border-radius:10px;border:1px solid rgba(255,255,255,.1)}#modern-navbar .dropdown-item{color:#c8e4ff}#modern-navbar .dropdown-item:hover{background:#00adee;color:#fff}}
+      @media(min-width:992px){.nav-item.dropdown:hover>.dropdown-menu{display:block;margin-top:0}}
+
+      /* Category toggles */
+      .category-toggle:hover { color: #00adee !important; }
+      .category-toggle[aria-expanded="true"] .category-chevron {
+        transform: rotate(90deg);
+      }
+      .category-toggle[aria-expanded="true"] {
+        font-weight: 700 !important;
+      }
+      .list-group-item a:hover {
+        color: #00adee !important;
+        padding-left: 4px;
+      }
+      .sector-column:hover {
+        box-shadow: 0 6px 24px rgba(0,0,0,.1) !important;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      /* Modern Breadcrumb */
+      .breadcrumb-modern {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(10,61,107,.06);
+        padding: 8px 20px;
+        border-radius: 50px;
+        margin-bottom: 0;
+        list-style: none;
+      }
+      .breadcrumb-modern li {
+        font-size: .8rem;
+        font-weight: 500;
+        color: #64748b;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .breadcrumb-modern li a {
+        color: #14578b;
+        text-decoration: none;
+        transition: color .2s;
+      }
+      .breadcrumb-modern li a:hover {
+        color: #00adee;
+      }
+      .breadcrumb-modern li.active {
+        color: #0a3d6b;
+        font-weight: 700;
+      }
+      .breadcrumb-modern .bc-sep {
+        color: #94a3b8;
+        font-size: .65rem;
+      }
+
+      /* CTA Banner — compact version */
+      .cta-matricula {
+        position: relative;
+        background: linear-gradient(135deg, #0a3d6b 0%, #14578b 40%, #1a72b0 100%);
+        padding: 36px 5%;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 40px;
+      }
+      .cta-matricula::before {
+        content: '';
+        position: absolute;
+        top: -60%; right: -10%;
+        width: 40%; height: 220%;
+        background: radial-gradient(ellipse, rgba(135,196,64,.12) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .cta-inner {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        flex-wrap: wrap;
+      }
+      .cta-titulo {
+        color: #fff;
+        font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+        font-weight: 700;
+        line-height: 1.3;
+        margin: 0;
+        text-shadow: 0 1px 4px rgba(0,0,0,.1);
+      }
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: linear-gradient(135deg, #87c440 0%, #6fad30 100%);
+        color: #fff;
+        font-size: .95rem;
+        font-weight: 700;
+        padding: 12px 32px;
+        border: none;
+        border-radius: 50px;
+        text-decoration: none;
+        box-shadow: 0 6px 20px rgba(135,196,64,.3);
+        transition: transform .2s, box-shadow .2s;
+        letter-spacing: .02em;
+        flex-shrink: 0;
+      }
+      .cta-btn:hover {
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 10px 28px rgba(135,196,64,.4);
+        color: #fff;
+      }
+      .cta-btn i {
+        font-size: 1.05rem;
+      }
+
+      .section-title-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: linear-gradient(135deg, #14578b 0%, #0a3d6b 100%);
+        color: #fff;
+        font-size: .85rem;
+        font-weight: 700;
+        padding: 10px 28px;
+        border-radius: 50px;
+        margin-bottom: 20px;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+        box-shadow: 0 4px 15px rgba(20,87,139,.25);
+      }
+      .section-title-badge i {
+        font-size: 1rem;
+      }
+      
+      /* Level Card Interactivity */
+      .level-toggle {
+        display: block;
+        width: 100%;
+        background: #fff;
+        border-radius: 16px;
+        border: none;
+        box-shadow: 0 4px 15px rgba(0,0,0,.05);
+        transition: all .3s ease;
+        text-align: center;
+        color: #1e293b;
+        text-decoration: none !important;
+        position: relative;
+        overflow: hidden;
+        padding: 0; /* Remove padding to let image be full width */
+      }
+      .level-toggle:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(10,61,107,.1);
+      }
+      .level-toggle .level-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+        border-bottom: 3px solid #f1f5f9;
+      }
+      .level-toggle .level-header {
+        padding: 20px 15px;
+      }
+      .level-toggle .chevron-icon {
+        display: block;
+        margin-top: 5px;
+        font-size: .8rem;
+        color: #14578b;
+        transition: transform .3s ease;
+      }
+      .level-toggle[aria-expanded="true"] .chevron-icon {
+        transform: rotate(180deg);
+      }
+      .level-card-text {
+        background: #fff;
+        border-radius: 16px;
+        padding: 24px;
+        margin-top: 12px;
+        box-shadow: inset 0 2px 8px rgba(0,0,0,.03);
+        border-left: 4px solid #14578b;
+        color: #475569;
+        font-size: .92rem;
+        line-height: 1.6;
+        text-align: left;
+      }
+    </style>
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg fixed-top" id="modern-navbar">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand d-flex align-items-center gap-2 py-1" href="../index.html">
+        <img src="../static/core/img/Recurso 36.png" alt="Logo Gobierno" style="height:38px;width:auto;max-width:180px;object-fit:contain;" />
+        <img src="../static/core/img/Recurso 37.png" alt="Logo INATEC" style="height:38px;width:auto;max-width:120px;object-fit:contain;" />
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#modernNavbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="modernNavbarContent">
+        <ul class="navbar-nav ms-auto mb-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="../index.html">INICIO</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="../pages/oferta-academica.html" id="ofertaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">OFERTA ACADÉMICA</a>
+            <ul class="dropdown-menu shadow" aria-labelledby="ofertaDropdown">
+              <li><a class="dropdown-item active" href="../pages/carreras-educacion-tecnica.html">CARRERAS DE EDUCACIÓN TÉCNICA</a></li>
+              <li><a class="dropdown-item" href="../pages/programas.html">CURSOS Y ESTRATEGIAS DE CAPACITACIÓN</a></li>
+              <li><a class="dropdown-item" href="../pages/experiencia-laboral.html">RECONOCIMIENTO A LA EXPERIENCIA LABORAL</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../pages/centros-tecnologicos.html">CENTROS TECNOLÓGICOS</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="empresasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">EMPRESAS</a>
+            <ul class="dropdown-menu" aria-labelledby="empresasDropdown">
+              <li><a class="dropdown-item" href="../pages/empresas.html">INFORMACIÓN</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="recursosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">RECURSOS</a>
+            <ul class="dropdown-menu" aria-labelledby="recursosDropdown">
+              <li><a class="dropdown-item" href="../pages/noticias.html">NOTICIAS</a></li>
+              <li><a class="dropdown-item" href="../pages/eventos.html">EVENTOS</a></li>
+              <li><a class="dropdown-item" href="../pages/videos.html">VIDEOS</a></li>
+              <li><a class="dropdown-item" href="../pages/galeria.html">GALERÍAS</a></li>
+              <li><a class="dropdown-item" href="../pages/boletines.html">BOLETÍN</a></li>
+              <li><a class="dropdown-item" href="../pages/biblioteca-virtual.html">BIBLIOTECA VIRTUAL</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="subpage-banner" style="margin-top:55px;width:100%;position:relative;">
+    <img src="../static/core/img/Construyo_mi_sueño_en_el_Tecnológico_Nacional.jpeg" alt="Banner" style="width:100%;height:auto;max-height:380px;object-fit:cover;object-position:center;" />
+  </section>
+
+  <div class="container py-5">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb-modern">
+        <li><a href="../index.html"><i class="bi-house-fill" style="font-size:.85rem;"></i> Inicio</a></li>
+        <li><span class="bc-sep"><i class="bi-chevron-right"></i></span></li>
+        <li><a href="../pages/oferta-academica.html">Oferta Académica</a></li>
+        <li><span class="bc-sep"><i class="bi-chevron-right"></i></span></li>
+        <li class="active">Carreras de Educación Técnica</li>
+      </ol>
+    </nav>
+
+    <!-- Niveles de Educación Técnica -->
+    <div class="text-center mb-4">
+      <span class="section-title-badge"><i class="bi-layers-fill"></i> Niveles de Educación Técnica</span>
+    </div>
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <a class="level-toggle" data-bs-toggle="collapse" href="#collapseNivel1" role="button" aria-expanded="false" aria-controls="collapseNivel1">
+          <img src="https://www.tecnacional.edu.ni/static/img/bachillerato_tecnico.jpg" class="level-img" alt="Bachillerato Técnico">
+          <div class="level-header">
+            <h5 class="fw-bold mb-0">Bachillerato Técnico</h5>
+            <i class="bi bi-chevron-down chevron-icon"></i>
+          </div>
+        </a>
+        <div class="collapse" id="collapseNivel1">
+          <div class="level-card-text shadow-sm">
+            Nivel de formación en el cual los protagonistas con noveno grado de secundaria aprobado, reciben asignaturas generales para completar el bachillerato y módulos técnicos y tecnológicos según la especialidad seleccionada. Al concluir su formación obtienen 2 títulos, Título de Bachiller y el Título Técnico de la especialidad y serán capaces de optar a un puesto de trabajo o crear su propia actividad profesional.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <a class="level-toggle" data-bs-toggle="collapse" href="#collapseNivel2" role="button" aria-expanded="false" aria-controls="collapseNivel2">
+          <img src="https://www.tecnacional.edu.ni/static/img/tecnico_general.jpg" class="level-img" alt="Técnico General">
+          <div class="level-header">
+            <h5 class="fw-bold mb-0">Técnico General</h5>
+            <i class="bi bi-chevron-down chevron-icon"></i>
+          </div>
+        </a>
+        <div class="collapse" id="collapseNivel2">
+          <div class="level-card-text shadow-sm">
+            Nivel de formación en el cual los protagonistas con noveno grado aprobado, adquieren conocimientos, desarrollan habilidades, destrezas y actitudes para realizar una serie de actividades determinadas con autonomía o en trabajo colaborativo, con capacidad para usar técnicas específicas, seguir procesos y usar herramientas y equipos asociados a la profesión. Al concluir la formación, serán capaces de optar a un puesto de trabajo o crear su propia actividad profesional.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <a class="level-toggle" data-bs-toggle="collapse" href="#collapseNivel3" role="button" aria-expanded="false" aria-controls="collapseNivel3">
+          <img src="https://www.tecnacional.edu.ni/static/img/tecnico_especialista.jpg" class="level-img" alt="Técnico Especialista">
+          <div class="level-header">
+            <h5 class="fw-bold mb-0">Técnico Especialista</h5>
+            <i class="bi bi-chevron-down chevron-icon"></i>
+          </div>
+        </a>
+        <div class="collapse" id="collapseNivel3">
+          <div class="level-card-text shadow-sm">
+            Nivel de formación en el cual los protagonistas bachilleres, adquieren conocimientos, desarrollan habilidades, destrezas y actitudes para realizar actividades que requieren el dominio de diversas técnicas que pueden ser ejecutadas de forma autónoma o con la responsabilidad de coordinación y supervisión del trabajo técnico de otras personas. Exige la comprensión y evaluación de procesos determinados para mejorarlos. Al concluir la formación, serán capaces de optar a un puesto de trabajo o crear su propia actividad profesional.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Banner: Matricúlate en línea -->
+    <div class="cta-matricula">
+      <div class="cta-inner">
+        <h2 class="cta-titulo">Construí tu Futuro Profesional con Educación Técnica Gratuita</h2>
+        <a href="https://serviciosenlinea.tecnacional.edu.ni/" class="cta-btn" target="_blank">
+          <i class="bi-pencil-square"></i>
+          Matricúlate en línea
+        </a>
+      </div>
+    </div>
+
+    <!-- Ofertas de Formación Técnica -->
+    <div class="text-center mb-4">
+      <span class="section-title-badge" style="background:linear-gradient(135deg,#0a5e2a 0%,#2e7d32 100%);box-shadow:0 4px 15px rgba(46,125,50,.25);"><i class="bi-book-fill"></i> Ofertas de Formación Técnica</span>
+    </div>
+    <div class="row">
+      
+          <div class="col-lg-4 mb-4">
+            <div class="sector-column h-100" style="background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.06);overflow:hidden;">
+              <!-- Sector Header -->
+              <div class="d-flex align-items-center gap-3 p-4 pb-3" style="border-bottom:3px solid #2e7d32;">
+                <div style="width:42px;height:42px;flex-shrink:0;">
+                  <img src="../static/core/img/oferta_icon_uno.png" alt="Industria y Construcción" style="width:100%;height:100%;object-fit:contain;">
+                </div>
+                <h5 class="fw-bold mb-0" style="color:#0a5e2a;font-size:1.05rem;">Industria y Construcción</h5>
+              </div>
+              <!-- Categories List -->
+              <div class="p-4 pt-3">
+                
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#industria-Automotriz" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#0a5e2a;"></i>
+                  Automotriz
+                </button>
+                <div class="collapse" id="industria-Automotriz">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/6-19.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Mecánica Automotriz de vehículos livianos Diesel y Gasolina
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/6-42.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico Especialista en Administración de Flota Vehicular
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/6-40.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Enderezado y Pintura
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/6-77.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Mecánica de Motocicleta
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#industria-Construccion" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#0a5e2a;"></i>
+                  Construcción
+                </button>
+                <div class="collapse" id="industria-Construccion">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/18-28.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Maestro de Obras en Construcciones Verticales
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/18-29.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico Especialista en Dibujo Arquitectónico
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/18-24.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Topografía
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/18-27.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Construcción Civil
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/18-69.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Bachillerato Técnico en Maestro de Obras en Construcciones Verticales
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#industria-Cuero-y-Calzado" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#0a5e2a;"></i>
+                  Cuero y Calzado
+                </button>
+                <div class="collapse" id="industria-Cuero-y-Calzado">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/28-47.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Diseño y Elaboración de Productos de Cuero
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#industria-Electricidad-y-Electronica" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#0a5e2a;"></i>
+                  Electricidad y Electrónica
+                </button>
+                <div class="collapse" id="industria-Electricidad-y-Electronica">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/7-21.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Instalaciones Eléctricas Automatizadas
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/7-35.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Electrónica
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/7-23.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Instalaciones de Telecomunicaciones
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/7-20.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Electricidad Industrial
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/7-71.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Bachillerato Técnico en Electricidad Industrial
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/7-68.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Bachillerato Técnico en Electrónica
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/7-22.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Instalación y Mantenimiento de Equipos Electrónicos Médicos
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#industria-Energias-Renovables" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#0a5e2a;"></i>
+                  Energías Renovables
+                </button>
+                <div class="collapse" id="industria-Energias-Renovables">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/8-13.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Energías Renovables
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#industria-Madera-Mueble" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#0a5e2a;"></i>
+                  Madera Mueble
+                </button>
+                <div class="collapse" id="industria-Madera-Mueble">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/21-38.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Fabricación de Productos de Madera
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#industria-Metal-mecanica" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#0a5e2a;"></i>
+                  Metal mecánica
+                </button>
+                <div class="collapse" id="industria-Metal-mecanica">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/9-45.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico Especialista en Supervisión de Procesos Industriales
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/9-37.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Operación de Máquinas Herramientas
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/9-46.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico Especialista en Higiene y Seguridad Industrial
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/9-14.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Corte y Soldadura
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/9-36.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico Especialista en Mantenimiento Industrial
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#industria-Pesca" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#0a5e2a;"></i>
+                  Pesca
+                </button>
+                <div class="collapse" id="industria-Pesca">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/20-57.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Mecánica Naval
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/20-26.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Pesca
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#industria-Quimica" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#0a5e2a;"></i>
+                  Química
+                </button>
+                <div class="collapse" id="industria-Quimica">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/27-73.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico Especialista en Análisis Químico Industrial
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#industria-Refrigeracion" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#0a5e2a;"></i>
+                  Refrigeración
+                </button>
+                <div class="collapse" id="industria-Refrigeracion">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/19-39.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Refrigeración y Aire Acondicionado Comercial
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#industria-Textil-Vestuario" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#0a5e2a;"></i>
+                  Textil-Vestuario
+                </button>
+                <div class="collapse" id="industria-Textil-Vestuario">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/14-16.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#0a5e2a;font-size:.75rem;"></i>
+                      Técnico General en Diseño, Corte y Confección
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-lg-4 mb-4">
+            <div class="sector-column h-100" style="background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.06);overflow:hidden;">
+              <!-- Sector Header -->
+              <div class="d-flex align-items-center gap-3 p-4 pb-3" style="border-bottom:3px solid #e91e63;">
+                <div style="width:42px;height:42px;flex-shrink:0;">
+                  <img src="../static/core/img/oferta_icon_dos.png" alt="Comercio y Servicios" style="width:100%;height:100%;object-fit:contain;">
+                </div>
+                <h5 class="fw-bold mb-0" style="color:#c2185b;font-size:1.05rem;">Comercio y Servicios</h5>
+              </div>
+              <!-- Categories List -->
+              <div class="p-4 pt-3">
+                
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#comercio-Actividades-Fisicas-y-Deportivas" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#c2185b;"></i>
+                  Actividades Físicas y Deportivas
+                </button>
+                <div class="collapse" id="comercio-Actividades-Fisicas-y-Deportivas">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/4-75.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico General en Entrenamiento de Deporte en Balón y Pelota
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/4-4.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico Especialista en Entrenamiento Físico y Deportivo
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/4-72.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico General en Entrenamiento de Deporte en Combate
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#comercio-Administracion" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#c2185b;"></i>
+                  Administración
+                </button>
+                <div class="collapse" id="comercio-Administracion">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/3-5.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico General en Asistente Ejecutivo
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/3-76.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico Especialista en Marketing y Publicidad
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/3-17.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico General en Administración
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/3-65.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Bachillerato Técnico en Asistente Ejecutivo
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/3-62.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Bachillerato Técnico en Administración
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/3-49.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico General en Gestión Aduanera
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/3-50.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico General en Gestión de Recursos Humanos
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#comercio-Docencia" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#c2185b;"></i>
+                  Docencia
+                </button>
+                <div class="collapse" id="comercio-Docencia">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/10-59.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico Especialista en Didáctica del Idioma Ingles
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/10-58.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico Especialista en Docencia de Educación Técnica y Formación Profesional
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#comercio-Finanzas" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#c2185b;"></i>
+                  Finanzas
+                </button>
+                <div class="collapse" id="comercio-Finanzas">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/13-3.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico Especialista en Banca y Finanzas
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/13-18.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico General en Contabilidad
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/13-63.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Bachillerato Técnico en Contabilidad
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#comercio-Hoteleria-y-Turismo" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#c2185b;"></i>
+                  Hotelería y Turismo
+                </button>
+                <div class="collapse" id="comercio-Hoteleria-y-Turismo">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/2-10.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico Especialista en Atención al Cliente y Recepción Hotelera
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/2-6.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico General en Cocina y Gastronomía
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/2-70.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Bachillerato Técnico en Guía de Turista
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/2-7.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico General en Pastelería y Panadería
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/2-9.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico Especialista en Dirección de Alimentos y Bebidas en Hotelería
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/2-8.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico General en Servicio de Restaurante, Bar y Cafetería
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/2-12.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico Especialista en Hotelería Rural
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/2-78.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico General en Administración de Empresas Turísticas y Hoteleras
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/2-11.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico Especialista en Guía de Turista Nacional
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/2-51.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico General en Gestión del Departamento de Habitaciones en Hotelería
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/2-60.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico Especialista en Guía de Turista por Espacios Naturales
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#comercio-Informatica" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#c2185b;"></i>
+                  Informática
+                </button>
+                <div class="collapse" id="comercio-Informatica">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/12-74.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Bachillerato Técnico en Computación
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/12-48.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico Especialista en Seguridad Informática
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/12-2.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico Especialista en Programación
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/12-1.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico General en Computación
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/12-79.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico Especialista en Tecnología Educativa
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/12-61.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#c2185b;font-size:.75rem;"></i>
+                      Técnico Especialista en Diseño Gráfico
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-lg-4 mb-4">
+            <div class="sector-column h-100" style="background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.06);overflow:hidden;">
+              <!-- Sector Header -->
+              <div class="d-flex align-items-center gap-3 p-4 pb-3" style="border-bottom:3px solid #7cb342;">
+                <div style="width:42px;height:42px;flex-shrink:0;">
+                  <img src="../static/core/img/oferta_icon_tres.png" alt="Agropecuario y Forestal" style="width:100%;height:100%;object-fit:contain;">
+                </div>
+                <h5 class="fw-bold mb-0" style="color:#558b2f;font-size:1.05rem;">Agropecuario y Forestal</h5>
+              </div>
+              <!-- Categories List -->
+              <div class="p-4 pt-3">
+                
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#agropecuario-Agroindustria-de-los-Alimentos" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#558b2f;"></i>
+                  Agroindustria de los Alimentos
+                </button>
+                <div class="collapse" id="agropecuario-Agroindustria-de-los-Alimentos">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/5-82.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico General en Procesamiento de Productos de Granos, Frutas y Hortalizas
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/5-43.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico General en Agroindustria del Café
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/5-80.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico General en Procesamiento de Productos Lácteos
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/5-81.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico General en Procesamiento de Productos Cárnicos, Pescados y Mariscos
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/5-52.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico General en Transformación de Productos Apícolas
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/5-15.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico General en Agroindustria de los Alimentos
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#agropecuario-Agropecuaria" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#558b2f;"></i>
+                  Agropecuaria
+                </button>
+                <div class="collapse" id="agropecuario-Agropecuaria">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/15-67.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico General Agrícola en Café
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/15-53.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico General en Acuicultura
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/15-64.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Bachillerato Técnico Agropecuario
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/15-54.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico Especialista en Gestión de Fincas Ganaderas
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/15-55.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico General en Producción Apícola
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/15-30.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico General Agropecuario
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/15-32.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico General en Agronomía
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/15-56.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico General en Riego Agrícola
+                    </a>
+                  </li>
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/15-33.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico General en Zootecnia
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#agropecuario-Forestal" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#558b2f;"></i>
+                  Forestal
+                </button>
+                <div class="collapse" id="agropecuario-Forestal">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/17-34.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico Especialista Forestal
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="category-item mb-1">
+                <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center gap-2 py-2 px-0 category-toggle" 
+                        type="button" data-bs-toggle="collapse" data-bs-target="#agropecuario-Veterinaria" 
+                        aria-expanded="false" style="color:#0a3d6b;font-size:.92rem;font-weight:500;transition:color .2s;">
+                  <i class="bi-chevron-right category-chevron" style="font-size:.7rem;transition:transform .2s;color:#558b2f;"></i>
+                  Veterinaria
+                </button>
+                <div class="collapse" id="agropecuario-Veterinaria">
+                  <ul class="list-group list-group-flush">
+                    
+                  <li class="list-group-item border-0 py-2 ps-4" style="background:transparent;">
+                    <a href="../carreras/16-31.html" class="text-decoration-none d-flex align-items-center gap-2" style="color:#1e293b;font-size:.88rem;transition:color .2s;">
+                      <i class="bi-mortarboard-fill" style="color:#558b2f;font-size:.75rem;"></i>
+                      Técnico General en Veterinaria
+                    </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="container-fluid base_footer">
+      <div class="row pt-5">
+        <div class="container text-center">
+          <img class="mx-3" id="icon-ci" src="../static/core/img/logo_ci_2022.png" style="width: 12%" />
+          <img class="mx-3" id="icon-mapa-interactivo" src="../static/core/img/logo_mid_2022.png" style="width: 9%" />
+          <img class="mx-3" id="icon-indice-nicaragua" src="../static/core/img/logo_in_2022.png" style="width: 12%" />
+        </div>
+        <div class="row">
+          <div class="col-xs-1 col-sm-3 text-start" style="margin-left: 0px">
+            <div class="row">
+              <div class="col"><img id="icon-inatec-nacional" src="../static/core/img/logo_inatec_2022.png"
+                  style="margin-left: 10%; height: 100px; width:auto" /></div>
+            </div>
+            <div class="row">
+              <div class="col col_contactanos">
+                <div>
+                  <h5 class="text-light"><strong>Contactanos</strong></h5>
+                  <h6 class="text-light enlace">Centro Cívico Zumen, Frente al Hospital Bertha Calderón,
+                    Managua</h6>
+                  <h6 class="text-light enlace"><i></i>Atención al Protagonista: 2253-8888</h6>
+                  <h6 class="text-light enlace"><i></i>Planta Central: 2253-8830</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-1 col-sm-6 container_links">
+            <div class="row">
+              <div class="col">
+                <a href="../index.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> INICIO</h6>
+                </a>
+                <a href="../pages/nosotros.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> NOSOTROS</h6>
+                </a>
+                <a href="../pages/carreras-educacion-tecnica.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> OFERTA FORMATIVA</h6>
+                </a>
+                <a href="../pages/centros-tecnologicos.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> CENTROS TECNOLOGICOS</h6>
+                </a>
+                <a href="../pages/empresas.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> EMPRESAS</h6>
+                </a>
+              </div>
+              <div class="col">
+                <a href="https://serviciosenlinea.tecnacional.edu.ni/">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> SERVICIOS EN LINEA</h6>
+                </a>
+                <a href="../pages/galeria.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> GALERIAS FOTOGRAFICAS</h6>
+                </a>
+                <a href="../pages/boletines.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> BOLETINES INFORMATIVOS
+                  </h6>
+                </a>
+                <a href="../pages/eventos.html">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> EVENTOS</h6>
+                </a>
+                <a href="https://campus.tecnacional.edu.ni/">
+                  <h6 class="text-light enlace"><i></i><span class="pesta_footer">&gt;</span> ENTORNOS VIRTUALES</h6>
+                </a>
+              </div>
+              <div class="col">
+                <a href="https://campus.tecnacional.edu.ni/">
+                  <h6 class="text-light"> Plataformas Educativas</h6>
+                </a>
+                <a href="https://mapa.tecnacional.edu.ni/innovatec">
+                  <h6 class="text-light pesta_innovatec"> Innovatec</h6>
+                </a><br />
+                <a href="../pages/podcast.html">
+                  <h6 class="text-light pesta_podcast"> Podcast TEC</h6>
+                </a> <br />
+                <a href="http://campus.inatec.edu.ni/">
+                  <h6 class="text-light pesta_campus"> Campus Virtual</h6>
+                </a><br />
+              </div>
+            </div>
+            <div class="row justify-content-center container_icons_links">
+              <ul class="icons_redes_sociales">
+                <li title="Facebook"><span class="bi-facebook"></span></li>
+                <li title="Twitter"><span class="bi-twitter"></span></li>
+                <li title="Linkedin"><span class="bi-linkedin"></span></li>
+                <li title="Instagram"><span class="bi-instagram"></span></li>
+                <li title="Tiktok"><span class="bi-tiktok"></span></li>
+                <li title="Whatsapp"><span class="bi-whatsapp"></span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-1 col-sm-3 text-end">
+            <img id="icon-anio" src="../static/core/img/logo_gobierno.png"
+              style="height: 142px; margin-right: 10%; margin-top: -12px" />
+            <div class="row">
+              <div class="col text-start">
+                <p class="label_correo">Solicitá Información</p>
+                <div class="input-group mb-3">
+                  <input class="input_correo" placeholder="Ingresá tu Correo Electrónico" style="border-radius: 20px" />
+                  <span class="input-group-text" id="btn-suscribirse"
+                    style="cursor:pointer; background-color:#87c440; color: white;"
+                    title="Suscribirse para recibir información">Suscríbete</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row">
+          </div>
+          <div class="row text-center" style="color: white">
+            <h6>Capacitación y Educación Técnica, Gratuita y de Calidad</h6>
+          </div>
+        </div>
+        <div class="row text-center" style="background-color: #0a80b9; color: white">
+          <h6 style="margin: 0px; padding: 10px;">Todos los Derechos Reservados Instituto Nacional
+            Tecnológico - INATEC -
+            2026</h6>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../static/core/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Auto-rotate chevrons on collapse
+    document.querySelectorAll('.category-toggle').forEach(function(btn) {
+      var target = document.querySelector(btn.getAttribute('data-bs-target'));
+      if (target) {
+        target.addEventListener('show.bs.collapse', function() {
+          btn.setAttribute('aria-expanded', 'true');
+        });
+        target.addEventListener('hide.bs.collapse', function() {
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  </script>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    window.addEventListener('load', function() {
+      var s = document.createElement('script');
+      s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      document.body.appendChild(s);
+    });
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'es', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+</body>
+</html>

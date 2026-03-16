@@ -1,0 +1,581 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="../static/core/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../static/core/css/base.css" rel="stylesheet" />
+    <link href="../static/core/css/bootstrap-icons.css" rel="stylesheet" />
+    <title>Biblioteca Virtual - Tecnológico Nacional</title>
+    
+</head>
+<body class="bg-light">
+    <!-- Modern responsive navbar using Bootstrap 5 -->
+  <style>
+    /* ── Navbar styles standard ── */
+    #modern-navbar {
+        z-index: 1030;
+        background: linear-gradient(90deg, #0a3d6b 0%, #14578b 55%, #1a72b0 100%) !important;
+        transition: background 0.4s, box-shadow 0.3s;
+        box-shadow: 0 4px 24px rgba(10, 61, 107, 0.45) !important;
+    }
+
+    #modern-navbar.scrolled {
+        background: linear-gradient(90deg, #072d50 0%, #0e3f6b 55%, #1260a0 100%) !important;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    #modern-navbar .navbar-toggler {
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        outline: none;
+        box-shadow: none;
+    }
+
+    #modern-navbar .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    #modern-navbar .navbar-brand img {
+        filter: brightness(0) invert(1);
+        transition: filter 0.2s, opacity 0.2s;
+    }
+
+    #modern-navbar .navbar-brand:hover img {
+        opacity: 0.85;
+    }
+
+    #modern-navbar .nav-link {
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        color: rgba(255, 255, 255, 0.9) !important;
+        padding: 0.5rem 0.7rem;
+        position: relative;
+        transition: color 0.2s;
+    }
+
+    #modern-navbar .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 4px;
+        width: 0;
+        height: 2px;
+        background: #87c440;
+        transition: width 0.25s, left 0.25s;
+        border-radius: 2px;
+    }
+
+    #modern-navbar .nav-link:hover::after,
+    #modern-navbar .nav-link.active::after {
+        width: 70%;
+        left: 15%;
+    }
+
+    #modern-navbar .nav-link:hover,
+    #modern-navbar .nav-link.active {
+        color: #fff !important;
+    }
+
+    /* Dropdown styles */
+    #modern-navbar .dropdown-menu {
+        background: rgba(10, 50, 90, 0.97);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+        padding: 8px;
+        min-width: 240px;
+        backdrop-filter: blur(8px);
+        animation: dropIn 0.18s ease;
+    }
+
+    @keyframes dropIn {
+        from {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    #modern-navbar .dropdown-item {
+        border-radius: 8px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: rgba(220, 240, 255, 0.92);
+        padding: 8px 14px;
+        transition: background 0.15s, color 0.15s;
+    }
+
+    #modern-navbar .dropdown-item:hover {
+        background: #00adee;
+        color: #fff;
+    }
+
+    @media (min-width: 992px) {
+        .nav-item.dropdown:hover>.dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+    }
+</style>
+  <!-- Modern responsive navbar using Bootstrap 5 -->
+<!-- Modern responsive navbar using Bootstrap 5 -->
+<!-- Modern responsive navbar using Bootstrap 5 -->
+<nav class="navbar navbar-expand-lg fixed-top" id="modern-navbar" style="z-index:1030;">
+    <div class="container-fluid px-3 px-lg-4">
+        <a class="navbar-brand d-flex align-items-center gap-2 py-1" href="../index.html">
+            <img src="../static/core/img/Recurso 36.png" alt="Logo Gobierno" loading="lazy"
+                style="height:38px; width:auto; max-width:180px; object-fit:contain;" />
+            <img src="../static/core/img/Recurso 37.png" alt="Logo INATEC" loading="lazy"
+                style="height:38px; width:auto; max-width:120px; object-fit:contain;" />
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#modernNavbarContent" aria-controls="modernNavbarContent" aria-expanded="false"
+            aria-label="Abrir menú" style="color:#14578b;">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="modernNavbarContent">
+            <ul class="navbar-nav ms-auto mb-0 align-items-lg-center">
+                <li class="nav-item"><a class="nav-link " href="../index.html">INICIO</a></li>
+                <li class="nav-item"><a class="nav-link " href="../pages/nosotros.html">NOSOTROS</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle " href="../pages/oferta-academica.html" id="ofertaDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">OFERTA ACADÉMICA</a>
+                    <ul class="dropdown-menu shadow" aria-labelledby="ofertaDropdown">
+                        <li><a class="dropdown-item" href="../pages/carreras-educacion-tecnica.html">CARRERAS DE EDUCACIÓN TÉCNICA</a></li>
+                        <li><a class="dropdown-item" href="../pages/programas.html">CURSOS Y ESTRATEGIAS DE CAPACITACIÓN</a></li>
+                        <li><a class="dropdown-item" href="../pages/experiencia-laboral.html">RECONOCIMIENTO A LA EXPERIENCIA LABORAL</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link " href="../pages/centros-tecnologicos.html">CENTROS TECNOLÓGICOS</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle " href="#" id="empresasDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">EMPRESAS</a>
+                    <ul class="dropdown-menu" aria-labelledby="empresasDropdown">
+                        <li><a class="dropdown-item" href="../pages/empresas.html">INFORMACIÓN</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="recursosDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">RECURSOS</a>
+                    <ul class="dropdown-menu shadow" aria-labelledby="recursosDropdown">
+                        <li><a class="dropdown-item" href="../pages/noticias.html">NOTICIAS</a></li>
+                        <li><a class="dropdown-item" href="../pages/eventos.html">EVENTOS</a></li>
+                        <li><a class="dropdown-item" href="../pages/videos.html">VIDEOS</a></li>
+                        <li><a class="dropdown-item" href="../pages/galeria.html">GALERIAS</a></li>
+                        <li><a class="dropdown-item" href="../pages/boletines.html">BOLETÍN</a></li>
+                        <li><a class="dropdown-item" href="../pages/calidad.html">CALIDAD</a></li>
+                        <li><a class="dropdown-item" href="../pages/adquisiciones.html">ADQUISICIONES</a></li>
+                        <li><a class="dropdown-item" href="../pages/biblioteca-virtual.html">BIBLIOTECA VIRTUAL</a></li>
+                        <li><a class="dropdown-item" href="../pages/congreso.html">CONGRESO DOCENTE</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="https://correo.tecnacional.edu.ni/" target="_blank">CORREO
+                                INSTITUCIONAL</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+  <!-- SECCION BANNER DE SUBPAGINA -->
+  <section class="subpage-banner" style="margin-top: 55px; width: 100%; position: relative;">
+    <img src="../static/core/img/Construyo_mi_sueño_en_el_Tecnológico_Nacional.jpeg" alt="Construyo mi sueño en el Tecnológico Nacional" style="width: 100%; height: auto; max-height: 380px; object-fit: cover; object-position: center;" />
+  </section>
+<script>
+    const modernNav = document.getElementById("modern-navbar");
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 50) { 
+        modernNav.style.setProperty("background", "linear-gradient(90deg, #0a3d6b 0%, #14578b 55%, #1a72b0 100%)", "important");
+        modernNav.classList.add("scrolled", "shadow-sm"); 
+      }
+      else { 
+        modernNav.style.setProperty("background", "linear-gradient(90deg, #0a3d6b 0%, #14578b 55%, #1a72b0 100%)", "important");
+        modernNav.classList.remove("scrolled", "shadow-sm"); 
+      }
+    });
+  </script>
+  <!-- End of modern navbar -->
+  <style>
+    .page-header { background: #f8fafc; padding: 40px 0; border-bottom: 1px solid #eee; margin-top: 62px; }
+    .doc-card { border: none; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s; background: white; height: 100%; display: flex; flex-direction: column; }
+    .doc-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+    .doc-img-wrapper { height: 200px; overflow: hidden; background: #e9ecef; display: flex; align-items: center; justify-content: center; position: relative; }
+    .doc-img { width: 100%; height: 100%; object-fit: cover; }
+    .doc-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+    .doc-title { font-size: 1rem; font-weight: bold; margin-bottom: 10px; line-height: 1.4; color: #1a365d; }
+    .doc-desc { font-size: 0.85rem; color: #6c757d; margin-bottom: 20px; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .download-btn { background: #e3f2fd; color: #0d6efd; border-radius: 8px; font-weight: bold; padding: 10px; width: 100%; text-decoration: none; transition: all 0.2s; display: inline-block; text-align: center;}
+    .download-btn:hover { background: #0d6efd; color: white; }
+    .placeholder-icon { font-size: 4rem; color: #adb5bd; }
+  </style>
+
+    <header class="page-header">
+        <div class="container text-center">
+            <span class="badge bg-primary mb-2 px-3 py-2 rounded-pill">Recursos Digitales</span>
+            <h1 class="fw-bold">Biblioteca Virtual</h1>
+            <p class="text-muted mx-auto" style="max-width: 700px;">Acceso gratuito a manuales, cartillas, guías y documentos institucionales para fortalecer tu formación técnica y tecnológica.</p>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <div class="row g-4">
+            <!-- Document items will be manually added for now to ensure reliability -->
+             <!-- Documento 1 -->
+            <div class="col-md-3">
+                <div class="doc-card">
+                    <div class="doc-img-wrapper">
+                        <img src="https://www.tecnacional.edu.ni/media/2018-08-07_14-09-47.jpg.170x220_q85_crop-top.jpg" class="doc-img" alt="Doc 1">
+                    </div>
+                    <div class="doc-info">
+                        <h3 class="doc-title">Adaptación al cambio climático</h3>
+                        <p class="doc-desc">Manual del protagonista del módulo trasversal de Adaptación al cambio climático</p>
+                        <a href="https://www.tecnacional.edu.ni/media/ADAPTACION_AL_CAMBIO_CLIMATICO_6L4NK5v.pdf" class="download-btn"><i class="bi-download me-2"></i>Descargar PDF</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Documento 2 -->
+            <div class="col-md-3">
+                <div class="doc-card">
+                    <div class="doc-img-wrapper">
+                        <img src="https://www.tecnacional.edu.ni/media/antologia-maestras-maestros-2025.jpg.170x220_q85_crop-top.jpg" class="doc-img" alt="Doc 2">
+                    </div>
+                    <div class="doc-info">
+                        <h3 class="doc-title">Antologia de Maestros 2025</h3>
+                        <p class="doc-desc">Antologia de maestras y maestros Inovadores que transforman la educación.</p>
+                        <a href="https://www.tecnacional.edu.ni/media/Antologia_de_maestras_y_maestros_Inovadores.pdf" class="download-btn"><i class="bi-download me-2"></i>Descargar PDF</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Documento 3 -->
+            <div class="col-md-3">
+                <div class="doc-card">
+                    <div class="doc-img-wrapper">
+                        <img src="https://www.tecnacional.edu.ni/media/BIT%C3%81CORA_2018.jpg.170x220_q85_crop-top.jpg" class="doc-img" alt="Doc 3">
+                    </div>
+                    <div class="doc-info">
+                        <h3 class="doc-title">BITÁCORA Institucional</h3>
+                        <p class="doc-desc">Registro documental de las principales acciones y metas alcanzadas en el ciclo.</p>
+                        <a href="https://www.tecnacional.edu.ni/media/BITACORA.docx" class="download-btn"><i class="bi-download me-2"></i>Descargar DOCX</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Documento 4 -->
+            <div class="col-md-3">
+                <div class="doc-card">
+                    <div class="doc-img-wrapper">
+                        <img src="https://www.tecnacional.edu.ni/media/Screenshot_1_oBXNzQG.png.170x220_q85_crop-top.png" class="doc-img" alt="Doc 4">
+                    </div>
+                    <div class="doc-info">
+                        <h3 class="doc-title">Atención y Cuido Integral</h3>
+                        <p class="doc-desc">Cartilla enfocada en la atención y cuido a las personas con discapacidad.</p>
+                        <a href="https://www.tecnacional.edu.ni/media/CARTILLA_DE_PERSONAS_CON_DISCAPACIDAD.pdf" class="download-btn"><i class="bi-download me-2"></i>Descargar PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More documents (using simplified data) -->
+            <div class="col-md-3">
+                <div class="doc-card">
+                    <div class="doc-img-wrapper"><img src="https://www.tecnacional.edu.ni/media/Screenshot_2_UGy8T5U.png.170x220_q85_crop-top.png" class="doc-img" alt=""></div>
+                    <div class="doc-info">
+                        <h3 class="doc-title">Prevención de Adicciones</h3>
+                        <p class="doc-desc">Cartilla "Atendiendo El Sufrimiento de las Adicciones y sus Efectos".</p>
+                        <a href="https://www.tecnacional.edu.ni/media/Cartilla_Atendiendo_el_Sufrimiento.pdf" class="download-btn">Descargar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="doc-card">
+                    <div class="doc-img-wrapper"><img src="https://www.tecnacional.edu.ni/media/Captura_de_pantalla_2023-10-26_a_las_15.13.32.png.170x220_q85_crop-top.png" class="doc-img" alt=""></div>
+                    <div class="doc-info">
+                        <h3 class="doc-title">Enfermedades Crónicas</h3>
+                        <p class="doc-desc">Cartilla informativa sobre el cuido y prevención de enfermedades crónicas.</p>
+                        <a href="https://www.tecnacional.edu.ni/media/Cartilla_22Atendiendo_Enfermedades_Cronicas22.pdf" class="download-btn">Descargar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="doc-card">
+                    <div class="doc-img-wrapper"><img src="https://www.tecnacional.edu.ni/media/Screenshot_1_DI8NQCw.png.170x220_q85_crop-top.png" class="doc-img" alt=""></div>
+                    <div class="doc-info">
+                        <h3 class="doc-title">Cuido Amoroso 0-5 Años</h3>
+                        <p class="doc-desc">Cartilla para el cuidado amoroso de niñas y niños en el hogar.</p>
+                        <a href="https://www.tecnacional.edu.ni/media/Cartilla_para_Cuido_Amoroso_de_Ni%C3%B1s_de_0_a_5_A%C3%B1os_en_el_Hogar.pdf" class="download-btn">Descargar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="doc-card">
+                    <div class="doc-img-wrapper"><img src="https://www.tecnacional.edu.ni/media/Screenshot_1_w85vvv7.png.170x220_q85_crop-top.png" class="doc-img" alt=""></div>
+                    <div class="doc-info">
+                        <h3 class="doc-title">Educación Vial</h3>
+                        <p class="doc-desc">Cartilla sobre educación vial para la protección de la vida de las familias.</p>
+                        <a href="https://www.tecnacional.edu.ni/media/CARTILLA_DE_EDUCACI%C3%93N_VIAL.pdf" class="download-btn">Descargar</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Documento con Placeholder 1 -->
+            <div class="col-md-3">
+                <div class="doc-card">
+                    <div class="doc-img-wrapper"><img src="https://placehold.co/300x400/0a3d6b/ffffff?text=Cultura+de+Paz" class="doc-img" alt=""></div>
+                    <div class="doc-info">
+                        <h3 class="doc-title">Armonía y Paz</h3>
+                        <p class="doc-desc">Cultura de Armonía, Paz, Justicia y Derecho para las Mujeres.</p>
+                        <a href="https://www.tecnacional.edu.ni/media/CARTILLA_CULTURA_DE_ARMON%C3%8DA_PAZ_JUSTICIA_Y_DERECHOS_PARA_LAS_MUJERES.pdf" class="download-btn">Descargar</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Documento con Placeholder 2 -->
+            <div class="col-md-3">
+                <div class="doc-card">
+                    <div class="doc-img-wrapper"><img src="https://placehold.co/300x400/14578b/ffffff?text=Adolescentes" class="doc-img" alt=""></div>
+                    <div class="doc-info">
+                        <h3 class="doc-title">Jóvenes Valientes</h3>
+                        <p class="doc-desc">Cartilla Adolescentes y Jóvenes Valientes en Tiempos de Esperanza.</p>
+                        <a href="https://www.tecnacional.edu.ni/media/JUVENTUD_EN_RIESGO.pdf" class="download-btn">Descargar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==========================================================
+       FOOTER (Pie de Pagina)
+       - Logo INATEC + Datos de contacto (izquierda)
+       - Links del sitio + Redes sociales (centro)
+       - Logo Gobierno + Formulario suscripcion (derecha)
+       - Barra de copyright (fondo azul)
+  =========================================================== -->
+  
+  <!-- Fin del Footer -->
+  <!-- ==========================================================
+       SCRIPTS JAVASCRIPT (al final del body para no bloquear el render)
+       Orden importante:
+         1. jQuery (requerido por Bootstrap y funciones propias)
+         2. functionLoader.js (loader de pagina)
+         3. buscador.js (logica del buscador de carreras)
+         4. bootstrap.bundle.min.js (componentes Bootstrap: modales, dropdowns)
+         5. aos.js (animaciones al hacer scroll)
+         6. swiper-bundle.min.js (carrusel de plataformas)
+         7. functionBase.js (funciones generales del sitio)
+  =========================================================== -->
+  <script src="../static/core/js/jquery-3.6.0.min.js"></script>
+  <script src="../static/core/js/functionLoader.js"></script>
+  <script src="../static/core/js/buscador.js"></script>
+  <script src="../static/core/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/core/js/aos.js"></script>
+  <script src="../static/core/js/swiper-bundle.min.js"></script>
+  <script src="../static/core/js/functionBase.js"></script>
+  <script>
+    $(document).ready(function () {
+    // ── Inicializacion de AOS (animaciones) y deteccion de dispositivo ──
+      AOS.init({ easing: 'ease-in-out-sine' });
+      window.core_dispositivo = window.innerWidth > 680 ? 1 : 2;
+    });
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted || window.performance && window.performance.navigation.type === 2) {
+        ocultarLoader();
+      }
+    });
+  </script>
+  <!-- ── Configuracion del carrusel Swiper (seccion Plataformas Virtuales) ── -->
+  <script>
+    // Swiper configuración
+    $(document).ready(function () {
+      var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+        centeredSlides: false,
+        spaceBetween: 16,
+        loop: false,
+        speed: 700,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        breakpoints: {
+          425: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: 8,
+          },
+          768: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            spaceBetween: 12,
+          },
+          1024: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+            spaceBetween: 16,
+          },
+          1440: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+            spaceBetween: 16,
+          },
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        watchOverflow: true,
+        grabCursor: true,
+        grabCursor: true,
+        autoplay: false
+      });
+      setTimeout(function () {
+        if (swiper.navigation) swiper.navigation.update();
+      }, 100);
+    });
+
+  </script>
+  <!-- Google Translate: carga lazy después de que la página sea interactiva -->
+  <!-- ==========================================================
+       GOOGLE TRANSLATE (carga diferida)
+       Se carga despues del evento "load" para no bloquear la pagina
+  =========================================================== -->
+<!-- FOOTER -->
+<footer>
+    <div class="container-fluid base_footer">
+        <div class="row pt-5">
+            <div class="container text-center">
+                <img class="mx-3" src="../static/core/img/logo_ci_2022.png" style="width: 12%" />
+                <img class="mx-3" src="../static/core/img/logo_mid_2022.png" style="width: 9%" />
+                <img class="mx-3" src="../static/core/img/logo_in_2022.png" style="width: 12%" />
+            </div>
+            <div class="row">
+                <div class="col-xs-1 col-sm-3 text-start">
+                    <div class="row">
+                        <div class="col"><img src="../static/core/img/logo_inatec_2022.png"
+                                style="margin-left: 10%; height: 100px; width:auto" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col col_contactanos">
+                            <div>
+                                <h5 class="text-light"><strong>Contactanos</strong></h5>
+                                <h6 class="text-light enlace">Centro Cívico Zumen, Frente al Hospital Bertha Calderón,
+                                    Managua</h6>
+                                <h6 class="text-light enlace">Atención al Protagonista: 2253-8888</h6>
+                                <h6 class="text-light enlace">Planta Central: 2253-8830</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-6 container_links">
+                    <div class="row">
+                        <div class="col">
+                            <a href="../index.html">
+                                <h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> INICIO</h6>
+                            </a>
+                            <a href="../pages/nosotros.html">
+                                <h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> NOSOTROS</h6>
+                            </a>
+                            <a href="../pages/oferta-academica.html">
+                                <h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> OFERTA FORMATIVA
+                                </h6>
+                            </a>
+                            <a href="../pages/centros-tecnologicos.html">
+                                <h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> CENTROS
+                                    TECNOLOGICOS</h6>
+                            </a>
+                            <a href="../pages/empresas.html">
+                                <h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> EMPRESAS</h6>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="../pages/galeria.html">
+                                <h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> GALERIAS
+                                    FOTOGRAFICAS</h6>
+                            </a>
+                            <a href="../pages/boletines.html">
+                                <h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> BOLETINES
+                                    INFORMATIVOS</h6>
+                            </a>
+                            <a href="../pages/eventos.html">
+                                <h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> EVENTOS</h6>
+                            </a>
+                            <a href="https://campus.tecnacional.edu.ni/">
+                                <h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> ENTORNOS VIRTUALES
+                                </h6>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="https://campus.tecnacional.edu.ni/">
+                                <h6 class="text-light">Plataformas Educativas</h6>
+                            </a>
+                            <a href="../pages/innovatec.html">
+                                <h6 class="text-light pesta_innovatec">Innovatec</h6>
+                            </a><br />
+                            <a href="../pages/podcast.html">
+                                <h6 class="text-light pesta_podcast">Podcast TEC</h6>
+                            </a><br />
+                            <a href="../pages/campus-virtual.html">
+                                <h6 class="text-light pesta_campus">Campus Virtual</h6>
+                            </a><br />
+                        </div>
+                    </div>
+                    <div class="row justify-content-center container_icons_links">
+                        <ul
+                            class="icons_redes_sociales d-flex gap-3 justify-content-center list-unstyled mb-0 mt-3 align-items-center">
+                            <li title="Facebook"><a href="https://www.facebook.com/TecNacional/" target="_blank"
+                                    class="text-white fs-4"><i class="bi-facebook"></i></a></li>
+                            <li title="Twitter"><a href="https://twitter.com/TecNacional" target="_blank"
+                                    class="text-white fs-4"><i class="bi-twitter"></i></a></li>
+                            <li title="Instagram"><a href="https://www.instagram.com/tecnacional/" target="_blank"
+                                    class="text-white fs-4"><i class="bi-instagram"></i></a></li>
+                            <li title="YouTube"><a href="https://www.youtube.com/c/TecNacional" target="_blank"
+                                    class="text-white fs-4"><i class="bi-youtube"></i></a></li>
+                            <li title="Tiktok"><a href="https://www.tiktok.com/@tecnacional" target="_blank"
+                                    class="text-white fs-4"><i class="bi-tiktok"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-3 text-end">
+                    <img src="../static/core/img/logo_gobierno.png"
+                        style="height: 142px; margin-right: 10%; margin-top: -12px" />
+                    <div class="row">
+                        <div class="col text-start">
+                            <p class="label_correo">Solicitá Información</p>
+                            <div class="input-group mb-3">
+                                <input class="input_correo" placeholder="Ingresá tu Correo Electrónico"
+                                    style="border-radius: 20px" />
+                                <span class="input-group-text" id="btn-suscribirse"
+                                    style="cursor:pointer; background-color:#87c440; color: white;"
+                                    title="Suscribirse para recibir información">Suscríbete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center" style="color: white">
+                <h6>Capacitación y Educación Técnica, Gratuita y de Calidad</h6>
+            </div>
+            <div class="row text-center" style="background-color: #0a80b9; color: white">
+                <h6 style="margin: 0px; padding: 10px;">Todos los Derechos Reservados Instituto Nacional Tecnológico -
+                    INATEC - 2026</h6>
+            </div>
+        </div>
+    </div>
+</footer>  
+  <script src="../static/core/js/bootstrap.bundle.min.js"></script>
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    window.addEventListener('load', function() {
+      var s = document.createElement('script');
+      s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      document.body.appendChild(s);
+    });
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'es', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+</body>
+</html>

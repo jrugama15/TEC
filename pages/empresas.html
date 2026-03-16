@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="description" content="Información para empresas aportantes del 2% - Tecnológico Nacional INATEC. Trámites académicos, procedimientos de capacitación y comunicados." />
+    <link href="../static/core/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../static/core/css/base.css" rel="stylesheet" />
+    <link href="../static/core/css/bootstrap-icons.css" rel="stylesheet" />
+    <title>Empresas - Tecnológico Nacional</title>
+    <style>
+        /* ── Navbar styles standard ── */
+        #modern-navbar {
+            z-index: 1030;
+            background: linear-gradient(90deg, #0a3d6b 0%, #14578b 55%, #1a72b0 100%) !important;
+            transition: background 0.4s, box-shadow 0.3s;
+            box-shadow: 0 4px 24px rgba(10, 61, 107, 0.45) !important;
+        }
+        #modern-navbar.scrolled {
+            background: linear-gradient(90deg, #072d50 0%, #0e3f6b 55%, #1260a0 100%) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+        }
+        #modern-navbar .navbar-toggler { border: 1px solid rgba(255,255,255,0.4); outline: none; box-shadow: none; }
+        #modern-navbar .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        #modern-navbar .navbar-brand img { filter: brightness(0) invert(1); transition: filter 0.2s, opacity 0.2s; }
+        #modern-navbar .navbar-brand:hover img { opacity: 0.85; }
+        #modern-navbar .nav-link { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em; color: rgba(255,255,255,0.9) !important; padding: 0.5rem 0.7rem; position: relative; transition: color 0.2s; }
+        #modern-navbar .nav-link::after { content: ""; position: absolute; left: 50%; bottom: 4px; width: 0; height: 2px; background: #87c440; transition: width 0.25s, left 0.25s; border-radius: 2px; }
+        #modern-navbar .nav-link:hover::after, #modern-navbar .nav-link.active::after { width: 70%; left: 15%; }
+        #modern-navbar .nav-link:hover, #modern-navbar .nav-link.active { color: #fff !important; }
+        #modern-navbar .dropdown-menu { background: rgba(10,50,90,0.97); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.35); padding: 8px; min-width: 240px; backdrop-filter: blur(8px); animation: dropIn 0.18s ease; }
+        @keyframes dropIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+        #modern-navbar .dropdown-item { border-radius: 8px; font-size: 0.82rem; font-weight: 600; color: rgba(220,240,255,0.92); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
+        #modern-navbar .dropdown-item:hover { background: #00adee; color: #fff; }
+        @media (min-width: 992px) { .nav-item.dropdown:hover > .dropdown-menu { display: block; margin-top: 0; } }
+
+        /* ── Hero Banner ── */
+        .empresas-hero {
+            margin-top: 62px;
+            background: linear-gradient(135deg, #0a3d6b 0%, #14578b 50%, #1a72b0 100%);
+            padding: 60px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .empresas-hero::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 320px; height: 320px;
+            background: rgba(135, 196, 64, 0.12);
+            border-radius: 50%;
+        }
+        .empresas-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; left: -40px;
+            width: 240px; height: 240px;
+            background: rgba(0, 173, 238, 0.1);
+            border-radius: 50%;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(135,196,64,0.2);
+            border: 1px solid rgba(135,196,64,0.5);
+            color: #87c440;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            padding: 5px 14px;
+            border-radius: 50px;
+            margin-bottom: 14px;
+        }
+
+        /* ── Sidebar nav ── */
+        .sidebar-nav { position: sticky; top: 80px; }
+        .sidebar-nav .nav-pills .nav-link {
+            color: #1e3a5f; font-weight: 600; font-size: 0.88rem;
+            border-radius: 10px; padding: 10px 16px; margin-bottom: 4px;
+            border-left: 3px solid transparent; transition: all 0.2s;
+        }
+        .sidebar-nav .nav-pills .nav-link:hover { background: #e8f4ff; border-left-color: #1a72b0; color: #14578b; }
+        .sidebar-nav .nav-pills .nav-link.active { background: linear-gradient(90deg, #14578b, #1a72b0); color: #fff; border-left-color: #87c440; }
+        .sidebar-nav .nav-pills .nav-link i { margin-right: 8px; }
+
+        /* ── Content cards ── */
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+
+        .info-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(20,87,139,0.08);
+            border: 1px solid rgba(20,87,139,0.08);
+            padding: 32px;
+            margin-bottom: 24px;
+            transition: box-shadow 0.2s;
+        }
+        .info-card:hover { box-shadow: 0 8px 36px rgba(20,87,139,0.14); }
+        .info-card h2 { color: #0a3d6b; font-weight: 700; font-size: 1.4rem; margin-bottom: 18px; }
+        .info-card h3 { color: #14578b; font-weight: 700; font-size: 1.1rem; margin: 22px 0 12px; }
+
+        .step-badge {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 28px; height: 28px; border-radius: 50%;
+            background: linear-gradient(135deg, #14578b, #1a72b0);
+            color: #fff; font-weight: 700; font-size: 0.8rem;
+            flex-shrink: 0; margin-right: 12px;
+        }
+        .step-item { display: flex; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #f0f4f8; }
+        .step-item:last-child { border-bottom: none; }
+        .step-text { color: #374151; font-size: 0.92rem; line-height: 1.6; }
+
+        .contact-pill {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #f0f7ff; border: 1px solid #c3ddf5;
+            border-radius: 50px; padding: 8px 16px;
+            color: #1e3a5f; font-weight: 600; font-size: 0.87rem;
+            margin: 4px;
+        }
+        .contact-pill i { color: #1a72b0; }
+
+        .download-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(135deg, #87c440, #6fad30);
+            color: #fff; font-weight: 700; font-size: 0.9rem;
+            border: none; border-radius: 50px;
+            padding: 12px 28px; text-decoration: none;
+            transition: all 0.25s; box-shadow: 0 4px 14px rgba(135,196,64,0.35);
+        }
+        .download-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(135,196,64,0.45); color: #fff; }
+
+        .online-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(135deg, #0a80b9, #1a72b0);
+            color: #fff; font-weight: 700; font-size: 0.9rem;
+            border: none; border-radius: 50px;
+            padding: 12px 28px; text-decoration: none;
+            transition: all 0.25s; box-shadow: 0 4px 14px rgba(10,128,185,0.35);
+        }
+        .online-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(10,128,185,0.45); color: #fff; }
+
+        .tramite-feature {
+            display: flex; align-items: flex-start; gap: 14px;
+            background: #f8faff; border-radius: 12px;
+            padding: 14px 18px; margin-bottom: 10px;
+            border-left: 4px solid #14578b;
+        }
+        .tramite-feature i { color: #14578b; font-size: 1.2rem; margin-top: 2px; flex-shrink: 0; }
+        .tramite-feature p { margin: 0; color: #374151; font-size: 0.9rem; font-weight: 500; }
+
+        .comunicado-card {
+            display: block; text-decoration: none;
+            border: 1px solid #e5eaf2; border-radius: 14px;
+            padding: 18px 22px; margin-bottom: 14px;
+            transition: all 0.2s; background: #fff;
+        }
+        .comunicado-card:hover { border-color: #1a72b0; box-shadow: 0 4px 18px rgba(20,87,139,0.1); transform: translateX(4px); }
+        .comunicado-date { font-size: 0.78rem; color: #6b7280; font-weight: 600; margin-bottom: 6px; }
+        .comunicado-title { color: #0a3d6b; font-weight: 700; font-size: 0.97rem; margin: 0; }
+        .comunicado-preview { color: #6b7280; font-size: 0.85rem; margin-top: 6px; }
+
+        .alert-ventanilla {
+            background: linear-gradient(135deg, #e8f7e8, #d4f0d4);
+            border: 1px solid #87c440;
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+        .alert-ventanilla i { color: #4a9e0e; }
+
+        .section-icon {
+            width: 56px; height: 56px; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #14578b, #1a72b0);
+            color: #fff; font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar navbar-expand-lg fixed-top" id="modern-navbar" style="z-index:1030;">
+    <div class="container-fluid px-3 px-lg-4">
+        <a class="navbar-brand d-flex align-items-center gap-2 py-1" href="../index.html">
+            <img src="../static/core/img/Recurso 36.png" alt="Logo Gobierno" loading="lazy"
+                style="height:38px; width:auto; max-width:180px; object-fit:contain;" />
+            <img src="../static/core/img/Recurso 37.png" alt="Logo INATEC" loading="lazy"
+                style="height:38px; width:auto; max-width:120px; object-fit:contain;" />
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#modernNavbarContent" aria-controls="modernNavbarContent" aria-expanded="false"
+            aria-label="Abrir menú" style="color:#14578b;">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="modernNavbarContent">
+            <ul class="navbar-nav ms-auto mb-0 align-items-lg-center">
+                <li class="nav-item"><a class="nav-link" href="../index.html">INICIO</a></li>
+                <li class="nav-item"><a class="nav-link" href="../pages/nosotros.html">NOSOTROS</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../pages/oferta-academica.html" id="ofertaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">OFERTA ACADÉMICA</a>
+                    <ul class="dropdown-menu shadow" aria-labelledby="ofertaDropdown">
+                        <li><a class="dropdown-item" href="../pages/carreras-educacion-tecnica.html">CARRERAS DE EDUCACIÓN TÉCNICA</a></li>
+                        <li><a class="dropdown-item" href="../pages/programas.html">CURSOS Y ESTRATEGIAS DE CAPACITACIÓN</a></li>
+                        <li><a class="dropdown-item" href="../pages/experiencia-laboral.html">RECONOCIMIENTO A LA EXPERIENCIA LABORAL</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="../pages/centros-tecnologicos.html">CENTROS TECNOLÓGICOS</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="empresasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">EMPRESAS</a>
+                    <ul class="dropdown-menu" aria-labelledby="empresasDropdown">
+                        <li><a class="dropdown-item" href="../pages/empresas.html">INFORMACIÓN</a></li>
+                        <li><a class="dropdown-item" href="https://www.tecnacional.edu.ni/foroempresas" target="_blank">FORO NACIONAL TRANSFORMACIÓN ET FP</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="recursosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">RECURSOS</a>
+                    <ul class="dropdown-menu shadow" aria-labelledby="recursosDropdown">
+                        <li><a class="dropdown-item" href="../pages/noticias.html">NOTICIAS</a></li>
+                        <li><a class="dropdown-item" href="../pages/eventos.html">EVENTOS</a></li>
+                        <li><a class="dropdown-item" href="../pages/galeria.html">GALERIAS</a></li>
+                        <li><a class="dropdown-item" href="../pages/boletines.html">BOLETÍN</a></li>
+                        <li><a class="dropdown-item" href="../pages/calidad.html">CALIDAD</a></li>
+                        <li><a class="dropdown-item" href="../pages/adquisiciones.html">ADQUISICIONES</a></li>
+                        <li><a class="dropdown-item" href="../pages/biblioteca-virtual.html">BIBLIOTECA VIRTUAL</a></li>
+                        <li><a class="dropdown-item" href="../pages/congreso.html">CONGRESO DOCENTE</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="https://correo.tecnacional.edu.ni/" target="_blank">CORREO INSTITUCIONAL</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ── HERO BANNER ── -->
+<section class="empresas-hero">
+    <div class="container position-relative" style="z-index:2;">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <span class="hero-badge"><i class="bi-building me-1"></i> SECTOR PRODUCTIVO</span>
+                <h1 class="text-white fw-bold" style="font-size:2.4rem; line-height:1.2; margin-bottom:14px;">
+                    Empresas e Instituciones
+                </h1>
+                <p class="text-white mb-4" style="font-size:1.05rem; opacity:0.88; max-width:580px;">
+                    Información para empresas e instituciones aportantes del 2% al INATEC. Acceda a los procedimientos, trámites y comunicados del Tecnológico Nacional.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="https://serviciosenlinea.tecnacional.edu.ni/empresas/" target="_blank" class="online-btn">
+                        <i class="bi-laptop"></i> Servicios en Línea
+                    </a>
+                    <a href="#ventanilla" onclick="showSection('ventanilla')" class="download-btn">
+                        <i class="bi-info-circle"></i> Ver Trámites
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center d-none d-lg-block">
+                <i class="bi-buildings" style="font-size:7rem; opacity:0.18; color:#fff;"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── MAIN CONTENT ── -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- SIDEBAR -->
+            <div class="col-lg-3">
+                <div class="sidebar-nav">
+                    <div class="bg-white rounded-4 shadow-sm p-3 mb-3"
+                        style="border: 1px solid rgba(20,87,139,0.1);">
+                        <h6 class="fw-bold text-uppercase mb-3"
+                            style="color:#0a3d6b; font-size:0.75rem; letter-spacing:0.1em;">
+                            <i class="bi-list-ul me-2"></i>Secciones
+                        </h6>
+                        <nav class="nav flex-column nav-pills" id="empresas-nav">
+                            <a class="nav-link active" href="#" id="nav-ventanilla" onclick="showSection('ventanilla'); return false;">
+                                <i class="bi-window-fullscreen"></i>Ventanilla de Trámites Académicos
+                            </a>
+                            <a class="nav-link" href="#" id="nav-capacitacion" onclick="showSection('capacitacion'); return false;">
+                                <i class="bi-mortarboard"></i>Procedimiento para solicitar Capacitación vía 2%
+                            </a>
+                            <a class="nav-link" href="#" id="nav-evento" onclick="showSection('evento'); return false;">
+                                <i class="bi-calendar-event"></i>Procedimiento para solicitar Evento Interno vía 2%
+                            </a>
+                            <a class="nav-link" href="#" id="nav-instructivos" onclick="showSection('instructivos'); return false;">
+                                <i class="bi-file-earmark-text"></i>Instructivos para Solicitud de Evento Interno
+                            </a>
+                            <a class="nav-link" href="#" id="nav-comunicados" onclick="showSection('comunicados'); return false;">
+                                <i class="bi-megaphone"></i>Comunicados para Empresas Aportantes
+                            </a>
+                        </nav>
+                    </div>
+                    <!-- Acceso rápido servicios en línea -->
+                    <div class="bg-white rounded-4 shadow-sm p-3"
+                        style="border: 1px solid rgba(20,87,139,0.1);">
+                        <h6 class="fw-bold text-uppercase mb-3"
+                            style="color:#0a3d6b; font-size:0.75rem; letter-spacing:0.1em;">
+                            <i class="bi-lightning-charge me-2" style="color:#87c440;"></i>Acceso Rápido
+                        </h6>
+                        <a href="https://serviciosenlinea.tecnacional.edu.ni/empresas/" target="_blank"
+                           class="d-flex align-items-center gap-2 text-decoration-none py-2 px-2 rounded-3"
+                           style="background:#f0f7ff; border:1px solid #c3ddf5; margin-bottom:8px;">
+                            <i class="bi-laptop" style="color:#1a72b0; font-size:1.1rem;"></i>
+                            <span style="font-size:0.83rem; font-weight:600; color:#1e3a5f;">Servicios en Línea</span>
+                        </a>
+                        <a href="https://www.tecnacional.edu.ni/foroempresas" target="_blank"
+                           class="d-flex align-items-center gap-2 text-decoration-none py-2 px-2 rounded-3"
+                           style="background:#f5fff0; border:1px solid #b5e08a;">
+                            <i class="bi-people" style="color:#5a9e0e; font-size:1.1rem;"></i>
+                            <span style="font-size:0.83rem; font-weight:600; color:#2d5a00;">Foro Nacional ET FP</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENT AREA -->
+            <div class="col-lg-6">
+
+                <!-- ===== VENTANILLA DE TRÁMITES ===== -->
+                <div id="section-ventanilla" class="content-section active">
+                    <div class="info-card">
+                        <div class="section-icon">
+                            <i class="bi-window-fullscreen"></i>
+                        </div>
+                        <h2>Ventanilla de Trámites Académicos</h2>
+                        <p class="text-muted mb-4" style="font-size:0.95rem;">
+                            Dirigida a Centros Técnicos Públicos y Privados, Empresas e Instituciones Aportantes del 2%.
+                        </p>
+
+                        <div class="alert-ventanilla">
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="bi-patch-check-fill fs-4 mt-1" style="color:#4a9e0e;"></i>
+                                <div>
+                                    <strong style="color:#2d5a00;">Ventanilla Única Habilitada desde el 4 de julio de 2022</strong>
+                                    <p class="mb-0 mt-1" style="color:#374151; font-size:0.9rem;">
+                                        El Tecnológico Nacional — INATEC, como ente rector de la Educación Técnica en Nicaragua, ha implementado una ventanilla única para atención y gestiones, ubicada en la <strong>Sede Central de INATEC, Centro Cívico El Zumen, Módulo "V", planta baja.</strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3><i class="bi-list-check me-2" style="color:#14578b;"></i>Trámites Disponibles</h3>
+                        <div class="tramite-feature">
+                            <i class="bi-1-circle-fill"></i>
+                            <p>Solicitud de capacitación para empresas e instituciones aportantes del 2%.</p>
+                        </div>
+                        <div class="tramite-feature">
+                            <i class="bi-2-circle-fill"></i>
+                            <p>Solicitud de apertura y renovación de funcionamiento de Centros Técnicos Privados.</p>
+                        </div>
+                        <div class="tramite-feature">
+                            <i class="bi-3-circle-fill"></i>
+                            <p>Solicitud de ampliación de oferta formativa de Centros Técnicos Privados.</p>
+                        </div>
+                        <div class="tramite-feature">
+                            <i class="bi-4-circle-fill"></i>
+                            <p>Solicitud de solvencias de Registro.</p>
+                        </div>
+                        <div class="tramite-feature">
+                            <i class="bi-5-circle-fill"></i>
+                            <p>Solicitud de creación de usuarios para servicios en línea de Atención a Empresas.</p>
+                        </div>
+                        <div class="tramite-feature">
+                            <i class="bi-6-circle-fill"></i>
+                            <p>Emisión de constancias de Centros Técnicos Privados activos.</p>
+                        </div>
+
+                        <h3><i class="bi-telephone me-2" style="color:#14578b;"></i>Canales de Contacto</h3>
+                        <div class="d-flex flex-wrap gap-2 mt-2">
+                            <span class="contact-pill">
+                                <i class="bi-envelope-fill"></i>
+                                ventanilladetramites@inatec.edu.ni
+                            </span>
+                            <span class="contact-pill">
+                                <i class="bi-telephone-fill"></i>
+                                2253-8830 ext. 7032
+                            </span>
+                            <span class="contact-pill">
+                                <i class="bi-telephone-fill"></i>
+                                ext. 8034 / 8021
+                            </span>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-top">
+                            <a href="https://serviciosenlinea.tecnacional.edu.ni/empresas/" target="_blank" class="online-btn">
+                                <i class="bi-laptop"></i> Acceder a Servicios en Línea
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== CAPACITACIÓN VÍA 2% ===== -->
+                <div id="section-capacitacion" class="content-section">
+                    <div class="info-card">
+                        <div class="section-icon">
+                            <i class="bi-mortarboard"></i>
+                        </div>
+                        <h2>Procedimiento para Solicitar Capacitación vía 2%</h2>
+                        <p class="text-muted mb-4" style="font-size:0.95rem;">
+                            Documentos y requisitos necesarios para que su empresa pueda solicitar capacitación con cargo al aporte del 2% al INATEC.
+                        </p>
+
+                        <h3><i class="bi-file-earmark-check me-2" style="color:#14578b;"></i>Requisitos</h3>
+
+                        <div class="step-item">
+                            <span class="step-badge">1</span>
+                            <p class="step-text mb-0">
+                                <strong>Carta de solicitud en original</strong> con firma y sello, dirigida a <em>Cra. Eveling Obando, Directora de Articulación con el Sector Productivo</em>. Debe indicar: nombre(s) completo(s) del trabajador y número de cédula del/los participante(s) a beneficiar, nivel(es) de escolaridad, cargo que desempeña en la empresa, nombre del evento solicitado y Centro de Estudios que lo impartirá.
+                            </p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-badge">2</span>
+                            <p class="step-text mb-0">
+                                <strong>Proforma emitida por el Centro de Estudios</strong> con firma y sello del Centro. La proforma debe indicar la ubicación o dirección donde se desarrollará el evento.
+                            </p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-badge">3</span>
+                            <p class="step-text mb-0">
+                                <strong>Dos últimos recibos mensuales</strong> de aporte del 2% al INATEC en fotocopias. Las solicitudes que contengan de 10 a 25 participantes deben ingresarse en el Formato Excel (disponible para descarga) y presentarlo en memoria USB.
+                            </p>
+                        </div>
+
+                        <div class="alert alert-info border-0 rounded-3 mt-4" style="background:#e8f4ff;">
+                            <i class="bi-clock-fill me-2" style="color:#1a72b0;"></i>
+                            <strong>Importante:</strong> Toda solicitud debe presentarse <strong>al menos 8 días laborables antes</strong> de la fecha de inicio del evento con toda la documentación requerida.
+                        </div>
+
+                        <h3><i class="bi-telephone me-2" style="color:#14578b;"></i>Horario y Contacto</h3>
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <span class="contact-pill">
+                                <i class="bi-clock"></i>
+                                08:00 a.m. – 05:00 p.m.
+                            </span>
+                            <span class="contact-pill">
+                                <i class="bi-telephone-fill"></i>
+                                2253-8861
+                            </span>
+                            <span class="contact-pill">
+                                <i class="bi-telephone-fill"></i>
+                                2254-4382
+                            </span>
+                            <span class="contact-pill">
+                                <i class="bi-telephone-fill"></i>
+                                2254-4469
+                            </span>
+                        </div>
+
+                        <a href="https://www.tecnacional.edu.ni/media/formato_participantes.xlsm" target="_blank" class="download-btn">
+                            <i class="bi-file-earmark-excel"></i> Descargar Formato Excel de Participantes
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ===== EVENTO INTERNO VÍA 2% ===== -->
+                <div id="section-evento" class="content-section">
+                    <div class="info-card">
+                        <div class="section-icon">
+                            <i class="bi-calendar-event"></i>
+                        </div>
+                        <h2>Procedimiento para Solicitar Evento Interno vía 2%</h2>
+                        <p class="text-muted mb-4" style="font-size:0.95rem;">
+                            Requisitos para que su empresa solicite la realización de un evento de capacitación interno con cargo al 2% aportado al INATEC.
+                        </p>
+
+                        <h3><i class="bi-file-earmark-check me-2" style="color:#14578b;"></i>Documentos Requeridos</h3>
+
+                        <div class="step-item">
+                            <span class="step-badge">1</span>
+                            <p class="step-text mb-0">
+                                <strong>Carta de solicitud en original</strong>, dirigida a <em>Cra. Eveling Obando, Directora de Articulación con el Sector Productivo</em>, indicando: nombres, apellidos y número de cédula del/los participante(s), nivel de escolaridad.
+                            </p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-badge">2</span>
+                            <p class="step-text mb-0">
+                                Nombre del evento solicitado, <strong>lugar y fecha de realización</strong>, firmada por el gerente o funcionario autorizado.
+                            </p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-badge">3</span>
+                            <p class="step-text mb-0">
+                                <strong>Ficha descriptiva o programa del evento en original</strong>, utilizando formato oficial del INATEC.
+                            </p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-badge">4</span>
+                            <p class="step-text mb-0">
+                                <strong>Curriculum vitae original</strong> del o de los docentes.
+                            </p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-badge">5</span>
+                            <p class="step-text mb-0">
+                                <strong>Copia de documentos que avalen en lo Técnico Profesional</strong> al o los docentes (títulos, diplomas, certificados, constancias).
+                            </p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-badge">6</span>
+                            <p class="step-text mb-0">
+                                <strong>Presupuesto en original</strong> de los gastos (detallar por rubros).
+                            </p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-badge">7</span>
+                            <p class="step-text mb-0">
+                                <strong>Copia de dos últimos recibos mensuales</strong> de aporte 2% al INATEC.
+                            </p>
+                        </div>
+
+                        <h3><i class="bi-telephone me-2" style="color:#14578b;"></i>Horario y Contacto</h3>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="contact-pill">
+                                <i class="bi-clock"></i>
+                                08:00 a.m. – 05:00 p.m.
+                            </span>
+                            <span class="contact-pill">
+                                <i class="bi-telephone-fill"></i>
+                                2253-8861
+                            </span>
+                            <span class="contact-pill">
+                                <i class="bi-telephone-fill"></i>
+                                2254-4382
+                            </span>
+                            <span class="contact-pill">
+                                <i class="bi-telephone-fill"></i>
+                                2254-4469
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== INSTRUCTIVOS ===== -->
+                <div id="section-instructivos" class="content-section">
+                    <div class="info-card">
+                        <div class="section-icon">
+                            <i class="bi-file-earmark-text"></i>
+                        </div>
+                        <h2>Instructivos para Solicitud de Evento Interno</h2>
+                        <p class="text-muted mb-4" style="font-size:0.95rem;">
+                            Descargue el instructivo correspondiente según la duración del evento de capacitación que desea solicitar.
+                        </p>
+
+                        <!-- Más de 50 horas -->
+                        <div class="bg-white border rounded-4 p-4 mb-4" style="border-color:#dce8f5 !important;">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#14578b,#1a72b0);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                    <i class="bi-file-earmark-pdf text-white fs-5"></i>
+                                </div>
+                                <div>
+                                    <h3 class="mb-1" style="font-size:1.05rem;">Instructivo: Evento Interno Más de 50 Horas</h3>
+                                    <span class="badge" style="background:#e8f4ff;color:#1a72b0;font-size:0.78rem;">Duración &gt; 50 horas</span>
+                                </div>
+                            </div>
+                            <p style="color:#374151; font-size:0.9rem; line-height:1.7;">
+                                La ficha descriptiva está diseñada para elaborar el programa de un Evento de Capacitación, cuya duración <strong>exceda 50 horas</strong>, donde se describen datos de coordinaciones, costos, financiamiento, horarios, actividades específicas, medios y evaluación. La estructura de la ficha descriptiva está compuesta de <strong>5 apartados</strong>.
+                            </p>
+                            <a href="https://www.tecnacional.edu.ni/media/evento_m%C3%A1s_de_50_horas.pdf" target="_blank" class="download-btn">
+                                <i class="bi-file-pdf"></i> Descargar PDF – Más de 50 horas
+                            </a>
+                        </div>
+
+                        <!-- Menos de 50 horas -->
+                        <div class="bg-white border rounded-4 p-4" style="border-color:#dce8f5 !important;">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#5a9e0e,#87c440);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                    <i class="bi-file-earmark-pdf text-white fs-5"></i>
+                                </div>
+                                <div>
+                                    <h3 class="mb-1" style="font-size:1.05rem;">Instructivo: Evento Interno Menos de 50 Horas</h3>
+                                    <span class="badge" style="background:#f5fff0;color:#5a9e0e;font-size:0.78rem;">Duración &lt; 50 horas</span>
+                                </div>
+                            </div>
+                            <p style="color:#374151; font-size:0.9rem; line-height:1.7;">
+                                La Ficha Descriptiva de un Evento Interno tiene como propósito estructurar la organización y descripción de los elementos principales del evento de capacitación, cuya duración sea <strong>menor de 50 horas</strong>. Para su elaboración, la estructura de la ficha descriptiva está compuesta de <strong>12 apartados</strong> que incluyen los elementos principales de un evento de capacitación.
+                            </p>
+                            <a href="https://www.tecnacional.edu.ni/media/eventomenos50h.pdf" target="_blank" class="download-btn" style="background:linear-gradient(135deg,#5a9e0e,#87c440);">
+                                <i class="bi-file-pdf"></i> Descargar PDF – Menos de 50 horas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== COMUNICADOS OFICIALES PARA EMPRESAS ===== -->
+                <div id="section-comunicados" class="content-section">
+                    <div class="info-card">
+                        <div class="section-icon">
+                            <i class="bi-megaphone"></i>
+                        </div>
+                        <h2>Comunicados Oficiales para Empresas</h2>
+                        <p class="text-muted mb-4" style="font-size:0.95rem;">
+                            Consulte los avisos y circulares oficiales del INATEC dirigidos al sector empleador aportante del 2%.
+                        </p>
+
+                        <div class="accordion accordion-flush custom-accordion" id="accordionComunicados">
+                            
+                            <!-- Comunicado 1 -->
+                            <div class="accordion-item border rounded-3 mb-3 overflow-hidden">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="background: #f8faff; color: #0a3d6b;">
+                                        <div class="d-flex flex-column">
+                                            <span style="font-size: 0.75rem; color: #6b7280; margin-bottom: 2px;">25.09.2023 | 08:27</span>
+                                            <span>DECAE - Cierre solicitudes de Becas 2023</span>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionComunicados">
+                                    <div class="accordion-body" style="font-size: 0.92rem; line-height: 1.6; color: #374151; background: #fff;">
+                                        <p>El Instituto Nacional Técnico y Tecnológico (INATEC), comunica a todas las empresas e instituciones del país aportantes del 2%, el último día de recepción de solicitudes de beca para capacitación de sus trabajadores en el Departamento de Capacitación a Empresas (DECAE) será:</p>
+                                        <div style="background:linear-gradient(135deg,#e8f4ff,#d0e8fc); border-left:4px solid #1a72b0; border-radius:10px; padding:12px 18px; margin-bottom:14px;">
+                                            <strong style="color:#0a3d6b;"><i class="bi-calendar-check me-2"></i>25 de octubre del 2023</strong>
+                                        </div>
+                                        <p class="text-muted mb-3" style="font-size:0.85rem;">Más información en el documento adjunto.</p>
+                                        <a href="https://www.tecnacional.edu.ni/media/COMUNICADO_DE_CIERRE_SEC._DE_CAPACITACION_EMPRESAS_2023.pdf" target="_blank" class="download-btn" style="font-size:0.85rem; padding:9px 20px;">
+                                            <i class="bi-file-pdf"></i> Descargar Comunicado (PDF)
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Comunicado 2 -->
+                            <div class="accordion-item border rounded-3 mb-3 overflow-hidden">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="background: #f8faff; color: #0a3d6b;">
+                                        <div class="d-flex flex-column">
+                                            <span style="font-size: 0.75rem; color: #6b7280; margin-bottom: 2px;">20.10.2022 | 19:33</span>
+                                            <span>DECAE - Cierre solicitudes de Becas 2022</span>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionComunicados">
+                                    <div class="accordion-body" style="font-size: 0.92rem; line-height: 1.6; color: #374151; background: #fff;">
+                                        <p>El Instituto Nacional Técnico y Tecnológico (INATEC), comunica a todas las empresas e instituciones del país aportantes del 2%, el último día de recepción de solicitudes de beca para capacitación de sus trabajadores en el Departamento de Capacitación a Empresas (DECAE) será:</p>
+                                        <div style="background:linear-gradient(135deg,#e8f4ff,#d0e8fc); border-left:4px solid #1a72b0; border-radius:10px; padding:12px 18px; margin-bottom:14px;">
+                                            <strong style="color:#0a3d6b;"><i class="bi-calendar-check me-2"></i>28 de octubre del 2022</strong>
+                                        </div>
+                                        <p class="text-muted mb-3" style="font-size:0.85rem;">Más información en el documento adjunto.</p>
+                                        <a href="https://www.tecnacional.edu.ni/media/COMUNICADO__DE_CIERRE_DE_PERIODO_2022_DECAE.pdf" target="_blank" class="download-btn" style="font-size:0.85rem; padding:9px 20px;">
+                                            <i class="bi-file-pdf"></i> Descargar Comunicado (PDF)
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Comunicado 3 -->
+                            <div class="accordion-item border rounded-3 mb-3 overflow-hidden">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="background: #f8faff; color: #0a3d6b;">
+                                        <div class="d-flex flex-column">
+                                            <span style="font-size: 0.75rem; color: #6b7280; margin-bottom: 2px;">08.10.2021 | 10:14</span>
+                                            <span>DECAE - Cierre solicitudes de Becas 2021</span>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionComunicados">
+                                    <div class="accordion-body" style="font-size: 0.92rem; line-height: 1.6; color: #374151; background: #fff;">
+                                        <p>El Instituto Nacional Tecnológico (INATEC) comunica a todas las empresas e instituciones del país que hacen uso del beneficio del aporte del 2% para capacitación de sus trabajadores, que se estarán recepcionando las solicitudes de becas atendidas por el Departamento de Capacitación a Empresas (DECAE) hasta el día:</p>
+                                        <div style="background:linear-gradient(135deg,#e8f4ff,#d0e8fc); border-left:4px solid #1a72b0; border-radius:10px; padding:12px 18px; margin-bottom:14px;">
+                                            <strong style="color:#0a3d6b;"><i class="bi-calendar-check me-2"></i>29 de octubre del 2021</strong>
+                                        </div>
+                                        <p class="text-muted mb-3" style="font-size:0.85rem;">Más información en el documento adjunto.</p>
+                                        <a href="https://www.tecnacional.edu.ni/media/TecNacional-DECAE-_Cierre_2021.pdf" target="_blank" class="download-btn" style="font-size:0.85rem; padding:9px 20px;">
+                                            <i class="bi-file-pdf"></i> Descargar Comunicado (PDF)
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Comunicado 4 -->
+                            <div class="accordion-item border rounded-3 mb-3 overflow-hidden">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="background: #f8faff; color: #0a3d6b;">
+                                        <div class="d-flex flex-column">
+                                            <span style="font-size: 0.75rem; color: #6b7280; margin-bottom: 2px;">13.10.2020 | 08:00</span>
+                                            <span>DECAE - Cierre solicitudes de Becas 2020</span>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionComunicados">
+                                    <div class="accordion-body" style="font-size: 0.92rem; line-height: 1.6; color: #374151; background: #fff;">
+                                        <p>El Tecnológico Nacional (INATEC), comunica a todo el sector empleador del país, que hacen uso del aporte del 2% para capacitación de sus trabajadores, que el último día de recepción de solicitudes de beca de parte del Departamento de Capacitación a Empresas (DECAE) será el:</p>
+                                        <div style="background:linear-gradient(135deg,#e8f4ff,#d0e8fc); border-left:4px solid #1a72b0; border-radius:10px; padding:12px 18px; margin-bottom:12px;">
+                                            <strong style="color:#0a3d6b;"><i class="bi-calendar-check me-2"></i>30 de octubre del 2020</strong>
+                                        </div>
+                                        <p>A la vez, hacemos de su conocimiento que no se atenderán eventos que se desarrollen después del <strong>30 de noviembre del 2020</strong>.</p>
+                                        <p>La apertura de recepción de solicitudes de becas de continuidad y becas nuevas del aporte 2%, dará inicio el:</p>
+                                        <div style="background:linear-gradient(135deg,#f5fff0,#dcf5d0); border-left:4px solid #87c440; border-radius:10px; padding:12px 18px; margin-bottom:14px;">
+                                            <strong style="color:#2d5a00;"><i class="bi-calendar-plus me-2"></i>11 de enero 2021</strong>
+                                        </div>
+                                        <a href="https://www.tecnacional.edu.ni/media/TecNacional-DECAE-_Cierre_2020.pdf" target="_blank" class="download-btn" style="font-size:0.85rem; padding:9px 20px;">
+                                            <i class="bi-file-pdf"></i> Descargar Comunicado (PDF)
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Comunicado 5 -->
+                            <div class="accordion-item border rounded-3 mb-3 overflow-hidden">
+                                <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" style="background: #f8faff; color: #0a3d6b;">
+                                        <div class="d-flex flex-column">
+                                            <span style="font-size: 0.75rem; color: #6b7280; margin-bottom: 2px;">01.10.2019 | 19:23</span>
+                                            <span>Último día de recepción de solicitudes de beca</span>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionComunicados">
+                                    <div class="accordion-body" style="font-size: 0.92rem; line-height: 1.6; color: #374151; background: #fff;">
+                                        <p>Se les comunica a todas las empresas e instituciones públicas y privadas aportantes del 2% que, el último día de recepción de solicitudes de beca será el:</p>
+                                        <div style="background:linear-gradient(135deg,#e8f4ff,#d0e8fc); border-left:4px solid #1a72b0; border-radius:10px; padding:12px 18px; margin-bottom:14px;">
+                                            <strong style="color:#0a3d6b;"><i class="bi-calendar-check me-2"></i>31 de octubre del 2019</strong>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="contact-pill"><i class="bi-clock"></i>08:00 a.m. – 05:00 p.m.</span>
+                                            <span class="contact-pill"><i class="bi-telephone-fill"></i>2253-8861</span>
+                                            <span class="contact-pill"><i class="bi-telephone-fill"></i>2254-4382</span>
+                                            <span class="contact-pill"><i class="bi-telephone-fill"></i>2254-4469</span>
+                                        </div>
+                                        <a href="https://www.tecnacional.edu.ni/media/COMUNICADO_2019.pdf" target="_blank" class="download-btn" style="font-size:0.85rem; padding:9px 20px;">
+                                            <i class="bi-file-pdf"></i> Descargar Comunicado (PDF)
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Comunicado 6 -->
+                            <div class="accordion-item border rounded-3 overflow-hidden">
+                                <h2 class="accordion-header" id="headingSix">
+                                    <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix" style="background: #f8faff; color: #0a3d6b;">
+                                        <div class="d-flex flex-column">
+                                            <span style="font-size: 0.75rem; color: #6b7280; margin-bottom: 2px;">08.01.2017 | 00:50</span>
+                                            <span>Solicitudes de Capacitación (Circular)</span>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionComunicados">
+                                    <div class="accordion-body" style="font-size: 0.92rem; line-height: 1.6; color: #374151; background: #fff;">
+                                        <p>Se les comunica a todas las empresas aportantes del 2% que las solicitudes de capacitación que contengan entre <strong>10 y 20 participantes</strong>, deberán listarlos en la Ficha <em>"Listado de Participantes"</em> que se encuentra en la sección Documentos.</p>
+                                        <p>Dicho formato debe presentarse en <strong>digital</strong> al momento de realizar la solicitud.</p>
+                                        <div style="background:#fff8e1; border-left:4px solid #f59e0b; border-radius:10px; padding:12px 18px;">
+                                            <i class="bi-info-circle-fill me-2" style="color:#f59e0b;"></i>
+                                            <strong style="color:#92400e;">Nota:</strong> Para grupos de 10 a 25 participantes, descargue el formato desde la sección <em>"Capacitación vía 2%"</em>.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /col content -->
+
+            <!-- ── COLUMNA DERECHA – WIDGETS ── -->
+            <div class="col-lg-3">
+                <div style="position:sticky; top:80px;">
+
+                    <!-- Widget 1: Consultar Solicitud de Capacitación -->
+                    <div class="mb-3 rounded-4 overflow-hidden shadow-sm" style="border:1px solid rgba(20,87,139,0.1);">
+                        <!-- Header degradado magenta/cyan -->
+                        <div style="background: linear-gradient(135deg, #e91e8c 0%, #c2006e 100%); padding:20px 18px; text-align:center;">
+                            <p class="mb-1" style="color:#fff; font-weight:700; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.9;">CONSULTAR</p>
+                            <h6 class="mb-0" style="color:#fff; font-weight:800; font-size:1.05rem; line-height:1.3;">Solicitud de Capacitación</h6>
+                        </div>
+                        <!-- Botón Más Información -->
+                        <div style="background:#fff; padding:16px 18px; text-align:center;">
+                            <a href="#" onclick="showSection('capacitacion'); return false;"
+                               style="display:block; background:linear-gradient(135deg,#00b4d8,#0096c7); color:#fff; font-weight:800; font-size:0.95rem; padding:12px 10px; border-radius:50px; text-decoration:none; box-shadow:0 4px 14px rgba(0,150,199,0.35); transition:all 0.2s;"
+                               onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 22px rgba(0,150,199,0.45)'"
+                               onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 14px rgba(0,150,199,0.35)'">
+                                <i class="bi-info-circle-fill me-2"></i>Más Información
+                            </a>
+                        </div>
+                        <!-- Botón Servicios en Línea -->
+                        <div style="background:#f8faff; padding:0 18px 16px; text-align:center; border-top:1px solid #e5eaf2;">
+                            <a href="https://serviciosenlinea.tecnacional.edu.ni/empresas/" target="_blank"
+                               style="display:flex; align-items:center; justify-content:center; gap:8px; background:#fff; color:#1a72b0; font-weight:700; font-size:0.85rem; padding:10px; border-radius:10px; text-decoration:none; border:1px solid #c3ddf5; margin-top:12px; transition:all 0.2s;"
+                               onmouseover="this.style.background='#e8f4ff'"
+                               onmouseout="this.style.background='#fff'">
+                                <i class="bi-laptop" style="font-size:1rem;"></i> Servicios en Línea
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Widget 2: Nuestras Redes -->
+                    <div class="bg-white rounded-4 shadow-sm overflow-hidden" style="border:1px solid rgba(20,87,139,0.1);">
+                        <!-- Título -->
+                        <div style="padding:14px 18px; border-bottom:3px solid #e91e8c;">
+                            <h6 class="mb-0 fw-bold" style="color:#1e3a5f; font-size:0.9rem;"><i class="bi-share me-2" style="color:#e91e8c;"></i>Nuestras Redes</h6>
+                        </div>
+                        <div style="padding:16px 18px;">
+                            <!-- Facebook -->
+                            <a href="https://www.facebook.com/TecNacional/" target="_blank"
+                               style="display:flex; align-items:center; gap:10px; background:#1877f2; color:#fff; font-weight:700; font-size:0.85rem; padding:10px 14px; border-radius:10px; text-decoration:none; margin-bottom:10px; transition:all 0.2s;"
+                               onmouseover="this.style.background='#1565c0'"
+                               onmouseout="this.style.background='#1877f2'">
+                                <i class="bi-facebook" style="font-size:1.1rem;"></i> Tecnológico Nacional
+                            </a>
+                            <!-- Twitter/X -->
+                            <a href="https://twitter.com/TecNacional" target="_blank"
+                               style="display:flex; align-items:center; gap:10px; background:#1da1f2; color:#fff; font-weight:700; font-size:0.85rem; padding:10px 14px; border-radius:10px; text-decoration:none; margin-bottom:10px; transition:all 0.2s;"
+                               onmouseover="this.style.background='#0e8fd4'"
+                               onmouseout="this.style.background='#1da1f2'">
+                                <i class="bi-twitter" style="font-size:1.1rem;"></i> @TecNacional
+                            </a>
+                            <!-- Instagram -->
+                            <a href="https://www.instagram.com/tecnacional/" target="_blank"
+                               style="display:flex; align-items:center; gap:10px; background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; font-weight:700; font-size:0.85rem; padding:10px 14px; border-radius:10px; text-decoration:none; margin-bottom:10px;">
+                                <i class="bi-instagram" style="font-size:1.1rem;"></i> @tecnacional
+                            </a>
+                            <!-- YouTube -->
+                            <a href="https://www.youtube.com/c/TecNacional" target="_blank"
+                               style="display:flex; align-items:center; gap:10px; background:#ff0000; color:#fff; font-weight:700; font-size:0.85rem; padding:10px 14px; border-radius:10px; text-decoration:none; margin-bottom:10px; transition:all 0.2s;"
+                               onmouseover="this.style.background='#cc0000'"
+                               onmouseout="this.style.background='#ff0000'">
+                                <i class="bi-youtube" style="font-size:1.1rem;"></i> TecNacional
+                            </a>
+                            <!-- TikTok -->
+                            <a href="https://www.tiktok.com/@tecnacional" target="_blank"
+                               style="display:flex; align-items:center; gap:10px; background:#010101; color:#fff; font-weight:700; font-size:0.85rem; padding:10px 14px; border-radius:10px; text-decoration:none;">
+                                <i class="bi-tiktok" style="font-size:1.1rem;"></i> @tecnacional
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div><!-- /col derecha -->
+
+        </div><!-- /row -->
+    </div><!-- /container -->
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container-fluid base_footer">
+        <div class="row pt-5">
+            <div class="container text-center">
+                <img class="mx-3" src="../static/core/img/logo_ci_2022.png" style="width: 12%" />
+                <img class="mx-3" src="../static/core/img/logo_mid_2022.png" style="width: 9%" />
+                <img class="mx-3" src="../static/core/img/logo_in_2022.png" style="width: 12%" />
+            </div>
+            <div class="row">
+                <div class="col-xs-1 col-sm-3 text-start">
+                    <div class="row">
+                        <div class="col"><img src="../static/core/img/logo_inatec_2022.png"
+                                style="margin-left: 10%; height: 100px; width:auto" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col col_contactanos">
+                            <div>
+                                <h5 class="text-light"><strong>Contactanos</strong></h5>
+                                <h6 class="text-light enlace">Centro Cívico Zumen, Frente al Hospital Bertha Calderón, Managua</h6>
+                                <h6 class="text-light enlace">Atención al Protagonista: 2253-8888</h6>
+                                <h6 class="text-light enlace">Planta Central: 2253-8830</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-6 container_links">
+                    <div class="row">
+                        <div class="col">
+                            <a href="../index.html"><h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> INICIO</h6></a>
+                            <a href="../pages/nosotros.html"><h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> NOSOTROS</h6></a>
+                            <a href="../pages/oferta-academica.html"><h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> OFERTA FORMATIVA</h6></a>
+                            <a href="../pages/centros-tecnologicos.html"><h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> CENTROS TECNOLOGICOS</h6></a>
+                            <a href="../pages/empresas.html"><h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> EMPRESAS</h6></a>
+                        </div>
+                        <div class="col">
+                            <a href="../pages/galeria.html"><h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> GALERIAS FOTOGRAFICAS</h6></a>
+                            <a href="../pages/boletines.html"><h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> BOLETINES INFORMATIVOS</h6></a>
+                            <a href="../pages/eventos.html"><h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> EVENTOS</h6></a>
+                            <a href="https://campus.tecnacional.edu.ni/"><h6 class="text-light enlace"><span class="pesta_footer">&gt;</span> ENTORNOS VIRTUALES</h6></a>
+                        </div>
+                        <div class="col">
+                            <a href="https://campus.tecnacional.edu.ni/"><h6 class="text-light">Plataformas Educativas</h6></a>
+                            <a href="../pages/innovatec.html"><h6 class="text-light pesta_innovatec">Innovatec</h6></a><br />
+                            <a href="../pages/podcast.html"><h6 class="text-light pesta_podcast">Podcast TEC</h6></a><br />
+                            <a href="../pages/campus-virtual.html"><h6 class="text-light pesta_campus">Campus Virtual</h6></a><br />
+                        </div>
+                    </div>
+                    <div class="row justify-content-center container_icons_links">
+                        <ul class="icons_redes_sociales d-flex gap-3 justify-content-center list-unstyled mb-0 mt-3 align-items-center">
+                            <li title="Facebook"><a href="https://www.facebook.com/TecNacional/" target="_blank" class="text-white fs-4"><i class="bi-facebook"></i></a></li>
+                            <li title="Twitter"><a href="https://twitter.com/TecNacional" target="_blank" class="text-white fs-4"><i class="bi-twitter"></i></a></li>
+                            <li title="Instagram"><a href="https://www.instagram.com/tecnacional/" target="_blank" class="text-white fs-4"><i class="bi-instagram"></i></a></li>
+                            <li title="YouTube"><a href="https://www.youtube.com/c/TecNacional" target="_blank" class="text-white fs-4"><i class="bi-youtube"></i></a></li>
+                            <li title="Tiktok"><a href="https://www.tiktok.com/@tecnacional" target="_blank" class="text-white fs-4"><i class="bi-tiktok"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-3 text-end">
+                    <img src="../static/core/img/logo_gobierno.png" style="height: 142px; margin-right: 10%; margin-top: -12px" />
+                    <div class="row">
+                        <div class="col text-start">
+                            <p class="label_correo">Solicitá Información</p>
+                            <div class="input-group mb-3">
+                                <input class="input_correo" placeholder="Ingresá tu Correo Electrónico" style="border-radius: 20px" />
+                                <span class="input-group-text" id="btn-suscribirse"
+                                    style="cursor:pointer; background-color:#87c440; color: white;"
+                                    title="Suscribirse para recibir información">Suscríbete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center" style="color: white">
+                <h6>Capacitación y Educación Técnica, Gratuita y de Calidad</h6>
+            </div>
+            <div class="row text-center" style="background-color: #0a80b9; color: white">
+                <h6 style="margin: 0px; padding: 10px;">Todos los Derechos Reservados Instituto Nacional Tecnológico - INATEC - 2026</h6>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="../static/core/js/jquery-3.6.0.min.js"></script>
+<script src="../static/core/js/functionLoader.js"></script>
+<script src="../static/core/js/bootstrap.bundle.min.js"></script>
+<script src="../static/core/js/aos.js"></script>
+<script src="../static/core/js/functionBase.js"></script>
+<div id="google_translate_element" style="display:none;"></div>
+<script>
+    window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.body.appendChild(s);
+    });
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'es', autoDisplay: false }, 'google_translate_element');
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        AOS.init({ easing: 'ease-in-out-sine', once: true, duration: 800 });
+        window.core_dispositivo = window.innerWidth > 680 ? 1 : 2;
+    });
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted || window.performance && window.performance.navigation.type === 2) {
+            ocultarLoader();
+        }
+    });
+
+    // Navbar scroll
+    (function () {
+        const modernNav = document.getElementById("modern-navbar");
+        if (modernNav) {
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 50) {
+                    modernNav.classList.add("scrolled", "shadow-sm");
+                } else {
+                    modernNav.classList.remove("scrolled", "shadow-sm");
+                }
+            });
+        }
+    })();
+
+    // Section switcher
+    function showSection(name) {
+        // Hide all sections
+        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+        // Remove active from all nav links
+        document.querySelectorAll('#empresas-nav .nav-link').forEach(l => l.classList.remove('active'));
+        // Show target
+        document.getElementById('section-' + name).classList.add('active');
+        document.getElementById('nav-' + name).classList.add('active');
+        // Smooth scroll to content
+        setTimeout(() => {
+            document.getElementById('section-' + name).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+    }
+</script>
+</body>
+</html>
